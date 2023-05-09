@@ -8,9 +8,9 @@
 - [Andrii Pavliuk](https://github.com/andrpavl)
 - [Vladimir Degtyarev](https://github.com/VladimirDegt)
 - [Aleksandra Baginskaya](https://github.com/Saashimiii)
-- [Василь Шапошник](https://github.com/Vasyl24)
-- [Костянтин Шапошник](https://github.com/1192skm)
-- [Лілія Романчук](https://github.com/Liliia29)
+- [Vasyl Shaposhnyk](https://github.com/Vasyl24)
+- [Kostiantyn Shaposhnyk](https://github.com/1192skm)
+- [Lilia Romanchuk](https://github.com/Liliia29)
 - [Тетяна Кажукало](https://github.com/TKazhukalo)
 - [Юрий Мазалов](https://github.com/Yuriy20231)
 - Оржихівський Дмитро

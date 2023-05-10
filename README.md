@@ -1,4 +1,4 @@
-# Project Papyrus 8
+# Papyrus 8
 ## Date: 2023-05-09
 ## GoIT Academy Group Project (Team 8 - Web Weavers)
 

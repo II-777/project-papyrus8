@@ -1,3 +1,28 @@
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans";
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 h1,
 h2,
 h3,
@@ -8,27 +33,38 @@ p {
   margin: 0;
 }
 
-/* ul */
-.list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-/* a */
-.link {
+[href] {
   text-decoration: none;
-  color: inherit;
 }
 
-/* img */
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* mobile screen */
+@media screen and (max-width: 767.98px) {
+  .container {
+    width: 100%;
+    max-width: 375px;
+  }
 }
 
-address {
-  font-style: normal;
+/* tablet screen */
+@media screen and (min-width: 768px) {
+  .container {
+      width: 768px;
+      padding-right: 32px;
+      padding-left: 32px;
+  }
+}
+
+/* desktop screen */ 
+@media screen and (min-width: 1440px) {
+  .container {
+      width: 1440px;
+      padding-right: 24px;
+      padding-left: 24px;
+  }
 }

@@ -1,12 +1,10 @@
 import { getTopBooks } from './utils/get-top-books';
-const homeCategoryBookList = document.querySelector(
-  '.home-category-books-list'
-);
+import { refs } from './refs-elements';
 
 export function createHomeMainSection() {
   getTopBooks()
     .then(data => {
-      homeCategoryBookList.innerHTML = createCategoryBooksList(data);
+      refs.homeCategoryBooksList.innerHTML = createCategoryBooksList(data);
     })
     .catch(err => console.log(err));
 }
@@ -24,27 +22,21 @@ function createCategoryBooksList(bestSellers) {
     .join('');
 }
 function createBooksList(books) {
-  const itemMarkup = books.map(({ _id, author, book_image, title }) => {
-    return ` 
-              <li class="home-books-item" data-id=${_id}>
+  let booksToRender = 1;
+  if (window.screen.width >= 768 && window.screen.width < 1440) {
+    booksToRender = 3;
+  } else if (window.screen.width >= 1440) {
+    booksToRender = 5;
+  }
+
+  return books
+    .slice(0, booksToRender)
+    .map(({ _id, author, book_image, title }) => {
+      return `  <li class="home-books-item" data-id=${_id}>
                 <img class="home-books-book-picture" src="${book_image}" alt="${title}" />
                 <p class="home-books-book-title">${title}</p>
                 <p class="home-books-book-author">${author}</p>
               </li>`;
-  });
-  if (window.screen.width < 768) {
-    return itemMarkup[0];
-  } else if (window.screen.width >= 768 && window.screen.width < 1440) {
-    let itemTabletMarkup = '';
-    for (let i = 0; i < 3; i++) {
-      itemTabletMarkup += itemMarkup[i];
-    }
-    return itemTabletMarkup;
-  } else {
-    let itemDeskMarkup = '';
-    for (let i = 0; i < 5; i++) {
-      itemDeskMarkup += itemMarkup[i];
-    }
-    return itemDeskMarkup;
-  }
+    })
+    .join('');
 }

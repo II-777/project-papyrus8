@@ -1,4 +1,4 @@
-.home-main-bestsellers {
+.home-main-by-category {
   max-width: 335px;
 }
 
@@ -76,7 +76,7 @@
 }
 /* tablet screen */
 @media screen and (min-width: 768px) {
-  .home-main-bestsellers {
+  .home-main-by-category {
     max-width: 704px;
   }
   .home-main-title,
@@ -98,7 +98,7 @@
 
 /* desktop screen */
 @media screen and (min-width: 1440px) {
-  .home-main-bestsellers {
+  .home-main-by-category {
     max-width: 996px;
   }
 

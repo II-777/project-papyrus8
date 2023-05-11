@@ -25,6 +25,13 @@
       sizes="16x16"
       href="./images/favicon/favicon-16x16.png"
     />
+      <script>
+      let localS = localStorage.getItem('theme');
+
+      if (localS === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    </script>
     <!-- <link rel="manifest" href="./images/favicon/site.webmanifest" /> -->
   </head>
   <body>

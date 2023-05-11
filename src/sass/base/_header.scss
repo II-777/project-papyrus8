@@ -1,7 +1,50 @@
 @import './fonts';
 @import './common';
 @import './reset';
-@import './main';
+.container {
+  
+   min-width: 320px;
+   max-width: 375px;
+    padding-left: 20px;
+    padding-right: 20px;
+ 
+    margin-left: auto;
+    margin-right: auto;
+
+ outline-offset: -2px;
+}
+@media screen and (min-width:428px) {
+    .container {
+            max-width: 375px;
+         
+        }
+}
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 704px;
+         padding-left: 32px;
+    padding-right: 32px;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1392px;
+      padding-left: 24px;
+    padding-right: 24px;
+    }
+}
+.header-menu-button{
+  display: flex;
+  margin: 0 auto;
+  outline-offset: -1px;
+  padding: 8px 24px;
+  cursor: pointer;
+  gap: 9px;
+}
+
+.header-container{
+  border: 1.5px solid #111111;
+}
 .header {
   position: absolute;
   top: 0;
@@ -18,7 +61,22 @@
 .logo-text{
   font-weight: 700;
 }
-
+.login-icon{
+fill: currentColor;
+width: 37px;
+height: 37px;
+}
+.header-menu-button{
+  display: block;
+right:0px;
+  top:0px;
+  width: 184px;
+  height: 48px;
+  border-radius: 18px;
+  border: 1.5px solid #111111;
+  background-color: #4F2EE8;
+  color: #FFFFFF;
+}
 .switcher{
     display: inline-block;
     position: relative;
@@ -26,6 +84,7 @@
     height: 20px;
 
     background-color: #ffffff;
+   
 }
 .switcher-input{
 height: 0;
@@ -36,7 +95,7 @@ opacity: 0;
 .switcher-slider{
 position: absolute;
 cursor: pointer;
-border-radius: 34px;
+border-radius: 30px;
 left: 0;
 bottom: 8.33%;
 top: 8.33%;
@@ -50,14 +109,28 @@ position: absolute;
 cursor: pointer;
 border-radius: 50%;
 left: 2.5%;
-top:12.5%;
-right: 52.5%;
+top:1px;
 bottom: 12.5%;
-height: 18px;
-width: 18px;
+right: 52.5%;
+
+height: 15px;
+width: 15px;
+transition:  transform .25s cubic-bezier(.4,0,.2,1);
 background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
 box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1);
 }
 .switcher-input:focus +.switcher-slider {
 box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
+.switcher-input:checked +.switcher-slider{
+background:  linear-gradient(180deg, #4F2EE8 0%, #DCDCDC 100%);
+
+}
+.switcher-input:checked +.switcher-slider::before{
+  transform: translateX(23px);
+}
+
+
+
+
+

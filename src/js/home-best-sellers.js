@@ -1,19 +1,31 @@
 import { getTopBooks } from './utils/get-top-books';
-const homeCategoryBookList = document.querySelector(
-  '.home-category-books-list'
-);
-
-export function createHomeMainSection() {
+import { refs } from './refs-elements';
+let startCategory = 0;
+let endCategory;
+function createHomeMainSection() {
   getTopBooks()
     .then(data => {
-      homeCategoryBookList.innerHTML = createCategoryBooksList(data);
+      refs.homeCategoryBooksList.insertAdjacentHTML(
+        'beforeend',
+        createCategoryBooksList(data)
+      );
+      if (startCategory >= 4) {
+        const { height: cardHeight } =
+          refs.homeCategoryBooksList.firstElementChild.getBoundingClientRect();
+        window.scrollBy({
+          top: cardHeight * 1,
+          behavior: 'smooth',
+        });
+      }
     })
     .catch(err => console.log(err));
 }
 createHomeMainSection();
 
 function createCategoryBooksList(bestSellers) {
+  endCategory = bestSellers.length;
   return bestSellers
+    .slice(startCategory, startCategory + 4)
     .map(({ list_name, books }) => {
       return `<li class="home-books-category-item">
         <h3 class="home-books-category-title">${list_name}</h3>
@@ -24,27 +36,39 @@ function createCategoryBooksList(bestSellers) {
     .join('');
 }
 function createBooksList(books) {
-  const itemMarkup = books.map(({ _id, author, book_image, title }) => {
-    return ` 
-              <li class="home-books-item" data-id=${_id}>
+  let booksToRender = 1;
+  let bookTitleLength = 30;
+  if (window.screen.width >= 768 && window.screen.width < 1440) {
+    booksToRender = 3;
+    bookTitleLength = 25;
+  } else if (window.screen.width >= 1440) {
+    booksToRender = 5;
+    bookTitleLength = 20;
+  }
+  return books
+    .slice(0, booksToRender)
+    .map(({ _id, author, book_image, title }) => {
+      title.length > bookTitleLength
+        ? (title = title.slice(0, bookTitleLength - 3) + '...')
+        : title;
+      return `  <li class="home-books-item" data-id=${_id}>
                 <img class="home-books-book-picture" src="${book_image}" alt="${title}" />
                 <p class="home-books-book-title">${title}</p>
                 <p class="home-books-book-author">${author}</p>
               </li>`;
-  });
-  if (window.screen.width < 768) {
-    return itemMarkup[0];
-  } else if (window.screen.width >= 768 && window.screen.width < 1440) {
-    let itemTabletMarkup = '';
-    for (let i = 0; i < 3; i++) {
-      itemTabletMarkup += itemMarkup[i];
-    }
-    return itemTabletMarkup;
+    })
+    .join('');
+}
+
+refs.homeMainScroll.addEventListener('click', scrollByCategories);
+function scrollByCategories() {
+  if (startCategory < endCategory) {
+    console.log(`start ${startCategory}, end ${endCategory}`);
+    startCategory += 4;
+    createHomeMainSection();
   } else {
-    let itemDeskMarkup = '';
-    for (let i = 0; i < 5; i++) {
-      itemDeskMarkup += itemMarkup[i];
-    }
-    return itemDeskMarkup;
+    startCategory = 0;
+    console.log(`start ${startCategory}, end ${endCategory}`);
+    refs.homeMainScroll.style.transform = 'rotate(0deg)';
   }
 }

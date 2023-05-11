@@ -2,7 +2,14 @@
   position: relative;
   max-width: 335px;
 }
-
+.special-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 24px;
+}
+.home-special-title{
+  display: block;
+}
 .home-main-title,
 .home-main-title-accent {
   margin-bottom: 40px;

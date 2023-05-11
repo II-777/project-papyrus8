@@ -7,20 +7,20 @@
 }
 
 body {
-    font-family: "DM Sans";
-    font-style: normal;
-    margin: 0;
-    padding: 0;
+  font-family: 'DM Sans';
+  font-style: normal;
+  margin: 0;
+  padding: 0;
 }
 
 img {
-    display: block;
+  display: block;
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 h1,
@@ -54,17 +54,17 @@ p {
 /* tablet screen */
 @media screen and (min-width: 768px) {
   .container {
-      width: 768px;
-      padding-right: 32px;
-      padding-left: 32px;
+    width: 768px;
+    padding-right: 32px;
+    padding-left: 32px;
   }
 }
 
-/* desktop screen */ 
+/* desktop screen */
 @media screen and (min-width: 1440px) {
   .container {
-      width: 1440px;
-      padding-right: 24px;
-      padding-left: 24px;
+    width: 1440px;
+    padding-right: 24px;
+    padding-left: 24px;
   }
 }

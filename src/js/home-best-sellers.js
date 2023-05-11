@@ -23,15 +23,21 @@ function createCategoryBooksList(bestSellers) {
 }
 function createBooksList(books) {
   let booksToRender = 1;
+  let bookTitleLength = 30;
   if (window.screen.width >= 768 && window.screen.width < 1440) {
     booksToRender = 3;
+    bookTitleLength = 25;
   } else if (window.screen.width >= 1440) {
     booksToRender = 5;
+    bookTitleLength = 20;
   }
 
   return books
     .slice(0, booksToRender)
     .map(({ _id, author, book_image, title }) => {
+      title.length > bookTitleLength
+        ? (title = title.slice(0, bookTitleLength - 3) + '...')
+        : title;
       return `  <li class="home-books-item" data-id=${_id}>
                 <img class="home-books-book-picture" src="${book_image}" alt="${title}" />
                 <p class="home-books-book-title">${title}</p>

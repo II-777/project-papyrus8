@@ -2,6 +2,12 @@ import { getTopBooks } from './utils/get-top-books';
 import { refs } from './refs-elements';
 let startCategory = 0;
 let endCategory;
+let options = {
+  root: null,
+  rootMargin: '400px',
+  threshold: 1.0,
+};
+let observer = new IntersectionObserver(scrollByCategoriesDown, options);
 function createHomeMainSection() {
   getTopBooks()
     .then(data => {
@@ -9,14 +15,7 @@ function createHomeMainSection() {
         'beforeend',
         createCategoryBooksList(data)
       );
-      if (startCategory >= 4) {
-        const { height: cardHeight } =
-          refs.homeCategoryBooksList.firstElementChild.getBoundingClientRect();
-        window.scrollBy({
-          top: cardHeight * 1,
-          behavior: 'smooth',
-        });
-      }
+      observer.observe(refs.homeObserverTarget);
     })
     .catch(err => console.log(err));
 }
@@ -60,15 +59,20 @@ function createBooksList(books) {
     .join('');
 }
 
-refs.homeMainScroll.addEventListener('click', scrollByCategories);
-function scrollByCategories() {
-  if (startCategory < endCategory) {
-    console.log(`start ${startCategory}, end ${endCategory}`);
-    startCategory += 4;
-    createHomeMainSection();
-  } else {
-    startCategory = 0;
-    console.log(`start ${startCategory}, end ${endCategory}`);
-    refs.homeMainScroll.style.transform = 'rotate(0deg)';
+function scrollByCategoriesDown() {
+  startCategory += 4;
+  createHomeMainSection();
+  if (startCategory >= endCategory) {
+    refs.homeMainScrollUp.style.display = 'flex';
   }
+}
+refs.homeMainScrollUp.addEventListener('click', scrollByCategoriesUp);
+function scrollByCategoriesUp() {
+  const { height: cardHeight } =
+    refs.homeCategoryBooksList.getBoundingClientRect();
+  window.scrollBy({
+    top: -cardHeight,
+    behavior: 'smooth',
+  });
+  refs.homeMainScrollUp.style.display = 'none';
 }

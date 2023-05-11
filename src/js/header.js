@@ -1,2 +1,2 @@
-document.querySelector('#topic-switcher')
-  .addEventListener('click', switchTheme);
+// document.querySelector('#topic-switcher')
+//   .addEventListener('click', switchTheme);

@@ -1,17 +1,31 @@
 import { getTopBooks } from './utils/get-top-books';
 import { refs } from './refs-elements';
-
-export function createHomeMainSection() {
+let startCategory = 0;
+let endCategory;
+function createHomeMainSection() {
   getTopBooks()
     .then(data => {
-      refs.homeCategoryBooksList.innerHTML = createCategoryBooksList(data);
+      refs.homeCategoryBooksList.insertAdjacentHTML(
+        'beforeend',
+        createCategoryBooksList(data)
+      );
+      if (startCategory >= 4) {
+        const { height: cardHeight } =
+          refs.homeCategoryBooksList.firstElementChild.getBoundingClientRect();
+        window.scrollBy({
+          top: cardHeight * 1,
+          behavior: 'smooth',
+        });
+      }
     })
     .catch(err => console.log(err));
 }
 createHomeMainSection();
 
 function createCategoryBooksList(bestSellers) {
+  endCategory = bestSellers.length;
   return bestSellers
+    .slice(startCategory, startCategory + 4)
     .map(({ list_name, books }) => {
       return `<li class="home-books-category-item">
         <h3 class="home-books-category-title">${list_name}</h3>
@@ -31,7 +45,6 @@ function createBooksList(books) {
     booksToRender = 5;
     bookTitleLength = 20;
   }
-
   return books
     .slice(0, booksToRender)
     .map(({ _id, author, book_image, title }) => {
@@ -49,5 +62,13 @@ function createBooksList(books) {
 
 refs.homeMainScroll.addEventListener('click', scrollByCategories);
 function scrollByCategories() {
-  console.log(`scroll`);
+  if (startCategory < endCategory) {
+    console.log(`start ${startCategory}, end ${endCategory}`);
+    startCategory += 4;
+    createHomeMainSection();
+  } else {
+    startCategory = 0;
+    console.log(`start ${startCategory}, end ${endCategory}`);
+    refs.homeMainScroll.style.transform = 'rotate(0deg)';
+  }
 }

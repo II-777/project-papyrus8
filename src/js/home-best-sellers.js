@@ -46,3 +46,8 @@ function createBooksList(books) {
     })
     .join('');
 }
+
+refs.homeMainScroll.addEventListener('click', scrollByCategories);
+function scrollByCategories() {
+  console.log(`scroll`);
+}

@@ -5,7 +5,7 @@ const mainTitle = document.querySelector('.home-main-title');
 refs.homeCategoryBooksList.addEventListener('click', onBtnMoreClick);
 
 function onBtnMoreClick(evt) {
-  if (!evt.target.classList.contains('home-see-more-btn')) {
+  if (!evt.target.classList.contains('js-btn-more')) {
     return;
   }
   refs.homeCategoryBooksList.innerHTML = '';

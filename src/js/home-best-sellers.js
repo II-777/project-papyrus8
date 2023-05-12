@@ -67,10 +67,6 @@ function scrollByCategoriesDown() {
     'beforeend',
     createCategoryBooksList(bestsellers)
   );
-  if (startCategory >= endCategory) {
-    refs.homeMainScrollUp.style.display = 'flex';
-    observer.unobserve(refs.homeObserverTarget);
-  }
 }
 refs.homeMainScrollUp.addEventListener('click', scrollByCategoriesUp);
 function scrollByCategoriesUp() {

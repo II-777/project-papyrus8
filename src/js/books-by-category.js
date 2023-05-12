@@ -1,5 +1,6 @@
 import { getBooksInCategory } from '../js/utils/get-books-in-category';
 import { refs } from './refs-elements';
+import { observer } from './home-best-sellers';
 const container = document.querySelector('.home-main-by-category');
 const mainTitle = document.querySelector('.home-main-title');
 refs.homeCategoryBooksList.addEventListener('click', onBtnMoreClick);
@@ -8,8 +9,10 @@ function onBtnMoreClick(evt) {
   if (!evt.target.classList.contains('js-btn-more')) {
     return;
   }
+
   refs.homeCategoryBooksList.innerHTML = '';
   mainTitle.textContent = '';
+  observer.unobserve(refs.homeObserverTarget);
   const categoryName = evt.target.dataset.category;
 
   addCategoryTitleAccent(categoryName);

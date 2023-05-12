@@ -83,9 +83,9 @@
 }
 .home-main-scroll-up {
   cursor: pointer;
-  position: fixed; /* Make the button stick to the view port */ 
-  bottom: 20px; /* Adjust the distance from the bottom as needed */
-  right: 20px; /* Adjust the distance from the right as needed */
+  position: absolute;
+  bottom: 80px;
+  right: 5px;
   display: none;
   justify-content: center;
   align-items: center;

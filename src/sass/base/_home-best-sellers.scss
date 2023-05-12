@@ -1,12 +1,14 @@
 .home-main-by-category {
   max-width: 335px;
 }
-.special-category-list {
+.home-category-books-list {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 40px 24px;
 }
-.home-special-title{
+.home-special-title {
   display: block;
 }
 .home-main-title,
@@ -40,7 +42,9 @@
 }
 .home-books-list {
   display: flex;
-  column-gap: 25px;
+  flex-wrap: wrap;
+
+  gap: 25px;
   align-items: center;
   justify-content: center;
   margin-bottom: 8px;
@@ -69,6 +73,7 @@
   color: var(--secondary-text-color);
 }
 .home-see-more-btn {
+  cursor: pointer;
   display: block;
   margin-left: auto;
   padding: 14px 28px;
@@ -115,7 +120,7 @@
     margin-bottom: 20px;
   }
   .home-books-book-picture {
-    max-width: 218px;
+    width: 218px;
     height: 316px;
   }
 }
@@ -132,7 +137,7 @@
   }
 
   .home-books-book-picture {
-    max-width: 180px;
+    width: 180px;
     height: 256px;
   }
 }

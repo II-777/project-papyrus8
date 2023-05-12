@@ -62,18 +62,10 @@ function createBooksList(books) {
 function scrollByCategoriesDown() {
   startCategory += 4;
   createHomeMainSection();
-}
-
-window.addEventListener('scroll', handleScroll);
-
-function handleScroll() {
-  if (window.pageYOffset > 0) {
+  if (startCategory >= endCategory) {
     refs.homeMainScrollUp.style.display = 'flex';
-  } else {
-    refs.homeMainScrollUp.style.display = 'none';
   }
 }
-
 refs.homeMainScrollUp.addEventListener('click', scrollByCategoriesUp);
 function scrollByCategoriesUp() {
   const { height: cardHeight } =

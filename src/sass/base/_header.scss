@@ -1,6 +1,20 @@
 @import './fonts';
 @import './common';
 @import './reset';
+[data-theme='dark'] {
+
+
+background-color: var(--header-bg-color-theme-dark);
+color: rgba(255, 255, 255, 0.6);
+   
+}
+
+[data-theme='light'] {
+   
+    background-color:var(--primary-bg-color-light);
+   color: rgba(17, 17, 17, 0.6);
+}
+
 .container {
   
    min-width: 320px;
@@ -33,16 +47,67 @@
     padding-right: 24px;
     }
 }
-.header-menu-button{
+
+.mobile-menu-open {
+
+  margin: 0;
+  width: 32px;
+  height: 22px;
+  padding: 0;
+  line-height: 0;
+border: none;
+background-color: transparent;
+}
+.mobile-menu-close-icon {
+    width: 8px;
+        height: 8px;
+        fill: currentColor;
+        transition: color var(--transition-duration-func);
+}
+.mobile-menu-open-icon {
+ width: 32px;
+ height: 22px;
+fill: currentColor;
+    transition: color var(--transition-duration-func);
+}
+.mobile-menu-open .icon-cross {
+    display: none;
+}
+.mobile-menu-open.is-open .icon-cross {
+    display: block;
+}
+ @media screen and (min-width: 768px) {
+    
+     .mobile-menu-open {
+        display: none;
+     }
+ }
+[data-theme='dark'] {
+
+
+background-color: var(--header-bg-color-theme-dark);
+color: rgba(255, 255, 255, 0.6);
+   
+}
+
+[data-theme='light'] {
+   
+    background-color:var(--primary-bg-color-light);
+   color: rgba(17, 17, 17, 0.6);
+}
+
+
+.header__menu-login{
   display: flex;
   margin: 0 auto;
   outline-offset: -1px;
   padding: 8px 24px;
   cursor: pointer;
   gap: 9px;
+  align-items: center;
 }
 
-.header-container{
+.header__container{
   border: 1.5px solid #111111;
 }
 .header {
@@ -66,8 +131,13 @@ fill: currentColor;
 width: 37px;
 height: 37px;
 }
-.header-menu-button{
-  display: block;
+.header__menu-login{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto;
 right:0px;
   top:0px;
   width: 184px;
@@ -76,6 +146,8 @@ right:0px;
   border: 1.5px solid #111111;
   background-color: #4F2EE8;
   color: #FFFFFF;
+font-weight: 500;
+line-height: 1.29;
 }
 .switcher{
     display: inline-block;
@@ -83,7 +155,7 @@ right:0px;
     width: 40px;
     height: 20px;
 
-    background-color: #ffffff;
+   /* background-color: #ffffff;*/
    
 }
 .switcher-input{
@@ -129,6 +201,12 @@ background:  linear-gradient(180deg, #4F2EE8 0%, #DCDCDC 100%);
 .switcher-input:checked +.switcher-slider::before{
   transform: translateX(23px);
 }
+
+
+
+
+
+
 
 
 

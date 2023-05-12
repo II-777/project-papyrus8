@@ -54,3 +54,4 @@ export const supportArray = [
     img2x: '../images/support-ua/..',
   },
 ];
+

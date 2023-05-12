@@ -4,22 +4,23 @@ let startCategory = 0;
 let endCategory;
 let options = {
   root: null,
-  rootMargin: '400px',
+  rootMargin: '100px',
   threshold: 1.0,
 };
-let observer = new IntersectionObserver(scrollByCategoriesDown, options);
-function createHomeMainSection() {
-  getTopBooks()
-    .then(data => {
-      refs.homeCategoryBooksList.insertAdjacentHTML(
-        'beforeend',
-        createCategoryBooksList(data)
-      );
-      observer.observe(refs.homeObserverTarget);
-    })
-    .catch(err => console.log(err));
-}
-createHomeMainSection();
+export let observer = new IntersectionObserver(scrollByCategoriesDown, options);
+let bestsellers = [];
+
+getTopBooks()
+  .then(data => {
+    bestsellers = data;
+    console.log(`request`);
+    refs.homeCategoryBooksList.insertAdjacentHTML(
+      'beforeend',
+      createCategoryBooksList(bestsellers)
+    );
+    observer.observe(refs.homeObserverTarget);
+  })
+  .catch(err => console.log(err));
 
 function createCategoryBooksList(bestSellers) {
   endCategory = bestSellers.length;
@@ -60,10 +61,15 @@ function createBooksList(books) {
 }
 
 function scrollByCategoriesDown() {
+  console.log('observer');
   startCategory += 4;
-  createHomeMainSection();
+  refs.homeCategoryBooksList.insertAdjacentHTML(
+    'beforeend',
+    createCategoryBooksList(bestsellers)
+  );
   if (startCategory >= endCategory) {
     refs.homeMainScrollUp.style.display = 'flex';
+    observer.unobserve(refs.homeObserverTarget);
   }
 }
 refs.homeMainScrollUp.addEventListener('click', scrollByCategoriesUp);

@@ -10,10 +10,10 @@
         document.documentElement.setAttribute('data-theme', 'light');
       }
     </script>
-    <title>papyrus8</title>
+    <title>Shopping List</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="stylesheet" href="./sass/spin.css" />
-    <link rel="stylesheet" href="./sass/base/_support-ua.scss"/>
+    <link rel="stylesheet" href="./sass/shopping-cart.scss" />
 
     <link
       rel="apple-touch-icon"
@@ -40,11 +40,12 @@
   </head>
   <body>
     <include src="./partials/pages/header.html"></include>
-    <include src="./partials/pages/all-categories.html"></include>
-    <include src="./partials/pages/support-ua.html"></include>
-    <include src="./partials/pages/main-content.html"></include>
+    <include src="./partials/pages/shopping.html"></include>
+    <include src="./partials/pages/footer.html"></include>
+    <!-- spinner -->
     <div class="centered-element"></div>
-
-    <script type="module" src="./index.js"></script>
+    <!-- modals -->
+    <!-- scripts -->
+    <script type="module" src="./js/shopping-cart.js"></script>
   </body>
 </html>

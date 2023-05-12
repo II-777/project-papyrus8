@@ -1,9 +1,9 @@
 <header class="header__book">
-  <div class="container header__container">
-     <nav class="header__nav">
-      <div class="logo-container">
+  <div class="header__container container ">
+     
+      <div class="header__logo-container">
    
-    <a href="/src/index.html">
+    <a href="/src/index.html" class="header__link">
       <svg class="header__logo" width="24px" height="24px">
         <use href="/src/images/icon.svg#icon-logo"></use>
       </svg>
@@ -12,18 +12,18 @@
       </svg></a>
  </div>
     </a>
-  <div class="" id="mobile-menu__container">
+    <nav class="header__nav">
+  <div class="header__item">
      
         <ul class="header__nav-list">
-          <li class="nav__list-item">
-            <a href="#" class="nav-list-link"
-              >HOME</a
-            >
+          <li class="nav__list-item nav_link">
+            <a href="/src/index.html" class="nav-list-link"
+              >home</a>
           </li>
-          <li class="nav__list-item"">
+          <li class="nav__list-item nav_link">
             <a
-              href="#"
-              class="nav__list-link">SHOPPING LIST
+              href="/src/partials/pages/shopping-cart.html"
+              class="nav__list-link">shopping list
               <svg class="shopping__list-svg" width="13.33px" height="16.67px">
         <use href="/src/images/icon.svg#icon-cart"></use>
       </svg>
@@ -32,31 +32,33 @@
            
           </li>
         </ul>
-      </nav>
+     
     </div>
-
-    <div class="header-switcher">
+</nav>
+    <div class="header__switcher">
        <label class="switcher">
   <input class="switcher-input" id="theme-switcher" type="checkbox" />
   <span class="switcher-slider"></span>
   </label>
-  
+    
 <button type="button" class="header__menu-login">
-   <svg class="login-icon" wigth="12.67px" height="16.62px">
+   <!--<svg class="login-icon" wigth="12.67px" height="16.62px">
         <use href="/src/images/icon.svg#icon-profile"></use>
-      </svg>
+      </svg>-->
       Sing up
-     <svg class="login-icon-aroww" wigth="13.42px" height="7.13px">
-        <use href="/src/images/icon.svg#icon-profile#icon-openArrow"></use>
-      </svg>
+    <!-- <svg class="login-icon-aroww" wigth="20px" height="20px">
+        <use href="#"></use>
+      </svg>-->
     </button>
+        </div>
          <button class="mobile-menu-open js-open-menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
             <svg class="mobile-menu-open-icon" aria-label="Перемикач мобільного меню" >
-                <use class="icon-menu" href="#"></use>
+                <use class="icon-menu" href="/src/images/icon.svg#icon-menu"></use>
                
             </svg>
         </button>
-    </div>
-  </div>
+
+ 
 </div>
+<div class="backdrop is-hidden" data-modal></div>
 </header>

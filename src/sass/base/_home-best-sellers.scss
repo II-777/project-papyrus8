@@ -1,8 +1,13 @@
 .home-main-by-category {
   max-width: 335px;
 }
-.home-category-books-list {
-  position: relative;
+.special-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 24px;
+}
+.home-special-title{
+  display: block;
 }
 .home-main-title,
 .home-main-title-accent {

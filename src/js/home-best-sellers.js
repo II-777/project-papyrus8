@@ -26,10 +26,10 @@ function createCategoryBooksList(bestSellers) {
   return bestSellers
     .slice(startCategory, startCategory + 4)
     .map(({ list_name, books }) => {
-      return `<li class="home-books-category-item">
+      return `<li class="home-books-category-item js-category-item">
         <h3 class="home-books-category-title">${list_name}</h3>
         <ul class="home-books-list">${createBooksList(books)}  </ul>
-        <button class="home-see-more-btn" type="button" data-category='${list_name}'>See more</button>
+        <button class="home-see-more-btn js-btn-more" type="button" data-category='${list_name}'>See more</button>
         </li>`;
     })
     .join('');

@@ -11,28 +11,17 @@ function onBtnMoreClick(evt) {
   refs.homeCategoryBooksList.innerHTML = '';
   mainTitle.textContent = '';
   const categoryName = evt.target.dataset.category;
-  // ------------------------------------------------------------------------
-  const arrCategoryName = categoryName.split(' ');
-  const accentWord = arrCategoryName[arrCategoryName.length - 1];
-  arrCategoryName.pop();
-  const mainTitlePrimary = arrCategoryName.join(' ');
 
-  const titleCategory = document.createElement('span');
-  titleCategory.classList.add('home-main-title');
-  titleCategory.textContent = mainTitlePrimary;
-  const accentCategoryWord = document.createElement('span');
-  accentCategoryWord.classList.add('home-main-title-accent');
-  accentCategoryWord.textContent = accentWord;
+  addCategoryTitleAccent(categoryName);
 
-  container.prepend(accentCategoryWord);
-  container.prepend(titleCategory);
-  // -------------------------------------------------------------------------------
-  getBooksInCategory(categoryName).then(data =>
-    refs.homeCategoryBooksList.insertAdjacentHTML(
-      'beforeend',
-      createMarkup(data)
+  getBooksInCategory(categoryName)
+    .then(data =>
+      refs.homeCategoryBooksList.insertAdjacentHTML(
+        'beforeend',
+        createMarkup(data)
+      )
     )
-  );
+    .catch(err => console.log(err));
 }
 
 function createMarkup(obj) {
@@ -60,4 +49,21 @@ function createMarkup(obj) {
               </li>`;
     })
     .join('');
+}
+
+function addCategoryTitleAccent(title) {
+  const arrCategoryName = title.split(' ');
+  const accentWord = arrCategoryName[arrCategoryName.length - 1];
+  arrCategoryName.pop();
+  const mainTitlePrimary = arrCategoryName.join(' ');
+
+  const titleCategory = document.createElement('span');
+  titleCategory.classList.add('home-main-title');
+  titleCategory.textContent = mainTitlePrimary;
+  const accentCategoryWord = document.createElement('span');
+  accentCategoryWord.classList.add('home-main-title-accent', 'accent-word');
+  accentCategoryWord.textContent = accentWord;
+
+  container.prepend(accentCategoryWord);
+  container.prepend(titleCategory);
 }

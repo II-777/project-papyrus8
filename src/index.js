@@ -4,6 +4,7 @@ import './js/home-best-sellers';
 import './js/books-by-category';
 import './js/shopping-cart';
 import './js/support-ua';
+import './js/book-modal';
 
 //все нижче можна видалити, зроблено щоб бачили у консолі, що повертається
 // import { getCategoryList } from './js/utils/get-category-list';

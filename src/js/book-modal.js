@@ -1,5 +1,6 @@
 import { getBookId } from './utils/get-books-id';
 import * as basicLightbox from 'basiclightbox';
+import icon from '../images/icon.svg';
 
 const book = document.querySelector('.js-home-category-books-list');
 
@@ -18,16 +19,17 @@ function onClick(evt) {
     <img src="${id.book_image}" alt="" />
     <h2>${id.title}</h2>
     <h3>${id.author}</h3>
-    <p>${id.description}</p>
-    <ul>
+    <p class='book-modal-desc'>${id.description}</p>
+    <ul class='icon-book-modal-list'>
       <li>
-        <svg><use href="/src/images/icon.svg#icon-amazon"></use></svg>
+      <a href=""></a>
+        <svg class='icon-book-modal-amazon'><use href="${icon}#icon-amazon"></use></svg>
       </li>
       <li>  
-        <svg><use href="/src/images/icon.svg#icon-ibooks"></use></svg>
+        <svg class='icon-book-modal-ibooks'><use href="${icon}#icon-ibooks"></use></svg>
       </li>
       <li>
-        <svg><use href="/src/images/icon.svg#icon-bookshop"></use></svg>
+        <svg class='icon-book-modal-bookshop'><use href="${icon}#icon-bookshop"></use></svg>
       </li>
     </ul>
     <button>Add to shopping list</button>

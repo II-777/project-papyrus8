@@ -1,7 +1,18 @@
-.book-modal-icon {
-  width: 20px;
-  height: 20px;
-  fill: black;
+.icon-book-modal-list {
+  display: flex;
+  gap: 20px;
+}
+.icon-book-modal-amazon {
+  width: 62px;
+  height: 19px;
+}
+.icon-book-modal-ibooks {
+  width: 33px;
+  height: 33px;
+}
+.icon-book-modal-bookshop {
+  width: 38px;
+  height: 38px;
 }
 
 .book-modal {
@@ -9,4 +20,12 @@
   background-color: #ffffff;
   border: 2px solid #111111;
   border-radius: 18px;
+}
+
+.home-books-item {
+  cursor: pointer;
+}
+
+.book-modal-desc {
+  margin-bottom: 14px;
 }

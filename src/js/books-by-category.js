@@ -28,7 +28,7 @@ function onBtnMoreClick(evt) {
 }
 
 function createMarkup(obj) {
-  let bookTitleLength = 30;
+  let bookTitleLength = 28;
   let authorLength = 45;
   if (window.screen.width >= 768 && window.screen.width < 1440) {
     bookTitleLength = 23;

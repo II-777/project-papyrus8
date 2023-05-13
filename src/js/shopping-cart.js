@@ -1,3 +1,4 @@
+import icon from '../images/icon.svg'
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
@@ -23,19 +24,16 @@ let booksData = JSON.parse(localStorage.getItem('books')) || [];
 
 console.log(booksData);
 
-
 function renderPage() {
     if (booksData) {
       slPage.innerHTML = createCardMarkup(booksData) 
     } 
 }
-
 renderPage()
 
 function createCardMarkup(booksData) {
     return booksData.map(({book_image, description, author, list_name, title}) => 
-    `
-      <li><div class="sl-card"> 
+    `<li><div class="sl-card"> 
     <img src="${book_image}" alt="${title}" class="sl-book-img">
     <div class="sl-book-info">
         <h3 class="sl-book-title">${title}</h3>
@@ -45,23 +43,38 @@ function createCardMarkup(booksData) {
           <p class="sl-book-author">${author}</p>
           <ul class="sl-eshops">
             <li><a href="">
-                    <svg width="32px" height="11px">
-                    <use href="./src/images/icon.svg#icon-amazon"></use></svg></a></li>
-            <li><a href=""><svg width="16px" height="16px">
-                    <use href="./src/images/icon.svg#icon-ibooks"></use></svg></a></li>
-            <li><a href=""><svg width="16px" height="16px">
-                    <use href="./src/images/icon.svg#icon-bookshop"></use></svg></a></li>
+                    <svg class="sl-amazon" width="32px" height="11px">
+                    <use href="${icon}#icon-amazon"></use></svg></a></li>
+            <li><a href=""><svg class="sl-ibooks" width="16px" height="16px">
+                    <use href="${icon}#icon-ibooks"></use></svg></a></li>
+            <li><a href=""><svg class="sl-bookshop" width="16px" height="16px">
+                    <use href="${icon}#icon-bookshop"></use></svg></a></li>
         </ul>
         </div>
     </div>
     <button type="button" class="trash-btn js-remove-book">
     <svg width="16px" height="16px">
-    <use href="./src/images/icon.svg#icon-trash"></use></svg>
+    <use href="${icon}#icon-trash"></use></svg>
     </button>
     </div>
             </li>
       `).join('')
 } 
+//  Removing a book from shopping list
+
+removeBtn.addEventListener('click', removeBookFromCart)
+
+function removeBookFromCart(event) {
+  const removeButton = event.target;
+  const bookCard = removeBtn.closest('.sl-card');
+  const bookTitle = bookCard.querySelector('.sl-book-title').textContent;
+
+  booksData = booksData.filter((book) => book.title !== bookTitle);
+
+  renderPage();
+
+  localStorage.setItem('books', JSON.stringify(booksData));
+}
 
 // Pagination
 

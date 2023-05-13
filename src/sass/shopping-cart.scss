@@ -1,5 +1,5 @@
 body {
-    background-color: #D0D0D0;
+    background-color: #F6F6F6;
 }
 .sl-title {
     font-weight: 700;
@@ -34,10 +34,7 @@ body {
     position: relative;
     top: 14px;
     right: 14px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 12px;
 
     width: 28px;
     height: 28px;
@@ -45,6 +42,16 @@ body {
     background: #4F2EE8;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.trash-btn>svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 16px;
+    height: 16px;
 }
 
 .sl-card {
@@ -79,6 +86,7 @@ body {
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis;
+    color: #111111;
 
     margin-top: 14px;
     margin-bottom: 4px;
@@ -164,7 +172,7 @@ body {
     }
 
     .sl-book-descr {
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         padding: 0;
     }
 
@@ -178,6 +186,11 @@ body {
 
         width: 34px;
         height: 34px;
+    }
+
+    .trash-btn>svg {
+        width: 18px;
+        height: 18px;
     }
 
     .sl-book-info {
@@ -198,6 +211,25 @@ body {
     .empty-cart>img {
         width: 322px;
 
+    }
+
+    .sl-amazon {
+        width: 48px;
+        height: 15px;
+    }
+
+    .sl-ibooks {
+        width: 28px;
+        height: 27px;
+    }
+
+    .sl-bookshop {
+        width: 32px;
+        height: 30px;
+    }
+
+    .sl-eshops>li:not(:last-child) {
+        margin-right: 16px;
     }
 }
 

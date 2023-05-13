@@ -1,4 +1,5 @@
 import { createHomeMainSection } from './js/home-best-sellers';
+import './js/window-reload';
 import './js/header';
 import './js/home-best-sellers';
 import './js/books-by-category';

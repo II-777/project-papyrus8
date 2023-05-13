@@ -34,7 +34,7 @@ function createMarkup(obj) {
     bookTitleLength = 23;
     authorLength = 40;
   } else if (window.screen.width >= 1440) {
-    bookTitleLength = 18;
+    bookTitleLength = 19;
     authorLength = 35;
   }
   return obj

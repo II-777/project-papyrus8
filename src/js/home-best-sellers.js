@@ -40,10 +40,10 @@ function createBooksList(books) {
   let bookTitleLength = 30;
   if (window.screen.width >= 768 && window.screen.width < 1440) {
     booksToRender = 3;
-    bookTitleLength = 25;
+    bookTitleLength = 23;
   } else if (window.screen.width >= 1440) {
     booksToRender = 5;
-    bookTitleLength = 20;
+    bookTitleLength = 19;
   }
   return books
     .slice(0, booksToRender)

@@ -55,6 +55,10 @@ const supportArray = [
   },
 ];
 
+import icon from '../images/icon.svg'
+// import {saveTheChildren} from '../images/support-ua/save-the-children.png';
+const saveTheChildren = require('../images/support-ua/save-the-children.png');
+
 const supportList = document.querySelector('.js-support');
 const markup = createImageCardMarkup(supportArray);
 
@@ -62,19 +66,19 @@ supportList.insertAdjacentHTML('beforeend', markup);
 supportList.addEventListener('click', onClick);
 
 function createImageCardMarkup(supportArray) {
-  return supportArray.map(({ img, url, title }) => { 
-    return `<ul class="support-list js-support">
-      <li>
-        <a class="js-target" href="${url}">
-          <span class="support-number">01</span>
-          <img class="support-img" src="${img}" alt="${title}" height="32px" />
+  // const saveTheChildren = require('../images/support-ua/save-the-children.png');
+  
+  return supportArray.map(({url}) => { 
+   
+    return `<li class="js-support">
+        <a class="js-target" href="${url}" target="_blank">
+          <span class="support-number">01
+          <svg class="support-img" height="32px"><use href="${icon}#icon-charity1"></use></svg></span>
         </a>
-      </li>
-    </ul>`;
+      </li>`   
+      
   }).join('');
 }
-
-
 
 
 function onClick(evt) {
@@ -85,7 +89,10 @@ function onClick(evt) {
 
 
 
-
+// лічильник
+ // for (let i = 0; i <= 9; i += 1) {
+    //   console.log(i);
+    // }
 
 // const sliderImages = new Swiper('.slider__images .swiper-container', { // ищем слайдер превью по селектору
 // 	// задаем параметры
@@ -110,3 +117,10 @@ function onClick(evt) {
 // 		}
 // 	}
 // });
+
+// return supportArray.map(({ img, url, title }) => { 
+//   return `<ul class="support-list js-support">
+//     <li>
+//       <a class="js-target" href="${url}">
+//         <span class="support-number">01</span>
+//         <img class="support-img" src="${img}" alt="${title}" height="32px" />

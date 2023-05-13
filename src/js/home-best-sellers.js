@@ -8,7 +8,7 @@ let options = {
   threshold: 1.0,
 };
 export let observer = new IntersectionObserver(scrollByCategoriesDown, options);
-let bestsellers = [];
+export let bestsellers = [];
 
 getTopBooks()
   .then(data => {

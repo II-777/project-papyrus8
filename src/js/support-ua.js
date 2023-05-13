@@ -26,7 +26,7 @@ const supportArray = [
   {
     title: 'Medecins Sans Frontieres',
     url: 'https://www.msf.org/ukraine',
-   img: '../images/support-ua/medecins-sans-frontieres.png',
+    img: '../images/support-ua/medecins-sans-frontieres.png',
     img2x: '../images/support-ua/medecins-sans-frontieres2x.png',
   },
   {
@@ -73,6 +73,7 @@ function createImageCardMarkup(supportArray) {
     </ul>`;
   }).join('');
 }
+
 
 
 

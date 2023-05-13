@@ -1,39 +1,83 @@
 import axios from 'axios';
 import {Spinner} from 'spin.js';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { refs } from './refs-elements';
 
-const BASE_URL = 'https://books-backend.p.goit.global/books/';
+axios.defaults.baseURL = 'https://books-backend.p.goit.global/books/';
 
-let spinner = new Spinner();
+const opts = {
+  zIndex: 100,
+};
+let spinner = new Spinner(opts);
 
-class ApiService {
-  constructor(url) {
-    this.url = url;
-    this.selectedCategory = '';
-    this._id = '';
+class ApiBookService {
+  constructor() {
   }
 
-  async fetchPhoto() {
+  async getCategoryList() {
     spinner.spin(refs.spinner);
-    
+  
     try {
-      const response = await axios.get(`${BASE_URL}${this.url}${this.selectedCategory}${this._id}`)
+      const response = await axios('category-list')
       spinner.stop()
 
       return response.data;
     } catch(error) {
       spinner.stop()
-
-      return;
+      Notify.failure('Sorry, there are no books matching your search query. Please try again.')
+      
+      return error;
     }
   };
 
+  async getCategoryTopBooks() {
+    spinner.spin(refs.spinner);
+  
+    try {
+      const response = await axios('top-books')
+      spinner.stop()
+
+      return response.data;
+    } catch(error) {
+      spinner.stop()
+      Notify.failure('Sorry, there are no books matching your search query. Please try again.')
+
+      return error;
+    }
+  };
+
+  async getBooksInCategory(category) {
+    spinner.spin(refs.spinner);
+  
+    try {
+      const response = await axios(`category?category=${category}`)
+      spinner.stop()
+
+      return response.data;
+    } catch(error) {
+      spinner.stop()
+      Notify.failure('Sorry, there are no books matching your search query. Please try again.')
+
+      return error;
+    }
+  };
+
+  async getBookOnId(id) {
+    spinner.spin(refs.spinner);
+  
+    try {
+      const response = await axios(`${id}`)
+      spinner.stop()
+
+      return response.data;
+    } catch(error) {
+      spinner.stop()
+      Notify.failure('Sorry, there are no books matching your search query. Please try again.')
+
+      return error;
+    }
+  };
 };
 
-export const instanceApiServiceCategoryList = new ApiService('category-list');
-export const instanceApiServiceTopBooks = new ApiService('top-books');
-export const instanceApiSelectedCategory = new ApiService('category?category=');
-export const instanceApiBookID = new ApiService('');
-
-
+export const fetchBooks = new ApiBookService();

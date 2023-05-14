@@ -68,12 +68,35 @@ function createImageCardMarkup(supportArray) {
   }).join('');
 }
 
-
 function onClick(evt) {
   if (!evt.target.classList.contains("js-support")) {
     return;
   }
 }
+
+const sliderButton = document.querySelector('.slider-button');
+let currentIndex = 0;
+const slideHeight = supportList.querySelector('.js-support').offsetHeight;
+const slidesToShow = 6;
+
+sliderButton.addEventListener('click', () => {
+  const maxIndex = supportList.children.length - 1;
+  if (currentIndex < maxIndex) {
+    currentIndex++;
+    if (currentIndex > maxIndex - slidesToShow) {
+      supportList.style.transform = `translateY(-${slideHeight * (maxIndex - slidesToShow)}px)`;
+    } else {
+      supportList.style.transform = `translateY(-${slideHeight * currentIndex}px)`;
+    }
+  }
+});
+
+
+
+
+
+
+
 
 
 

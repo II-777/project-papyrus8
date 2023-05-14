@@ -10,7 +10,6 @@ function getBooks() {
     fetch(url)
   .then(response => response.json())
   .then(data => {
-    // Зберігаємо книги в localStorage
     localStorage.setItem('books', JSON.stringify(data));
   })
   .catch(error => {
@@ -62,19 +61,17 @@ function createCardMarkup(booksData) {
 } 
 //  Removing a book from shopping list 
 
-removeBtn.addEventListener('click', removeBookFromCart);
+// removeBtn.addEventListener('click', removeBookFromCart);
 
-function removeBookFromCart(event) {
-  const button = event.target;
-  const card = button.closest('.sl-card');
-  const title = card.querySelector('.sl-book-title').textContent;
+// function removeBookFromCart(event) {
+//   const button = event.target;
+//   const card = button.closest('.sl-card');
+//   const title = card.querySelector('.sl-book-title').textContent;
 
-  booksData = booksData.filter(book => book.title !== title);
+//   booksData = booksData.filter(book => book.title !== title);
   
-  renderPage();
-}
-
-removeBtn.addEventListener('click', removeBookFromCart);
+//   renderPage();
+// }
 
 // Pagination
 

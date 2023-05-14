@@ -28,13 +28,13 @@ function onBtnMoreClick(evt) {
 }
 
 function createMarkup(obj) {
-  let bookTitleLength = 30;
+  let bookTitleLength = 28;
   let authorLength = 45;
   if (window.screen.width >= 768 && window.screen.width < 1440) {
-    bookTitleLength = 25;
+    bookTitleLength = 23;
     authorLength = 40;
   } else if (window.screen.width >= 1440) {
-    bookTitleLength = 20;
+    bookTitleLength = 19;
     authorLength = 35;
   }
   return obj

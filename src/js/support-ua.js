@@ -47,7 +47,10 @@ const supportArray = [
   
 ];
 
-import icon from '../images/icon.svg'
+
+import icon from '../images/icon.svg';
+// import {saveTheChildren} from '../images/support-ua/save-the-children.png';
+const saveTheChildren = require('../images/support-ua/save-the-children.png');
 
 const supportList = document.querySelector('.js-support');
 const markup = createImageCardMarkup(supportArray);
@@ -56,20 +59,23 @@ supportList.insertAdjacentHTML('beforeend', markup);
 supportList.addEventListener('click', onClick);
 
 function createImageCardMarkup(supportArray) {
-    return supportArray.map(({url, svg},ind) => { 
-   let num = String(ind + 1).padStart(2,'0');
-    return `<li class="support-link js-support">
+
+  // const saveTheChildren = require('../images/support-ua/save-the-children.png');
+
+  return supportArray
+    .map(({ url }) => {
+      return `<li class="js-support">
         <a class="js-target" href="${url}" target="_blank">
           <span class="support-number">${num}
           <svg class="support-img" width="129px" height="32px"><use href="${icon}${svg}"></use></svg></span>
         </a>
-      </li>`   
-      
-  }).join('');
+      </li>`;
+    })
+    .join('');
 }
 
 function onClick(evt) {
-  if (!evt.target.classList.contains("js-support")) {
+  if (!evt.target.classList.contains('js-support')) {
     return;
   }
 }
@@ -90,13 +96,3 @@ sliderButton.addEventListener('click', () => {
     }
   }
 });
-
-
-
-
-
-
-
-
-
-

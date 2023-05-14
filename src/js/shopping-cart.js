@@ -60,21 +60,21 @@ function createCardMarkup(booksData) {
             </li>
       `).join('')
 } 
-//  Removing a book from shopping list
+//  Removing a book from shopping list 
 
-removeBtn.addEventListener('click', removeBookFromCart)
+removeBtn.addEventListener('click', removeBookFromCart);
 
 function removeBookFromCart(event) {
-  const removeButton = event.target;
-  const bookCard = removeBtn.closest('.sl-card');
-  const bookTitle = bookCard.querySelector('.sl-book-title').textContent;
+  const button = event.target;
+  const card = button.closest('.sl-card');
+  const title = card.querySelector('.sl-book-title').textContent;
 
-  booksData = booksData.filter((book) => book.title !== bookTitle);
-
+  booksData = booksData.filter(book => book.title !== title);
+  
   renderPage();
-
-  localStorage.setItem('books', JSON.stringify(booksData));
 }
+
+removeBtn.addEventListener('click', removeBookFromCart);
 
 // Pagination
 
@@ -99,6 +99,6 @@ const options = {
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
   },
-};
+}
 
 const pagination = new Pagination(container, options);

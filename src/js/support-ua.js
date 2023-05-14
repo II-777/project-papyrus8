@@ -2,58 +2,51 @@ const supportArray = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: '../images/support-ua/save-the-children.png',
-    img2x: '../images/support-ua/save-the-children2x.png',
+    svg:'#icon-charity1',
   },
   {
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
-    img: '../images/support-ua/project-hope.png',
-    img2x: '../images/support-ua/project-hope2x.png',
-  },
-  {
-    title: 'UNITED24',
-    url: 'https://u24.gov.ua/uk',
-    img: '../images/support-ua/united24.png',
-    img2x: '../images/support-ua/united24-2x.png',
+    svg:'#icon-charity2',
   },
   {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
-    img: '../images/support-ua/international-medical-corps.png',
-    img2x: '../images/support-ua/international-medical-corps2x.png',
-  },
-  {
-    title: 'Medecins Sans Frontieres',
-    url: 'https://www.msf.org/ukraine',
-    img: '../images/support-ua/medecins-sans-frontieres.png',
-    img2x: '../images/support-ua/medecins-sans-frontieres2x.png',
+    svg:'#icon-charity4',
   },
   {
     title: 'RAZOM',
     url: 'https://www.razomforukraine.org/',
-    img: '../images/support-ua/razom.png',
-    img2x: '../images/support-ua/razom2x.png',
+    svg:'#icon-charity6',
   },
   {
     title: 'Action against hunger',
     url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-    img: '../images/support-ua/action-against-hunger.png',
-    img2x: '../images/support-ua/action-against-hunger2x.png',
-  },
-  {
-    title: 'World vision',
-    url: 'https://www.wvi.org/emergencies/ukraine',
-    img: '../images/support-ua/world-vision.png',
-    img2x: '../images/support-ua/world-vision2x.png',
+    svg:'#icon-charity7',
   },
   {
     title: 'Serhiy Prytula Charity Foundation',
     url: 'https://prytulafoundation.org/en',
-    img: '../images/support-ua/serhiy-prytula.png',
-    img2x: '../images/support-ua/serhiy-prytula2x.png',
+    svg:'#icon-charity9',
   },
+  {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    svg:'#icon-charity3',
+  },
+  {
+    title: 'Medecins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    svg:'#icon-charity5',
+  },
+  {
+    title: 'World vision',
+    url: 'https://www.wvi.org/emergencies/ukraine',
+    svg:'#icon-charity8',
+  },
+  
 ];
+
 
 import icon from '../images/icon.svg';
 // import {saveTheChildren} from '../images/support-ua/save-the-children.png';
@@ -66,14 +59,15 @@ supportList.insertAdjacentHTML('beforeend', markup);
 supportList.addEventListener('click', onClick);
 
 function createImageCardMarkup(supportArray) {
+
   // const saveTheChildren = require('../images/support-ua/save-the-children.png');
 
   return supportArray
     .map(({ url }) => {
       return `<li class="js-support">
         <a class="js-target" href="${url}" target="_blank">
-          <span class="support-number">01
-          <svg class="support-img" height="32px"><use href="${icon}#icon-charity1"></use></svg></span>
+          <span class="support-number">${num}
+          <svg class="support-img" width="129px" height="32px"><use href="${icon}${svg}"></use></svg></span>
         </a>
       </li>`;
     })
@@ -85,39 +79,3 @@ function onClick(evt) {
     return;
   }
 }
-
-// лічильник
-// for (let i = 0; i <= 9; i += 1) {
-//   console.log(i);
-// }
-
-// const sliderImages = new Swiper('.slider__images .swiper-container', { // ищем слайдер превью по селектору
-// 	// задаем параметры
-// 	direction: 'vertical', // вертикальная прокрутка
-// 	slidesPerView: 1, // показывать по 1 изображению
-// 	spaceBetween: 32, // расстояние между слайдами
-// 	mousewheel: true, // можно прокручивать изображения колёсиком мыши
-// 	navigation: { // задаем кнопки навигации
-// 		nextEl: '.slider__next', // кнопка Next
-// 		prevEl: '.slider__prev' // кнопка Prev
-// 	},
-// 	grabCursor: true, // менять иконку курсора
-// 	thumbs: { // указываем на превью слайдер
-// 		swiper: sliderThumbs // указываем имя превью слайдера
-// 	},
-// 	breakpoints: { // условия для разных размеров окна браузера
-// 		0: { // при 0px и выше
-// 			direction: 'horizontal', // горизонтальная прокрутка
-// 		},
-// 		768: { // при 768px и выше
-// 			direction: 'vertical', // вертикальная прокрутка
-// 		}
-// 	}
-// });
-
-// return supportArray.map(({ img, url, title }) => {
-//   return `<ul class="support-list js-support">
-//     <li>
-//       <a class="js-target" href="${url}">
-//         <span class="support-number">01</span>
-//         <img class="support-img" src="${img}" alt="${title}" height="32px" />

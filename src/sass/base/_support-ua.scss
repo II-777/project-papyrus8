@@ -91,10 +91,16 @@
 
 .support-img{
   fill:var(--title-text-color-theme-dark);
+  margin-left: 16px;
 
 }
 
 .support-number{
   color:var(--title-text-color-theme-dark);
+  display: flex;
+  align-items: center;
 }
 
+.support-link{
+  margin-bottom: 20px;
+}

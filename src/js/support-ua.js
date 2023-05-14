@@ -53,7 +53,6 @@ const supportArray = [
     img: worldVision,
     img2x: worldVision2x,
   },
-  
 ];
 
 import caveTheChildren from '../images/support-ua/save-the-children.png';
@@ -83,12 +82,13 @@ supportList.insertAdjacentHTML('beforeend', markup);
 supportList.addEventListener('click', onClick);
 
 function createImageCardMarkup(supportArray) {
-  return supportArray.map(({title, url, img, img2x},ind) => { 
-      let num = String(ind + 1).padStart(2,'0');
+  return supportArray
+    .map(({ title, url, img, img2x }, ind) => {
+      let num = String(ind + 1).padStart(2, '0');
       return `<li class="js-support">
         <a class="js-target" href="${url}" target="_blank">
           <span class="support-number">${num}
-          <img class="support-img" width="129px" height="32px" srcset="${img} 1x, ${img2x} src="${img}" alt="${title}"></span>
+          <img class="support-img" width="129px" height="32px" srcset="${img}" 1x, ${img2x} src="${img}" alt="${title}"></span>
         </a>
       </li>`;
     })
@@ -101,39 +101,37 @@ function onClick(evt) {
   }
 }
 
-
 // const sliderButton = document.querySelector('.slider-button');
-  // let currentIndex = 0;
-  // const slideHeight = supportList.querySelector('.js-support').offsetHeight;
-  // const slidesToShow = 6;
-  
-  // sliderButton.addEventListener('click', () => {
-  //   const maxIndex = supportList.children.length - 1;
-  //   if (currentIndex < maxIndex) {
-  //     currentIndex++;
-  //     if (currentIndex > maxIndex - slidesToShow) {
-  //       supportList.style.transform = `translateY(-${slideHeight * (maxIndex - slidesToShow)}px)`;
-  //     } else {
-  //       supportList.style.transform = `translateY(-${slideHeight * currentIndex}px)`;
-  //     }
-  //   }
-  // });
-  
-  // let position = 0;
-  // const slidesToShow = 6;
-  // const slidesToScroll = 2;
-  
-  // const container = document.querySelector('.slider-container') 
-  // const list = document.querySelector('.support-list') 
-  // const link = document.querySelector('.support-link') 
-  // const sliderButton = document.querySelector('.slider-button');
-  // const sliderItemHeight = 32;
-  
-  // link.each(function(index, link){
-  //   $(link).css({
-  //     minHeight: sliderItemHeight,
-  //   });
-  // });
-  
-  // sliderButton.click
-  
+// let currentIndex = 0;
+// const slideHeight = supportList.querySelector('.js-support').offsetHeight;
+// const slidesToShow = 6;
+
+// sliderButton.addEventListener('click', () => {
+//   const maxIndex = supportList.children.length - 1;
+//   if (currentIndex < maxIndex) {
+//     currentIndex++;
+//     if (currentIndex > maxIndex - slidesToShow) {
+//       supportList.style.transform = `translateY(-${slideHeight * (maxIndex - slidesToShow)}px)`;
+//     } else {
+//       supportList.style.transform = `translateY(-${slideHeight * currentIndex}px)`;
+//     }
+//   }
+// });
+
+// let position = 0;
+// const slidesToShow = 6;
+// const slidesToScroll = 2;
+
+// const container = document.querySelector('.slider-container')
+// const list = document.querySelector('.support-list')
+// const link = document.querySelector('.support-link')
+// const sliderButton = document.querySelector('.slider-button');
+// const sliderItemHeight = 32;
+
+// link.each(function(index, link){
+//   $(link).css({
+//     minHeight: sliderItemHeight,
+//   });
+// });
+
+// sliderButton.click

@@ -6,4 +6,6 @@ export const refs = {
   homeBtnSeeMore: document.querySelector('js-btn-more'),
   homeMainTitle: document.querySelector('.home-main-title'),
   homeMainTitleAccent: document.querySelector('.home-main-title-accent'),
+  categoriesContainer: document.querySelector('.js-categories-list'),
+  categoriesContainerItem: document.querySelector('.js-categories-list-item'),
 };

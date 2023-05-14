@@ -17,9 +17,9 @@ function onClick(evt) {
         basicLightbox
           .create(
             `<div class="book-modal">
-    <img src="${id.book_image}" alt="" />
-    <h2>${id.title}</h2>
-    <h3>${id.author}</h3>
+    <img src="${id.book_image}" alt="" class="book-modal-img"/>
+    <h2 class="book-modal-title">${id.title}</h2>
+    <h3 class="book-modal-author">${id.author}</h3>
     <p class='book-modal-desc'>${id.description}</p>
     <ul class='icon-book-modal-list'>
       <li>
@@ -38,49 +38,28 @@ function onClick(evt) {
         </a>
       </li>
     </ul>
-    <button>Add to shopping list</button>
+    <button class='book-modal-btn'>Add to shopping list</button>
   </div>`
           )
           .show();
+        document.addEventListener('click', addToCart);
+        // localStorage.setItem('book', JSON.stringify(id));
+        function addToCart(evt) {
+          const btn = evt.target.closest('book-modal-btn');
 
-        
-        localStorage.setItem('book', JSON.stringify(id));
-
-        // book.addEventListener('click', evt => {
-        //   // console.log(evt.target);
-        //   // const btnClick = evt.target;
-        //   console.log(evt.target);
-        //   if (bookCard.classList.contains('book-modal-btn')) {
-        //     // evt.preventDefault();
-        //     // localStorage.setItem('book', JSON.stringify(id));
-        //     console.log('Hello');
+          if (
+            localStorage.getItem('book') ===
+            localStorage.setItem('book', JSON.stringify(id))
+          ) {
+            // localStorage.setItem('book', JSON.stringify(id));
+            return;
+          } else {
+            localStorage.setItem('book', JSON.stringify(id));
+          }
+        }
       }
     })
     .catch(err => console.log(err));
-
-  // localStorage.setItem('book', JSON.stringify(id));
 }
 
-//   return bookCardId.map(
-//     ({
-//       book_image,
-//       title,
-//       author,
-//       amazon_product_url,
-//       book_uri,
-//       buy_links,
-//     }) => {
-// return getBookId(bookCardId).then(book => {
-
-// function getDetails(id) {
-//   getBookId(id).then(book => {
-//     book.map({
-//       book_image,
-//       title,
-//       author,
-//       amazon_product_url,
-//       book_uri,
-//       buy_links,
-//     });
-//   });
-// }
+// function removeFromCart() {}

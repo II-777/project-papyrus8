@@ -60,13 +60,15 @@ function addCategoryTitleAccent(title) {
   arrCategoryName.pop();
   const mainTitlePrimary = arrCategoryName.join(' ');
 
-  const titleCategory = document.createElement('span');
-  titleCategory.classList.add('home-main-title');
-  titleCategory.textContent = mainTitlePrimary;
-  const accentCategoryWord = document.createElement('span');
-  accentCategoryWord.classList.add('home-main-title-accent', 'accent-word');
-  accentCategoryWord.textContent = accentWord;
+  // const titleCategory = document.createElement('span');
+  // titleCategory.classList.add('home-main-title');
+  // titleCategory.textContent = mainTitlePrimary;
+  // const accentCategoryWord = document.createElement('span');
+  // accentCategoryWord.classList.add('home-main-title-accent', 'accent-word');
+  // accentCategoryWord.textContent = accentWord;
 
-  container.prepend(accentCategoryWord);
-  container.prepend(titleCategory);
+  // container.prepend(accentCategoryWord);
+  // container.prepend(titleCategory);
+  refs.homeMainTitle.textContent = mainTitlePrimary;
+  refs.homeMainTitleAccent.textContent = accentWord;
 }

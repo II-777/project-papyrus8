@@ -1,6 +1,54 @@
+.book-modal {
+  width: 335px;
+  height: 762px;
+  background-color: #ffffff;
+  border: 2px solid #111111;
+  border-radius: 18px;
+  padding: 40px 24px;
+}
+.book-modal-img {
+  width: 287px;
+  height: 408px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+.book-modal-title {
+  margin-bottom: 4px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  color: #111111;
+}
+.book-modal-author {
+  margin-bottom: 18px;
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: -0.04em;
+
+  color: #b4afaf;
+}
+.book-modal-desc {
+  max-width: 287px;
+  margin-bottom: 14px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  color: #111111;
+}
 .icon-book-modal-list {
+  margin-bottom: 40px;
   display: flex;
-  // gap: 20px;
+  column-gap: 20px;
+  align-items: center;
 }
 .icon-book-modal-amazon {
   width: 62px;
@@ -14,18 +62,22 @@
   width: 38px;
   height: 38px;
 }
-
-.book-modal {
-  min-width: 320px;
-  background-color: #ffffff;
-  border: 2px solid #111111;
-  border-radius: 18px;
-}
-
 .home-books-item {
   cursor: pointer;
 }
-
-.book-modal-desc {
-  margin-bottom: 14px;
+.book-modal-btn {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 14px 28px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #111111;
+  border: 2px solid #4f2ee8;
+  border-radius: 40px;
 }

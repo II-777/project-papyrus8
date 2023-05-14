@@ -1,7 +1,6 @@
 import { getTopBooks } from './utils/get-top-books';
 import { refs } from './refs-elements';
 let startCategory = 0;
-let endCategory;
 let options = {
   root: null,
   rootMargin: '100px',
@@ -13,7 +12,6 @@ export let bestsellers = [];
 getTopBooks()
   .then(data => {
     bestsellers = data;
-    console.log(`request`);
     refs.homeCategoryBooksList.insertAdjacentHTML(
       'beforeend',
       createCategoryBooksList(bestsellers)
@@ -38,12 +36,15 @@ function createCategoryBooksList(bestSellers) {
 function createBooksList(books) {
   let booksToRender = 1;
   let bookTitleLength = 30;
+  let authorLength = 45;
   if (window.screen.width >= 768 && window.screen.width < 1440) {
     booksToRender = 3;
     bookTitleLength = 23;
+    authorLength = 40;
   } else if (window.screen.width >= 1440) {
     booksToRender = 5;
     bookTitleLength = 19;
+    authorLength = 35;
   }
   return books
     .slice(0, booksToRender)
@@ -51,6 +52,9 @@ function createBooksList(books) {
       title.length > bookTitleLength
         ? (title = title.slice(0, bookTitleLength - 3) + '...')
         : title;
+      author.length > authorLength
+        ? (author = author.slice(0, authorLength - 3) + '...')
+        : author;
       return `  <li class="home-books-item" data-id=${_id}>
                 <img class="home-books-book-picture" src="${book_image}" alt="${title}" />
                 <p class="home-books-book-title">${title}</p>
@@ -61,20 +65,19 @@ function createBooksList(books) {
 }
 
 function scrollByCategoriesDown() {
-  console.log('observer');
   startCategory += 4;
   refs.homeCategoryBooksList.insertAdjacentHTML(
     'beforeend',
     createCategoryBooksList(bestsellers)
   );
 }
-refs.homeMainScrollUp.addEventListener('click', scrollByCategoriesUp);
-function scrollByCategoriesUp() {
-  const { height: cardHeight } =
-    refs.homeCategoryBooksList.getBoundingClientRect();
-  window.scrollBy({
-    top: -cardHeight,
-    behavior: 'smooth',
-  });
-  refs.homeMainScrollUp.style.display = 'none';
-}
+// refs.homeMainScrollUp.addEventListener('click', scrollByCategoriesUp);
+// function scrollByCategoriesUp() {
+//   const { height: cardHeight } =
+//     refs.homeCategoryBooksList.getBoundingClientRect();
+//   window.scrollBy({
+//     top: -cardHeight,
+//     behavior: 'smooth',
+//   });
+//   refs.homeMainScrollUp.style.display = 'none';
+// }

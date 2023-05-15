@@ -1,21 +1,22 @@
-import icon from '../images/icon.svg'
+import icon from '../images/icon.svg';
 // import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 
-const slPage = document.querySelector('.js-sl')
+const slPage = document.querySelector('.js-sl');
 
-const url = 'https://books-backend.p.goit.global/books/category?category=Hardcover Fiction';
+const url =
+  'https://books-backend.p.goit.global/books/category?category=Hardcover Fiction';
 function getBooks() {
-    fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    localStorage.setItem('books', JSON.stringify(data));
-  })
-  .catch(error => {
-    console.log(error);
-  });
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      localStorage.setItem('books', JSON.stringify(data));
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
-getBooks()
+getBooks();
 
 // Отримуємо дані з localStorage
 let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
@@ -23,31 +24,34 @@ let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
 console.log(slBooksData);
 
 function renderSlPage() {
-    if (slBooksData) {
-      slPage.innerHTML = createCardMarkup(slBooksData);
-      const removeBtn = slPage.querySelectorAll('.js-remove-book');
-      removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
-    } 
+  if (slBooksData) {
+    slPage.innerHTML = createCardMarkup(slBooksData);
+    const removeBtn = slPage.querySelectorAll('.js-remove-book');
+    removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
+  }
 }
-renderSlPage()
+renderSlPage();
 
-//  Removing a book from shopping list 
+//  Removing a book from shopping list
 
 function removeBookFromCart(event) {
-  const slTitle = event.target.closest('.sl-card').querySelector('.sl-book-title').textContent;
+  const slTitle = event.target
+    .closest('.sl-card')
+    .querySelector('.sl-book-title').textContent;
 
   slBooksData = slBooksData.filter(book => book.title !== slTitle);
-  
+
   renderSlPage();
 }
 
 function createCardMarkup(booksData) {
-  return booksData.map(({book_image, description, author, list_name, title, buy_links}) => {
-    const amazonUrl = buy_links[0].url;
-    const iBooksUrl = buy_links[1].url;
-    const bookshopUrl = buy_links[4].url;
+  return booksData
+    .map(({ book_image, description, author, list_name, title, buy_links }) => {
+      const amazonUrl = buy_links[0].url;
+      const iBooksUrl = buy_links[1].url;
+      const bookshopUrl = buy_links[4].url;
 
-    return `<li><div class="sl-card"> 
+      return `<li><div class="sl-card"> 
       <img src="${book_image}" alt="${title}" class="sl-book-img">
       <div class="sl-book-info">
           <h3 class="sl-book-title">${title}</h3>
@@ -72,16 +76,16 @@ function createCardMarkup(booksData) {
       </button>
       </div>
     </li>`;
-  }).join('');
+    })
+    .join('');
 }
-
 
 // Pagination
 
 // const container = document.getElementById('pagination');
 // const options = {
-//   totalItems: 200, 
-//   itemsPerPage: 4, 
+//   totalItems: 200,
+//   itemsPerPage: 4,
 //   visiblePages: 3,
 //   page: 1,
 //   centerAlign: true,

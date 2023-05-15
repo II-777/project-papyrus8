@@ -54,13 +54,14 @@ function onCategoryClick(evt) {
 
 function createMarkup(obj) {
   let bookTitleLength = 28;
-  let authorLength = 45;
+  let authorLength = 40;
+
   if (window.screen.width >= 768 && window.screen.width < 1440) {
     bookTitleLength = 23;
-    authorLength = 40;
+    authorLength = 30;
   } else if (window.screen.width >= 1440) {
     bookTitleLength = 19;
-    authorLength = 35;
+    authorLength = 25;
   }
   return obj
     .map(({ author, book_image, title }) => {
@@ -70,7 +71,7 @@ function createMarkup(obj) {
       author.length > authorLength
         ? (author = author.slice(0, authorLength - 3) + '...')
         : author;
-      return `<li class="home-books-item">
+      return `<li class="home-books-item js-home-books-item">
                 <img class="home-books-book-picture" src="${book_image}" alt="${title}" />
                 <p class="home-books-book-title">${title}</p>
                 <p class="home-books-book-author">${author}</p>

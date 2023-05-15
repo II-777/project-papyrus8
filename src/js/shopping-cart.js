@@ -1,4 +1,10 @@
-import icon from '../images/icon.svg'
+
+import icon from '../images/icon.svg';
+import { refs } from './refs-elements';
+// // import Pagination from 'tui-pagination';
+// // import 'tui-pagination/dist/tui-pagination.css';
+
+const slPage = document.querySelector('.js-sl');
 
 
 const slPage = document.querySelector('.js-sl')
@@ -11,6 +17,7 @@ console.log(slBooksData);
 
 function renderSlPage() {
 
+
     if (slBooksData) {
       slPage.innerHTML = createCardMarkup(slBooksData);
       const removeBtn = slPage.querySelectorAll('.js-remove-book');
@@ -21,26 +28,30 @@ function renderSlPage() {
       localStorage.clear();
     }
     
-}
-renderSlPage()
 
-//  Removing a book from shopping list 
+}
+renderSlPage();
+
+//  Removing a book from shopping list
 
 function removeBookFromCart(event) {
-  const slTitle = event.target.closest('.sl-card').querySelector('.sl-book-title').textContent;
+  const slTitle = event.target
+    .closest('.sl-card')
+    .querySelector('.sl-book-title').textContent;
 
   slBooksData = slBooksData.filter(book => book.title !== slTitle);
-  
+
   renderSlPage();
 }
 
 function createCardMarkup(booksData) {
-  return booksData.map(({book_image, description, author, list_name, title, buy_links}) => {
-    const amazonUrl = buy_links[0].url;
-    const iBooksUrl = buy_links[1].url;
-    const bookshopUrl = buy_links[4].url;
+  return booksData
+    .map(({ book_image, description, author, list_name, title, buy_links }) => {
+      const amazonUrl = buy_links[0].url;
+      const iBooksUrl = buy_links[1].url;
+      const bookshopUrl = buy_links[4].url;
 
-    return `<li><div class="sl-card"> 
+      return `<li><div class="sl-card"> 
       <img src="${book_image}" alt="${title}" class="sl-book-img">
       <div class="sl-book-info">
           <h3 class="sl-book-title">${title}</h3>
@@ -65,5 +76,43 @@ function createCardMarkup(booksData) {
       </button>
       </div>
     </li>`;
-  }).join('');
+    })
+    .join('');
 }
+
+
+// Pagination
+
+// const container = document.getElementById('pagination');
+// const options = {
+//   totalItems: 200,
+//   itemsPerPage: 4,
+//   visiblePages: 3,
+//   page: 1,
+//   centerAlign: true,
+//   firstItemClassName: 'tui-first-child',
+//   lastItemClassName: 'tui-last-child',
+//   template: {
+//     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+//     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+//     moveButton:
+//       '<a href="#" class="tui-page-btn tui-{{type}}">' +
+//       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+//       '</a>',
+//     disabledMoveButton:
+//       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+//       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+//       '</span>',
+//   },
+// }
+
+// const pagination = new Pagination(container, options);
+
+console.dir(window);
+if (
+  window.location.pathname === '/shopping-cart.html' &&
+  window.screen.width < 1440
+) {
+  refs.supportUkraineAside.style.display = 'none';
+}
+

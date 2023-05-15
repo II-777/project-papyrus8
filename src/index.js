@@ -7,4 +7,5 @@ import './js/books-by-category';
 import './js/book-modal/book-modal';
 import './js/window-reload';
 import './js/auth/auth.js';
+import './js/modal-footer-team'
 import './js/burger';

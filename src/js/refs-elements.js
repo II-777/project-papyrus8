@@ -12,5 +12,8 @@ export const refs = {
 
   categoriesContainer: document.querySelector('.js-categories-list'),
   categoriesContainerItem: document.querySelector('.js-categories-list-item'),
+  toggleEl: document.querySelector('#theme-switcher'),
+  bodyEl: document.querySelector('body'),
 
+  switcherEl: document.querySelector('.js-dark-switcher'),
 };

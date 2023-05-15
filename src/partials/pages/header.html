@@ -1,49 +1,59 @@
 <header class="header__book">
   <div class="header__container">
-     
-     <div class="header__nav-logo">
-   
-    <a href="/src/index.html" class="header__link">
-      <svg class="header__logo">
-        <use href="/src/images/icon.svg#icon-logo"></use>
-      </svg>
-    <svg class="header__logo-name">
-        <use href="/src/images/icon.svg#icon-logoName"></use>
-      </svg></a>
-
-    <div class="header__nav">
-            <a href="/src/index.html" class="nav__list-home current">
-              <span class="header__nav-link">home</span> 
-            </a>
-            <a href="/src/shopping-cart.html" class="nav__list-home">
-              <span class="header__nav-link js-icon">shopping list</span> 
-              <svg class="header__nav-icon" width="20px" height="20px">
-        <use href="/src/images/icon.svg#icon-cart"></use>
-      </svg>
+    <div class="header__nav-logo">
+      <a href="/src/index.html" class="header__link">
+        <svg class="header__logo">
+          <use href="/src/images/icon.svg#icon-logo"></use>
+        </svg>
+        <svg class="header__logo-name">
+          <use href="/src/images/icon.svg#icon-logoName"></use>
+        </svg>
       </a>
-    </div> 
-     </div> 
-         <div class="header__theme-switcher">
+
+      <div class="header__nav">
+        <a href="/src/index.html" class="nav__list-home current">
+          <span class="header__nav-link">home</span>
+        </a>
+        <a href="/src/shopping-cart.html" class="nav__list-home">
+          <span class="header__nav-link header__nav-sl js-icon"
+            >shopping list</span
+          >
+          <svg
+            class="header__nav-icon shopping__list-svg"
+            width="20px"
+            height="20px"
+          >
+            <use href="/src/images/icon.svg#icon-cart"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="header__theme-switcher">
       <label class="switcher header__switcher">
-  <input class="switcher-input" id="theme-switcher" type="checkbox" >
-  <span class="switcher-slider js-dark-switcher"></span>
-  </label>
- 
-  <button type="button" class="header__menu-login btn-logout">
-   <!--<svg class="login-icon" wigth="12.67px" height="16.62px">
+        <input class="switcher-input" id="theme-switcher" type="checkbox" />
+        <span class="switcher-slider js-dark-switcher"></span>
+      </label>
+
+      <button type="button" class="header__menu-login btn-logout">
+        <!--<svg class="login-icon" wigth="12.67px" height="16.62px">
         <use href="/src/images/icon.svg#icon-profile"></use>
       </svg>-->
-      Sign up
-<svg class="login-icon-aroww">
-        <use href="/src/images/icon.svg#icon-arrowRight"></use>
-      </svg>
-    </button>
-    
-     <button id="openMenu" class="mobile-menu-open" aria-expanded="false" type="button">
-            <svg class="mobile-menu-open-icon">
-                <use href="/src/images/icon.svg#icon-menu"></use>  
-            </svg>
-        </button>
-        </div>    
+        Sign up
+        <svg class="login-icon-aroww">
+          <use href="/src/images/icon.svg#icon-arrowRight"></use>
+        </svg>
+      </button>
+
+      <button
+        id="openMenu"
+        class="mobile-menu-open"
+        aria-expanded="false"
+        type="button"
+      >
+        <svg class="mobile-menu-open-icon">
+          <use href="/src/images/icon.svg#icon-menu"></use>
+        </svg>
+      </button>
     </div>
+  </div>
 </header>

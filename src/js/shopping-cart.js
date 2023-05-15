@@ -9,9 +9,9 @@ const url =
 function getBooks() {
   fetch(url)
     .then(response => response.json())
-    // .then(data => {
-    //   localStorage.setItem('books', JSON.stringify(data));
-    // })
+    .then(data => {
+      localStorage.setItem('books', JSON.stringify(data));
+    })
     .catch(error => {
       console.log(error);
     });
@@ -23,23 +23,14 @@ let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
 
 console.log(slBooksData);
 
-function renderPage() {
-  if (booksData) {
-    slPage.innerHTML = createCardMarkup(booksData);
+function renderSlPage() {
+  if (slBooksData) {
+    slPage.innerHTML = createCardMarkup(slBooksData);
     const removeBtn = slPage.querySelectorAll('.js-remove-book');
     removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
   }
 }
-renderPage();
-
-function renderSlPage() {
-    if (slBooksData) {
-      slPage.innerHTML = createCardMarkup(slBooksData);
-      const removeBtn = slPage.querySelectorAll('.js-remove-book');
-      removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
-    } 
-}
-renderSlPage()
+renderSlPage();
 
 //  Removing a book from shopping list
 
@@ -48,13 +39,8 @@ function removeBookFromCart(event) {
     .closest('.sl-card')
     .querySelector('.sl-book-title').textContent;
 
-
-  booksData = booksData.filter(book => book.title !== slTitle);
-
-  renderPage();
-
   slBooksData = slBooksData.filter(book => book.title !== slTitle);
-  
+
   renderSlPage();
 }
 

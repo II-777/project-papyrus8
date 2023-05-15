@@ -51,6 +51,7 @@
 
 .support-list {
   padding-left: 40px;
+  
 }
 
 .support-button {
@@ -171,4 +172,10 @@
 
 .support-link {
   margin-bottom: 20px;
+}
+
+.slider-container{
+  overflow: hidden;
+  transition: 2s;
+  
 }

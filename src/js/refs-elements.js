@@ -12,7 +12,7 @@ export const refs = {
 
   categoriesContainer: document.querySelector('.js-categories-list'),
   categoriesContainerItem: document.querySelector('.js-categories-list-item'),
-
+  categoryAllCategories: document.querySelector('.js-all-categories'),
   btnOpenModalLogin: document.querySelector('.header__menu-login'),
   modalLogin: document.querySelector('#login-modal'),
   btnCloseModalLogin: document.querySelector('.modal-close-btn'),

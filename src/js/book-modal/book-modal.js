@@ -5,6 +5,7 @@ import { createMarkup } from './create-modal';
 // import icon from '../../images/icon.svg';
 
 const book = document.querySelector('.js-home-category-books-list');
+const basketArr = JSON.parse(localStorage.getItem('books')) ?? [];
 
 book.addEventListener('click', onClick);
 
@@ -12,40 +13,50 @@ function onClick(evt) {
   //   console.log(evt.target);
   const bookCard = evt.target.parentNode;
   const bookCardId = bookCard.dataset.id;
-  const basketArr = JSON.parse(localStorage.getItem('books')) ?? [];
 
   getBookId(bookCardId)
-    .then(id => {
+    .then(obj => {
       if (bookCard.classList.contains('js-home-books-item')) {
-        createMarkup(id);
+        createMarkup(obj);
       }
+      document.querySelector('.book-modal-buy').style.display = 'none';
 
       document.addEventListener('click', addToCart);
+      // document.addEventListener('click', removeFromCart);
 
       function addToCart(evt) {
-        const btn = evt.target.classList.contains('book-modal-btn');
-        if (btn) {
-          basketArr.push(id);
+        const btnAdd = evt.target.classList.contains('js-add');
+        const btnRemove = evt.target.classList.contains('js-remove');
+
+        if (btnAdd) {
+          evt.target.classList.remove('js-add');
+          evt.target.classList.add('js-remove');
+          document.querySelector('.book-modal-buy').style.display = 'block';
+
+          const inStorageAdd = basketArr.some(({ _id }) => _id === obj._id);
+          if (inStorageAdd) {
+            return;
+          }
+          basketArr.push(obj);
           localStorage.setItem('books', JSON.stringify(basketArr));
+        } else if (btnRemove) {
+          evt.target.classList.remove('js-remove');
+          evt.target.classList.add('js-add');
+          document.querySelector('.book-modal-buy').style.display = 'none';
+
+          const inStorageRemove = basketArr.some(({ _id }) => _id === obj._id);
+          if (inStorageRemove) {
+            basketArr.some(({ _id }) => {
+              basketArr.splice(basketArr.indexOf(_id), 1);
+              localStorage.removeItem('books', JSON.stringify(basketArr));
+            });
+          } else {
+            return;
+            // basketArr.push(obj);
+            // localStorage.setItem('books', JSON.stringify(basketArr));
+          }
         }
       }
     })
     .catch(err => console.log(err));
 }
-
-function findProduct(elem) {
-  const productId = Number(elem.closest('.js-home-books-item').dataset.id);
-
-  return getBookId.find(({ id }) => id === productId);
-}
-// addToCart();
-// function addToCart(evt) {
-//   const btn = evt.target.closest('book-modal-btn');
-
-//   bookCart.push(id);
-//   console.log(bookCart);
-//   localStorage.setItem('book', JSON.stringify(bookCart));
-// }
-// document.addEventListener('click', addToCart);
-
-// function removeFromCart() {}

@@ -31,9 +31,13 @@ function switchTheme(e) {
  /* refs.homeBtnSeeMore.classList.toggle('dark-button');
   refs.homeMainTitle.classList.toggle('dark__text');
   refs.homeMainTitleAccent.classList.toggle('dark__accent');*/
-
-
-   
 }
+refs.toggleEl.addEventListener('click', switchTheme);
+export function switchTheme() {
+  saveUserTheme === 'light'
+    ? (saveUserTheme = 'dark')
+    : (saveUserTheme = 'light');
 
- 
+  localStorage.setItem('user-theme', saveUserTheme);
+  refs.bodyEl.classList.toggle('dark-theme');
+}

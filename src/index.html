@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./sass/base/_support-ua.scss" />
     <link rel="stylesheet" href="./sass/base/_all-categories.scss" />
     <link rel="stylesheet" href="./sass/base/_footer.scss" />
+    <link rel="stylesheet" href="./sass/base/_login.scss" />
+    <link rel="stylesheet" href="./sass/base/_login-dark.scss" />
 
     <link
       rel="apple-touch-icon"
@@ -28,18 +30,20 @@
       sizes="16x16"
       href="./images/favicon/favicon-16x16.png"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
-    />
     <!-- <link rel="manifest" href="./images/favicon/site.webmanifest" /> -->
   </head>
-  <body>
+  <body class="body">
     <include src="./partials/pages/header.html"></include>
-    <include src="./partials/pages/all-categories.html"></include>
-    <include src="./partials/pages/support-ua.html"></include>
-    <include src="./partials/pages/main-content.html"></include>
+    <include src="./partials/modals/login-modal.html"></include>
+    <div class="main-page-wrapper container">
+      <div class="categories-support-wraper">
+        <include src="./partials/pages/all-categories.html"></include>
+        <include src="./partials/pages/support-ua.html"></include>
+      </div>
+      <include src="./partials/pages/main-content.html"></include>
+    </div>
     <include src="./partials/pages/footer.html"></include>
+    <include src="./partials/pages/modal-footer-team.html"></include>
     <div class="centered-element"></div>
 
     <script type="module" src="./index.js"></script>

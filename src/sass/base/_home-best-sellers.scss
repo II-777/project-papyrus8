@@ -1,5 +1,41 @@
+.body {
+  display: flex;
+  flex-direction: column;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 12px;
+
+  height: 200px;
+}
+
+body.dark-theme::-webkit-scrollbar-thumb {
+  background-color: rgba(17, 17, 17, 0.6);
+
+
+}
+.header__book {
+  margin-bottom: 40px;
+}
+.main-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+.categories-support-wraper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 40px;
+}
 .home-main-by-category {
   max-width: 335px;
+  margin-bottom: 40px;
 }
 .home-category-books-list {
   display: flex;
@@ -24,6 +60,9 @@
 }
 .home-main-title {
   color: var(--title-text-color-theme-light);
+}
+body.dark-theme .home-main-title {
+  color: var(--title-text-color-theme-dark);
 }
 .home-main-title-accent {
   color: var(--accent-color);
@@ -66,6 +105,9 @@
   text-transform: uppercase;
   color: var(--title-text-color-theme-light);
 }
+body.dark-theme .home-books-book-title {
+  color: var(--title-text-color-theme-dark);
+}
 .home-books-book-author {
   font-style: italic;
   font-weight: 400;
@@ -88,6 +130,10 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 }
+body.dark-theme .home-see-more-btn {
+  color: #ffffff;
+  background-color: #202024;
+}
 .home-main-scroll-up {
   cursor: pointer;
   position: absolute;
@@ -107,6 +153,11 @@
 
 /* tablet screen */
 @media screen and (min-width: 768px) {
+  .categories-support-wraper {
+    flex-direction: row;
+    column-gap: 32px;
+    margin-bottom: 100px;
+  }
   .home-main-by-category {
     max-width: 704px;
   }
@@ -129,8 +180,18 @@
 
 /* desktop screen */
 @media screen and (min-width: 1440px) {
+  .main-page-wrapper {
+    flex-direction: row;
+    align-items: start;
+    column-gap: 40px;
+  }
+  .categories-support-wraper {
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
   .home-main-by-category {
     max-width: 996px;
+    width: 996px;
   }
 
   .home-books-list {

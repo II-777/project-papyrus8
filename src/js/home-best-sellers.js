@@ -13,7 +13,6 @@ export let bestsellers = [];
 getTopBooks()
   .then(data => {
     bestsellers = data;
-    console.log(`request`);
     refs.homeCategoryBooksList.insertAdjacentHTML(
       'beforeend',
       createCategoryBooksList(bestsellers)
@@ -45,13 +44,14 @@ function createBooksList(books) {
     booksToRender = 5;
     bookTitleLength = 19;
   }
+
   return books
     .slice(0, booksToRender)
     .map(({ _id, author, book_image, title }) => {
       title.length > bookTitleLength
         ? (title = title.slice(0, bookTitleLength - 3) + '...')
         : title;
-      return `  <li class="home-books-item" data-id=${_id}>
+      return `  <li class="home-books-item js-home-books-item" data-id=${_id}>
                 <img class="home-books-book-picture" src="${book_image}" alt="${title}" />
                 <p class="home-books-book-title">${title}</p>
                 <p class="home-books-book-author">${author}</p>
@@ -61,7 +61,6 @@ function createBooksList(books) {
 }
 
 function scrollByCategoriesDown() {
-  console.log('observer');
   startCategory += 4;
   refs.homeCategoryBooksList.insertAdjacentHTML(
     'beforeend',

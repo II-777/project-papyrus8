@@ -39,11 +39,94 @@
       </svg>
     </button>
     
-     <button id="openMenu" class="mobile-menu-open" aria-expanded="false" type="button">
-            <svg class="mobile-menu-open-icon">
+     <button class="header__burger--open js-open-menu" aria-expanded="false" type="button">
+            <svg class="icon__burger--open"  width="28px" height="28px">
                 <use href="/src/images/icon.svg#icon-menu"></use>  
+            </svg>
+        </button>
+        <button class=" header__burger--close block js-close-menu" aria-expanded="false" type="button">
+            <svg class="icon__burger--close" width="28px" height="28px>
+                <use href="/src/images/icon.svg#icon-closeCross"></use>  
             </svg>
         </button>
         </div>    
     </div>
 </header>
+<div class="mobile-menu js-menu-container">
+  
+  <div class="container mobile-menu__container mobile-menu--thumb"> 
+    <a class="mobile-menu__singin--link" href="#">
+      Sign up
+        <svg width="20px" height="20px">
+          <use href="/src/images/icon.svg#icon-arrowRight"></use>
+        </svg>
+      </a> 
+<div class="show__icon">
+  <svg width="37px" height="37px"> 
+          <use href="/src/images/icon.svg#icon-profile"></use>
+         </svg>
+         <a class="mobile-menu__user_name" href="#" openSignUp
+        >User Name</a>
+</div> 
+      
+
+    <ul class="mobile-menu--list js-mobile__nav">
+      <li class="mobile-menu--home current"><a href="/src/index.html">Home</a></li>
+      <li class="mobile-menu--shoping">
+        <a href="/src/shopping-cart.html">Shopping list </a>
+        <svg class="mobile-menu--icon" width="20px" height="20px">
+          <use href="/src/images/icon.svg#icon-cart"></use>
+        </svg>
+      </li>
+    </ul>
+    <button class="mobile-menu--log-out" type="button">
+      Log out
+  <svg width="20px" height="20px"> 
+          <use href="/src/images/icon.svg#icon-arrowRight"></use>
+        </svg>
+</button>
+  
+  </div>  
+
+ 
+</div>
+
+
+
+
+
+<!--
+<div class="mobile__menu js-menu"> 
+  <div class="mobile__menu-container mobile js-registration"> 
+    <a class="mobile__menu-link-sign" href="#" onSingUp>
+      Sign up
+        <svg width="20px" height="20px">
+          <use href="/src/images/icon.svg#icon-arrowRight"></use>
+        </svg>
+      </a> 
+<div class="mobile__menu-user-icon">
+  <svg width="37px" height="37px"> 
+          <use href="/src/images/icon.svg#icon-profile" ></use>
+         </svg>
+         <a class="mobile__menu__user" href="#" onSignUp
+        >User Name</a>
+</div>
+    <ul class="mobile__menu-list js-mobile-nav">
+      <li class="mobile__menu-home current"><a class="home-item" href="./index.html">Home</a></li>
+      <li class="mobile__menu-shopping ">
+        <a class="shopping" href="/src/shopping-cart.html">Shopping list </a>
+        <svg class="mobile__menu-icon" width="20px" height="20px">
+          <use href="/src/images/icon.svg#icon-cart"></use>
+        </svg>
+      </li>
+    </ul>
+    <button class="mobile__menu-link-out" type="button">
+      Log out
+  <svg width="20px" height="20px"> 
+          <use href="/src/images/icon.svg#icon-arrowRight"></use>
+        </svg>
+</button>
+  
+ </div>  
+ 
+</div>-->

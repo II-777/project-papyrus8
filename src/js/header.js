@@ -1,21 +1,25 @@
+import { refs } from "./refs-elements";
+
 const toggleEl = document.querySelector('#theme-switcher');
 const bodyEl = document.querySelector('body');
 const headerEl = document.querySelector('.header__container');
 const shoppingEl = document.querySelector('.js-icon');
 const switcherEl = document.querySelector('.js-dark-switcher');
 const menuDarkEl = document.querySelector('.mobile-menu-open-icon');
-/*const btnMoreEl = document.querySelector('.home-see-more-btn');*/
+const closeDark=document.querySelector('.mobile-menu-close-icon')
+
+
 const logoEl = document.querySelector('.header__logo-name');
-
-
-/*if (defaultTheme) {
-  bodyEl.classList.add(defaultTheme);
-}*/
-
+/*const Theme = {
+  LIGHT: 'light',
+  DARK:'dark'
+}
+const currentTheme = 'light';
+const nextTheme = currentTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;*/
 toggleEl.addEventListener('click', switchTheme);
 
 function switchTheme(e) {
-  console.log(e.currentTarget);
+ 
   toggleEl.classList.toggle('dark-switcher');
     bodyEl.classList.toggle('dark-theme');
     headerEl.classList.toggle('dark');
@@ -23,7 +27,10 @@ function switchTheme(e) {
   shoppingEl.classList.toggle('dark__icon');
   switcherEl.classList.toggle('dark-switcher');
   menuDarkEl.classList.toggle('dark__menu');
- /* btnMoreEl.classList.toggle('dark-button');*/
+  closeDark.classList.toggle('dark__close');
+ /* refs.homeBtnSeeMore.classList.toggle('dark-button');
+  refs.homeMainTitle.classList.toggle('dark__text');
+  refs.homeMainTitleAccent.classList.toggle('dark__accent');*/
 
 
    

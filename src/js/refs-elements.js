@@ -19,4 +19,6 @@ export const refs = {
   btnSignUp: document.querySelector('[data-sign="up"]'),
   btnSignIn: document.querySelector('[data-sign="in"]'),
   btnGoogle: document.querySelector('[name="submitUpBtn"]'),
+  btnOpenBurgerMenu: document.querySelector('#openMenu'),
+  headerNav: document.querySelector('.header__nav'),
 };

@@ -128,13 +128,21 @@ function onClick(evt) {
   // const list = document.querySelector('.support-list') 
   // const link = document.querySelector('.support-link') 
   // const sliderButton = document.querySelector('.slider-button');
-  // const sliderItemHeight = 32;
+  // const sliderItemHeight = container.height() /slidesToShow;
+  // const movePosition = slidesToScroll * sliderItemHeight;
   
-  // link.each(function(index, link){
+  // link.each(function(list, link){
   //   $(link).css({
   //     minHeight: sliderItemHeight,
   //   });
   // });
   
-  // sliderButton.click
+  // sliderButton.click(function(){
+  // position += movePosition
+
+  //   track.css({
+  //     transform: `translateX(${position}px)`
+  //   })
+
+  // })
   

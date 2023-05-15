@@ -58,7 +58,7 @@ getCategoryList()
 function createAllCategories() {
   const allCategory = document.createElement('li');
   allCategory.classList.add(
-    'js-all-categoties',
+    'js-all-categories',
     'js-category-name-item',
     'categories-list__item',
     'category-active'

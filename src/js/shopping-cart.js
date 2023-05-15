@@ -1,23 +1,24 @@
 import icon from '../images/icon.svg'
-// import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
+// // import Pagination from 'tui-pagination';
+// // import 'tui-pagination/dist/tui-pagination.css';
 
 const slPage = document.querySelector('.js-sl')
 
-const url = 'https://books-backend.p.goit.global/books/category?category=Hardcover Fiction';
-function getBooks() {
-    fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    localStorage.setItem('books', JSON.stringify(data));
-  })
-  .catch(error => {
-    console.log(error);
-  });
-}
-getBooks()
+// const url = 'https://books-backend.p.goit.global/books/category?category=Hardcover Fiction';
+// function getBooks() {
+//     fetch(url)
+//   .then(response => response.json())
+//   .then(data => {
+//     localStorage.setItem('books', JSON.stringify(data));
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+// }
+// getBooks()
 
 // Отримуємо дані з localStorage
+
 let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
 
 console.log(slBooksData);

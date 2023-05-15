@@ -86,11 +86,11 @@ function createImageCardMarkup(supportArray) {
   return supportArray
     .map(({ title, url, img, img2x }, ind) => {
       let num = String(ind + 1).padStart(2, '0');
-      return `<li class="js-support">
+      return `<li class="support-link js-support">
         <a class="js-target" href="${url}" target="_blank">
           <span class="support-number">${num}
-          <img class="support-img" width="129px" height="32px" srcset="${img}" 1x, ${img2x} src="${img}" alt="${title}"></span>
-
+          <img class="support-img" srcset="${img} 1x, ${img2x} 2x" 
+          src="${img}" alt="${title}"/></span>
         </a>
       </li>`;
     })
@@ -153,14 +153,20 @@ function onClick(evt) {
   // const list = document.querySelector('.support-list') 
   // const link = document.querySelector('.support-link') 
   // const sliderButton = document.querySelector('.slider-button');
-  // const sliderItemHeight = 32;
+  // const sliderItemHeight = container.height() /slidesToShow;
+  // const movePosition = slidesToScroll * sliderItemHeight;
   
-  // link.each(function(index, link){
+  // link.each(function(list, link){
   //   $(link).css({
   //     minHeight: sliderItemHeight,
   //   });
   // });
   
-  // sliderButton.click
-  
+  // sliderButton.click(function(){
+  // position += movePosition
 
+  //   track.css({
+  //     transform: `translateX(${position}px)`
+  //   })
+
+  // })

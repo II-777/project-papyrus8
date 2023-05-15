@@ -6,6 +6,11 @@ export const refs = {
   homeButtonsSeeMore: document.getElementsByClassName('home-see-more-btn'),
   homeMainTitle: document.querySelector('.home-main-title'),
   homeMainTitleAccent: document.querySelector('.home-main-title-accent'),
+
   homeBookTitles: document.getElementsByClassName('home-books-book-title'),
   categoriesList: document.querySelector('.categories-list'),
+
+  categoriesContainer: document.querySelector('.js-categories-list'),
+  categoriesContainerItem: document.querySelector('.js-categories-list-item'),
+
 };

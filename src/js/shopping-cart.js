@@ -1,4 +1,3 @@
-
 import icon from '../images/icon.svg';
 import { refs } from './refs-elements';
 // // import Pagination from 'tui-pagination';
@@ -13,19 +12,15 @@ let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
 console.log(slBooksData);
 
 function renderSlPage() {
+  if (slBooksData) {
+    slPage.innerHTML = createCardMarkup(slBooksData);
+    const removeBtn = slPage.querySelectorAll('.js-remove-book');
+    removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
+  }
 
-
-    if (slBooksData) {
-      slPage.innerHTML = createCardMarkup(slBooksData);
-      const removeBtn = slPage.querySelectorAll('.js-remove-book');
-      removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
-    } 
-
-    if (slBooksData.length === 0) {
-      localStorage.clear();
-    }
-    
-
+  if (slBooksData.length === 0) {
+    localStorage.clear();
+  }
 }
 renderSlPage();
 
@@ -77,7 +72,6 @@ function createCardMarkup(booksData) {
     .join('');
 }
 
-
 // Pagination
 
 // const container = document.getElementById('pagination');
@@ -105,11 +99,9 @@ function createCardMarkup(booksData) {
 
 // const pagination = new Pagination(container, options);
 
-console.dir(window);
 if (
   window.location.pathname === '/shopping-cart.html' &&
   window.screen.width < 1440
 ) {
   refs.supportUkraineAside.style.display = 'none';
 }
-

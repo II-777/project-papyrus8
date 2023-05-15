@@ -18,27 +18,27 @@ function getBooks() {
 getBooks()
 
 // Отримуємо дані з localStorage
-let booksData = JSON.parse(localStorage.getItem('books')) || [];
+let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
 
-console.log(booksData);
+console.log(slBooksData);
 
-function renderPage() {
-    if (booksData) {
-      slPage.innerHTML = createCardMarkup(booksData);
+function renderSlPage() {
+    if (slBooksData) {
+      slPage.innerHTML = createCardMarkup(slBooksData);
       const removeBtn = slPage.querySelectorAll('.js-remove-book');
       removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
     } 
 }
-renderPage()
+renderSlPage()
 
 //  Removing a book from shopping list 
 
 function removeBookFromCart(event) {
   const slTitle = event.target.closest('.sl-card').querySelector('.sl-book-title').textContent;
 
-  booksData = booksData.filter(book => book.title !== slTitle);
+  slBooksData = slBooksData.filter(book => book.title !== slTitle);
   
-  renderPage();
+  renderSlPage();
 }
 
 function createCardMarkup(booksData) {

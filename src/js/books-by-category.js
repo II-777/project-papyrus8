@@ -55,6 +55,7 @@ function onCategoryClick(evt) {
 function createMarkup(obj) {
   let bookTitleLength = 28;
   let authorLength = 40;
+
   if (window.screen.width >= 768 && window.screen.width < 1440) {
     bookTitleLength = 23;
     authorLength = 30;

@@ -6,9 +6,6 @@ import { refs } from './refs-elements';
 
 const slPage = document.querySelector('.js-sl');
 
-
-const slPage = document.querySelector('.js-sl')
-
 // Getting data from local Storage
 
 let slBooksData = JSON.parse(localStorage.getItem('books')) || [];

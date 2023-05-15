@@ -1,6 +1,11 @@
-.support-box{
+.support-box {
   display: grid;
+
+  max-width: 335px;
+  height: 375px;
+
   padding-top: 24px;
+
   max-width: 335px;
   height: 352px;
   background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
@@ -33,7 +38,7 @@
   display: flex;
   padding-left: 40px;
   font-family: var(--primary-font);
-  color: var(--title-text-color-theme-dark) ;
+  color: var(--title-text-color-theme-dark);
   font-weight: 700;
   margin-top: 16px;
   font-size: 28px;
@@ -42,11 +47,11 @@
   padding-bottom: 40px;
 }
 
-.support-list{
+.support-list {
   padding-left: 40px;
 }
 
-.support-button{
+.support-button {
   display: flex;
   background-color: var(--title-text-color-theme-dark);
   border-radius: 50%;
@@ -80,22 +85,38 @@
   }
 } 
 
+// @media screen and (min-width:428px) {
+      // width: 32px;
+      // height: 32px;
+      // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+// }
+// @media screen and (min-width: 768px) {
+    // width: 38px;
+    // height: 38px;
+    // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+// }
+      // 
+// @media screen and (min-width: 1440px) {
+    // width: 38px;
+    // height: 38px;
+    // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+// }  
+
 .support-button:focus,
-.support-button:hover{
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    // transform: rotate(180deg);
-}
-// 
-
-.button-support{
-    justify-content: center;
-    justify-self: center;
-    align-self: flex-end;
-    margin-bottom: 24px;
+.support-button:hover {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.support-button-svg{
+.button-support {
+  justify-content: center;
+  justify-self: center;
+  align-self: flex-end;
+  margin-bottom: 24px;
+}
+
+.support-button-svg {
   fill:var(--accent-color);
+
   display: flex;
   margin: 0;
   width: 20px;
@@ -128,19 +149,19 @@
   margin-left: 12px;
 }
 
-.support-img{
-  fill:var(--title-text-color-theme-dark);
+.support-img {
+  fill: var(--title-text-color-theme-dark);
   margin-left: 16px;
   filter: brightness(0) invert(1); 
 }
 
-.support-number{
-  color:var(--title-text-color-theme-dark);
+.support-number {
+  color: var(--title-text-color-theme-dark);
   display: flex;
   align-items: center;
   height: 32px;
 }
 
-.support-link{
+.support-link {
   margin-bottom: 20px;
 }

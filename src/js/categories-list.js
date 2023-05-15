@@ -15,7 +15,7 @@ function createMurkupForCategoryList(arr) {
   return arr
     .map(
       el =>
-        `<li class="categories-list__item"><a href="#">${el.list_name}</a></li>`
+        `<li class="categories-list__item"><p data-category='${el.list_name}'>${el.list_name}</p></li>`
     )
     .join('');
 }

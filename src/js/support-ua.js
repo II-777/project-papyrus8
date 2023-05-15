@@ -89,7 +89,7 @@ function createImageCardMarkup(supportArray) {
         <a class="js-target" href="${url}" target="_blank">
           <span class="support-number">${num}
           <img class="support-img" srcset="${img} 1x, ${img2x} 2x" 
-          src="${img}" alt="${title}"></span>
+          src="${img}" alt="${title}"/></span>
         </a>
       </li>`;
     })

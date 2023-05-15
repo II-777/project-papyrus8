@@ -86,7 +86,7 @@ function createImageCardMarkup(supportArray) {
   return supportArray
     .map(({ title, url, img, img2x }, ind) => {
       let num = String(ind + 1).padStart(2, '0');
-      return `<li class="js-support">
+      return `<li class="support-link js-support">
         <a class="js-target" href="${url}" target="_blank">
           <span class="support-number">${num}
           <img class="support-img" srcset="${img} 1x, ${img2x} 2x" 

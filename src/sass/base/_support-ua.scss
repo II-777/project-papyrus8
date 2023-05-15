@@ -17,12 +17,13 @@
   border-radius: 16px;
 }
 
+
 @media screen and (min-width: 428px) {
   .support-box {
     max-width: 335px;
     height: 352px;
   }
-}
+
 
 @media screen and (min-width: 768px) {
   .support-box {
@@ -37,6 +38,7 @@
     height: 490px;
   }
 }
+
 
 .support-title {
   display: flex;
@@ -125,10 +127,14 @@
   height: 20px;
 }
 
-@media screen and (min-width: 428px) {
-  .support-button-svg {
-    width: 20px;
-    height: 20px;
+
+
+
+@media screen and (min-width: 428px){
+  .support-button-svg{
+  width: 20px;
+  height: 20px;
+
   }
 }
 
@@ -146,6 +152,7 @@
   }
 }
 
+
 .support-svg {
   fill: var(--title-text-color-theme-dark);
   margin-left: 12px;
@@ -154,7 +161,11 @@
 .support-img {
   fill: var(--title-text-color-theme-dark);
   margin-left: 16px;
-  filter: brightness(0) invert(1);
+
+
+  filter: brightness(0) invert(1); 
+
+
 }
 
 .support-number {

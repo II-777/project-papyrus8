@@ -3,9 +3,14 @@ export const refs = {
   homeCategoryBooksList: document.querySelector('.js-home-category-books-list'),
   homeObserverTarget: document.querySelector('.js-guard'),
   homeMainScrollUp: document.querySelector('.js-home-main-scroll-up'),
-  homeBtnSeeMore: document.querySelector('js-btn-more'),
+  homeButtonsSeeMore: document.getElementsByClassName('home-see-more-btn'),
   homeMainTitle: document.querySelector('.home-main-title'),
   homeMainTitleAccent: document.querySelector('.home-main-title-accent'),
+
+  homeBookTitles: document.getElementsByClassName('home-books-book-title'),
+  categoriesList: document.querySelector('.categories-list'),
+
   categoriesContainer: document.querySelector('.js-categories-list'),
   categoriesContainerItem: document.querySelector('.js-categories-list-item'),
+
 };

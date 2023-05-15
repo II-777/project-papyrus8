@@ -11,7 +11,10 @@ const logoEl = document.querySelector('.header__logo-name');
 /*if (defaultTheme) {
   bodyEl.classList.add(defaultTheme);
 }*/
-
+refs.categoriesList.style.setProperty(
+  '--scroll-color',
+  'rgba(224, 224, 224, 1);'
+);
 toggleEl.addEventListener('click', switchTheme);
 
 function switchTheme(e) {
@@ -31,4 +34,8 @@ function switchTheme(e) {
   for (let element of refs.homeBookTitles) {
     element.classList.toggle('dark-text');
   }
+  refs.categoriesList.style.setProperty(
+    '--scroll-color',
+    'rgba(17, 17, 17, 0.6)'
+  );
 }

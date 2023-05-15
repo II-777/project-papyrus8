@@ -7,4 +7,5 @@ export const refs = {
   homeMainTitle: document.querySelector('.home-main-title'),
   homeMainTitleAccent: document.querySelector('.home-main-title-accent'),
   homeBookTitles: document.getElementsByClassName('home-books-book-title'),
+  categoriesList: document.querySelector('.categories-list'),
 };

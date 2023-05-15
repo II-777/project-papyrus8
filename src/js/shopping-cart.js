@@ -1,3 +1,4 @@
+
 import icon from '../images/icon.svg';
 import { refs } from './refs-elements';
 // // import Pagination from 'tui-pagination';
@@ -5,31 +6,29 @@ import { refs } from './refs-elements';
 
 const slPage = document.querySelector('.js-sl');
 
-// const url = 'https://books-backend.p.goit.global/books/category?category=Hardcover Fiction';
-// function getBooks() {
-//     fetch(url)
-//   .then(response => response.json())
-//   .then(data => {
-//     localStorage.setItem('books', JSON.stringify(data));
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-// }
-// getBooks()
 
-// Отримуємо дані з localStorage
+const slPage = document.querySelector('.js-sl')
+
+// Getting data from local Storage
 
 let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
 
 console.log(slBooksData);
 
 function renderSlPage() {
-  if (slBooksData) {
-    slPage.innerHTML = createCardMarkup(slBooksData);
-    const removeBtn = slPage.querySelectorAll('.js-remove-book');
-    removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
-  }
+
+
+    if (slBooksData) {
+      slPage.innerHTML = createCardMarkup(slBooksData);
+      const removeBtn = slPage.querySelectorAll('.js-remove-book');
+      removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
+    } 
+
+    if (slBooksData.length === 0) {
+      localStorage.clear();
+    }
+    
+
 }
 renderSlPage();
 
@@ -81,6 +80,7 @@ function createCardMarkup(booksData) {
     .join('');
 }
 
+
 // Pagination
 
 // const container = document.getElementById('pagination');
@@ -115,3 +115,4 @@ if (
 ) {
   refs.supportUkraineAside.style.display = 'none';
 }
+

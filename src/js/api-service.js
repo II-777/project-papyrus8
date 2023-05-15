@@ -5,7 +5,10 @@ import { refs } from './refs-elements';
 
 const BASE_URL = 'https://books-backend.p.goit.global/books/';
 
-let spinner = new Spinner();
+const opts = {
+  zIndex: 100,
+};
+let spinner = new Spinner(opts);
 
 class ApiService {
   constructor(url) {

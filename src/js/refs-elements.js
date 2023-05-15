@@ -12,8 +12,18 @@ export const refs = {
 
   categoriesContainer: document.querySelector('.js-categories-list'),
   categoriesContainerItem: document.querySelector('.js-categories-list-item'),
+
   toggleEl: document.querySelector('#theme-switcher'),
   bodyEl: document.querySelector('body'),
 
   switcherEl: document.querySelector('.js-dark-switcher'),
+
+  categoryAllCategories: document.querySelector('.js-all-categories'),
+  btnOpenModalLogin: document.querySelector('.header__menu-login'),
+  modalLogin: document.querySelector('#login-modal'),
+  btnCloseModalLogin: document.querySelector('.modal-close-btn'),
+  btnSignUp: document.querySelector('[data-sign="up"]'),
+  btnSignIn: document.querySelector('[data-sign="in"]'),
+  btnGoogle: document.querySelector('[name="submitUpBtn"]'),
+
 };

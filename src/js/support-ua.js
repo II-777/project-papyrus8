@@ -145,28 +145,35 @@ function onClick(evt) {
 //     }
 //   });
   
-  // let position = 0;
-  // const slidesToShow = 6;
-  // const slidesToScroll = 2;
+  let position = 0;
+  const slidesToShow = 6;
+  const slidesToScroll = 1;
   
-  // const container = document.querySelector('.slider-container') 
-  // const list = document.querySelector('.support-list') 
+  const container = document.querySelector('.slider-container') 
+  const list = document.querySelector('.support-list') 
   // const link = document.querySelector('.support-link') 
-  // const sliderButton = document.querySelector('.slider-button');
-  // const sliderItemHeight = container.height() /slidesToShow;
-  // const movePosition = slidesToScroll * sliderItemHeight;
+  const sliderButton = document.querySelector('.slider-button');
+  const itemsSupport = document.querySelectorAll('.support-link');
+  const itemsCount = itemsSupport.length;
+  const sliderItemHeight = container.clientHeight /slidesToShow;
+  const movePosition = slidesToScroll * sliderItemHeight;
   
-  // link.each(function(list, link){
-  //   $(link).css({
-  //     minHeight: sliderItemHeight,
-  //   });
-  // });
+  itemsSupport.forEach((item) =>{
+    item.style.minHeight = `${sliderItemHeight}px`;
+  });
   
-  // sliderButton.click(function(){
-  // position += movePosition
+  sliderButton.addEventListener('click', () => {
+  const itemsBotton = itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / sliderItemHeight;
+    
+    position -= itemsBotton >= slidesToScroll ? movePosition : itemsBotton * sliderItemHeight;
+    
+    setPosition();
+    
+  })
 
-  //   track.css({
-  //     transform: `translateX(${position}px)`
-  //   })
+  const setPosition = () => {
+  list.style.transform = `translateY(${position}px)`
+}
 
-  // })
+
+

@@ -45,7 +45,7 @@ function createMarkup(obj) {
       author.length > authorLength
         ? (author = author.slice(0, authorLength - 3) + '...')
         : author;
-      return `<li class="home-books-item">
+      return `<li class="home-books-item js-home-books-item">
                 <img class="home-books-book-picture" src="${book_image}" alt="${title}" />
                 <p class="home-books-book-title">${title}</p>
                 <p class="home-books-book-author">${author}</p>

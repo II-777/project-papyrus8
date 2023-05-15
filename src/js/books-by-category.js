@@ -68,16 +68,17 @@ function onCategoryClick(evt) {
 
   if (categoryName) {
     addCategoryTitleAccent(categoryName);
-  }
 
-  getBooksInCategory(categoryName)
-    .then(data =>
-      refs.homeCategoryBooksList.insertAdjacentHTML(
-        'beforeend',
-        createMarkup(data)
+    getBooksInCategory(categoryName)
+      .then(data =>
+        refs.homeCategoryBooksList.insertAdjacentHTML(
+          'beforeend',
+          createMarkup(data)
+        )
       )
-    )
-    .catch(err => console.log(err));
+      .catch(err => console.log(err));
+  } else {
+  }
 }
 
 function createMarkup(obj) {

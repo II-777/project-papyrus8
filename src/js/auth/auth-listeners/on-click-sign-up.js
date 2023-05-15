@@ -35,6 +35,7 @@ export function onClickSignUp (e) {
       const uid = user.uid;
       refs.btnOpenModalLogin.textContent = 'Log out';
       console.log('Вошел зарегистрированный пользователь');
+      refs.headerNav.removeAttribute("hidden")
     } else {
     }
   });

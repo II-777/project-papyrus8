@@ -45,6 +45,9 @@
 .home-main-title {
   color: var(--title-text-color-theme-light);
 }
+body.dark-theme .home-main-title {
+  color: var(--title-text-color-theme-dark);
+}
 .home-main-title-accent {
   color: var(--accent-color);
 }
@@ -86,6 +89,9 @@
   text-transform: uppercase;
   color: var(--title-text-color-theme-light);
 }
+body.dark-theme .home-books-book-title {
+  color: var(--title-text-color-theme-dark);
+}
 .home-books-book-author {
   font-style: italic;
   font-weight: 400;
@@ -107,6 +113,10 @@
   line-height: 1.3;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+}
+body.dark-theme .home-see-more-btn {
+  color: #ffffff;
+  background-color: #202024;
 }
 .home-main-scroll-up {
   cursor: pointer;
@@ -177,11 +187,4 @@
     width: 180px;
     height: 256px;
   }
-}
-.dark-text {
-  color: #ffffff;
-}
-.dark-button {
-  color: #ffffff;
-  background-color: #202024;
 }

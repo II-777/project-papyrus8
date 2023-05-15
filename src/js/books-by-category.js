@@ -43,8 +43,6 @@ function onCategoryClick(evt) {
   arrClass.map(item => item.classList.remove('category-active'));
   evt.target.classList.add('category-active');
 
-  console.log(evt.target.textContent.length);
-
   refs.homeCategoryBooksList.innerHTML = '';
   observer.unobserve(refs.homeObserverTarget);
   const categoryName = evt.target.dataset.category;
@@ -77,7 +75,6 @@ function onCategoryClick(evt) {
         )
       )
       .catch(err => console.log(err));
-  } else {
   }
 }
 

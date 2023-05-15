@@ -1,6 +1,10 @@
 body {
   background-color: #f6f6f6;
 }
+.shopping-list-wrapper {
+  display: flex;
+  column-gap: 40px;
+}
 .sl-title {
   font-weight: 700;
   font-size: 32px;
@@ -9,7 +13,7 @@ body {
 
   color: #111111;
 
-  margin-top: 40px;
+  // margin-top: 40px;
   margin-bottom: 40px;
 }
 

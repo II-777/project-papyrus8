@@ -28,4 +28,5 @@ export const refs = {
   switcherCircle: document.querySelector('.switcher-input'),
   btnOpenBurgerMenu: document.querySelector('#openMenu'),
   headerNav: document.querySelector('.header__nav'),
+  supportUkraineAside: document.querySelector('.support-box'),
 };

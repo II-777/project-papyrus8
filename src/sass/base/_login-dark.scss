@@ -1,0 +1,40 @@
+body.dark-theme {
+  .auth-modal {
+    background-color: var(--primary-bg-color-dark);
+    border-color: var(--primary-bg-color-light);
+  }
+  .modal-icon {
+    stroke: var(--primary-bg-color-light);
+  }
+  .modal-input {
+    color: var(--primary-bg-color-light);
+    background-color: var(--primary-bg-color-dark);
+    border-color: var(--primary-bg-color-light);
+
+    &:focus {
+      border-color: var(--accent-color);
+      outline: transparent;
+    }
+    &::placeholder {
+      color: var(--primary-bg-color-light);
+    }
+  }
+  .modal-submit-btn {
+    background-color: var(--primary-bg-color-light);
+    color: #202022;
+    &:hover,
+    &:focus {
+      color: var(--primary-text-color-theme-dark);
+      background-color: var(--accent-color);
+    }
+  }
+  .modal-sign-btn {
+    color: var(--primary-text-color-theme-dark);
+    // &.is-active {
+      // color: var(--accent-color);
+    // }
+  }
+  .modal-close-icon {
+    stroke: var(--primary-bg-color-light);
+  }
+}

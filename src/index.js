@@ -6,6 +6,7 @@ import './js/home-best-sellers';
 import './js/books-by-category';
 import './js/shopping-cart';
 import './js/book-modal/book-modal';
+import './js/book-modal';
 import './js/window-reload';
 
 //все нижче можна видалити, зроблено щоб бачили у консолі, що повертається

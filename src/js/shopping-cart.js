@@ -19,9 +19,9 @@ function getBooks() {
 getBooks();
 
 // Отримуємо дані з localStorage
-let booksData = JSON.parse(localStorage.getItem('books')) || [];
+let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
 
-console.log(booksData);
+console.log(slBooksData);
 
 function renderPage() {
   if (booksData) {
@@ -32,6 +32,15 @@ function renderPage() {
 }
 renderPage();
 
+function renderSlPage() {
+    if (slBooksData) {
+      slPage.innerHTML = createCardMarkup(slBooksData);
+      const removeBtn = slPage.querySelectorAll('.js-remove-book');
+      removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
+    } 
+}
+renderSlPage()
+
 //  Removing a book from shopping list
 
 function removeBookFromCart(event) {
@@ -39,9 +48,14 @@ function removeBookFromCart(event) {
     .closest('.sl-card')
     .querySelector('.sl-book-title').textContent;
 
+
   booksData = booksData.filter(book => book.title !== slTitle);
 
   renderPage();
+
+  slBooksData = slBooksData.filter(book => book.title !== slTitle);
+  
+  renderSlPage();
 }
 
 function createCardMarkup(booksData) {

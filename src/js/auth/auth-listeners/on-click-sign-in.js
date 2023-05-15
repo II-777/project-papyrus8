@@ -33,6 +33,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
     refs.btnOpenModalLogin.textContent = 'Log out';
+    refs.headerNav.removeAttribute("hidden");
     console.log('Вошел зарегистрированный пользователь');
   } else {
   }})

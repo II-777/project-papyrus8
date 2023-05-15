@@ -1,34 +1,26 @@
 import icon from '../images/icon.svg'
-// // import Pagination from 'tui-pagination';
-// // import 'tui-pagination/dist/tui-pagination.css';
+
 
 const slPage = document.querySelector('.js-sl')
 
-// const url = 'https://books-backend.p.goit.global/books/category?category=Hardcover Fiction';
-// function getBooks() {
-//     fetch(url)
-//   .then(response => response.json())
-//   .then(data => {
-//     localStorage.setItem('books', JSON.stringify(data));
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-// }
-// getBooks()
-
-// Отримуємо дані з localStorage
+// Getting data from local Storage
 
 let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
 
 console.log(slBooksData);
 
 function renderSlPage() {
+
     if (slBooksData) {
       slPage.innerHTML = createCardMarkup(slBooksData);
       const removeBtn = slPage.querySelectorAll('.js-remove-book');
       removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
     } 
+
+    if (slBooksData.length === 0) {
+      localStorage.clear();
+    }
+    
 }
 renderSlPage()
 
@@ -75,31 +67,3 @@ function createCardMarkup(booksData) {
     </li>`;
   }).join('');
 }
-
-
-// Pagination
-
-// const container = document.getElementById('pagination');
-// const options = {
-//   totalItems: 200, 
-//   itemsPerPage: 4, 
-//   visiblePages: 3,
-//   page: 1,
-//   centerAlign: true,
-//   firstItemClassName: 'tui-first-child',
-//   lastItemClassName: 'tui-last-child',
-//   template: {
-//     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-//     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-//     moveButton:
-//       '<a href="#" class="tui-page-btn tui-{{type}}">' +
-//       '<span class="tui-ico-{{type}}">{{type}}</span>' +
-//       '</a>',
-//     disabledMoveButton:
-//       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-//       '<span class="tui-ico-{{type}}">{{type}}</span>' +
-//       '</span>',
-//   },
-// }
-
-// const pagination = new Pagination(container, options);

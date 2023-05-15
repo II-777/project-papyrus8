@@ -25,5 +25,5 @@ export const refs = {
   btnSignUp: document.querySelector('[data-sign="up"]'),
   btnSignIn: document.querySelector('[data-sign="in"]'),
   btnGoogle: document.querySelector('[name="submitUpBtn"]'),
-
+  switcherCircle: document.querySelector('.switcher-input'),
 };

@@ -1,16 +1,34 @@
 .book-modal {
   width: 335px;
-  min-height: 762px;
+  min-height: 678px;
   background-color: #ffffff;
   border: 2px solid #111111;
   border-radius: 18px;
   padding: 40px 24px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 579px;
+    min-height: 465px;
+    padding: 40px 40px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .book-modal-details {
+    margin-left: 24px;
+    width: 279px;
+  }
 }
 .book-modal-img {
   width: 287px;
   height: 408px;
   border-radius: 8px;
   margin-bottom: 14px;
+  @media screen and (min-width: 768px) {
+    width: 192px;
+    height: 281px;
+    margin-bottom: 40px;
+  }
 }
 .book-modal-title {
   margin-bottom: 4px;
@@ -21,6 +39,11 @@
   line-height: 18px;
   letter-spacing: -0.04em;
   color: #111111;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 .book-modal-author {
   margin-bottom: 18px;
@@ -32,6 +55,11 @@
   letter-spacing: -0.04em;
 
   color: #b4afaf;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 .book-modal-desc {
   max-width: 287px;
@@ -43,6 +71,9 @@
   line-height: 18px;
   letter-spacing: -0.04em;
   color: #111111;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 }
 .icon-book-modal-list {
   margin-bottom: 40px;
@@ -69,7 +100,8 @@
   display: flex;
   margin-right: auto;
   margin-left: auto;
-  padding: 14px 28px;
+  margin-bottom: 8px;
+  padding: 14px 23px;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
@@ -80,4 +112,37 @@
   color: #111111;
   border: 2px solid #4f2ee8;
   border-radius: 40px;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    padding: 20px 95px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+.book-modal-buy {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  width: 242px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: rgba(17, 17, 17, 0.5);
+  @media screen and (min-width: 768px) {
+    width: 324px;
+
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+.js-add::after {
+  content: 'Add to shopping list';
+}
+.js-remove::after {
+  content: 'Remove from the shopping list';
 }

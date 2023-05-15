@@ -2,6 +2,19 @@
   display: flex;
   flex-direction: column;
 }
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 12px;
+  height: 114px;
+}
+
+body.dark-theme::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 17, 0.6);
+}
 .header__book {
   margin-bottom: 40px;
 }

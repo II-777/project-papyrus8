@@ -1,9 +1,9 @@
 import { getBooksInCategory } from '../js/utils/get-books-in-category';
 import { refs } from './refs-elements';
 import { observer } from './home-best-sellers';
-
+const container = document.querySelector('.home-main-by-category');
+const mainTitle = document.querySelector('.home-main-title');
 refs.homeCategoryBooksList.addEventListener('click', onBtnMoreClick);
-refs.categoriesContainer.addEventListener('click', onCategoryClick);
 
 function onBtnMoreClick(evt) {
   if (!evt.target.classList.contains('js-btn-more')) {
@@ -11,36 +11,11 @@ function onBtnMoreClick(evt) {
   }
 
   refs.homeCategoryBooksList.innerHTML = '';
+  mainTitle.textContent = '';
   observer.unobserve(refs.homeObserverTarget);
   const categoryName = evt.target.dataset.category;
 
   addCategoryTitleAccent(categoryName);
-
-  getBooksInCategory(categoryName)
-    .then(data =>
-      refs.homeCategoryBooksList.insertAdjacentHTML(
-        'beforeend',
-        createMarkup(data)
-      )
-    )
-    .catch(err => console.log(err));
-}
-
-function onCategoryClick(evt) {
-  if (!evt.target.classList.contains('js-category-name-item')) {
-    return;
-  }
-  const arrClass = [...refs.categoriesContainer.children];
-  arrClass.map(item => item.classList.remove('category-active'));
-  evt.target.classList.add('category-active');
-
-  refs.homeCategoryBooksList.innerHTML = '';
-  observer.unobserve(refs.homeObserverTarget);
-  const categoryName = evt.target.dataset.category;
-
-  if (categoryName) {
-    addCategoryTitleAccent(categoryName);
-  }
 
   getBooksInCategory(categoryName)
     .then(data =>
@@ -84,12 +59,14 @@ function addCategoryTitleAccent(title) {
   const accentWord = arrCategoryName[arrCategoryName.length - 1];
   arrCategoryName.pop();
   const mainTitlePrimary = arrCategoryName.join(' ');
+
   // const titleCategory = document.createElement('span');
   // titleCategory.classList.add('home-main-title');
   // titleCategory.textContent = mainTitlePrimary;
   // const accentCategoryWord = document.createElement('span');
   // accentCategoryWord.classList.add('home-main-title-accent', 'accent-word');
   // accentCategoryWord.textContent = accentWord;
+
   // container.prepend(accentCategoryWord);
   // container.prepend(titleCategory);
   refs.homeMainTitle.textContent = mainTitlePrimary;

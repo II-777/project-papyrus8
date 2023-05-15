@@ -12,5 +12,5 @@ export const refs = {
 
   categoriesContainer: document.querySelector('.js-categories-list'),
   categoriesContainerItem: document.querySelector('.js-categories-list-item'),
-
+  categoryAllCategories: document.querySelector('.js-all-categories'),
 };

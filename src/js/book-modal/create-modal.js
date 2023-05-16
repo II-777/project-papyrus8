@@ -3,9 +3,8 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import icon from '../../images/icon.svg';
 
 function createMarkup(product) {
-  basicLightbox
-    .create(
-      `<div class="book-modal">
+  const instance = basicLightbox.create(
+    `<div class="book-modal">
     <img src="${product.book_image}" alt="${product.title}" class="book-modal-img"/>
     <div class='book-modal-details'>
         <h2 class="book-modal-title">${product.title}</h2>
@@ -31,9 +30,37 @@ function createMarkup(product) {
     </div>
     <button class='book-modal-btn js-add' id='js-book-modal-btn'></button>
     <p class='book-modal-buy'>Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
-    </div>`
-    )
-    .show();
+    <button class='book-modal-close' id='js-book-modal-btn-close'>
+    <svg class='icon-book-modal-close'><use href='${icon}#icon-closeCross'></use></svg>
+    </button>
+    </div>`,
+    {
+      handler: null,
+      onShow(instance) {
+        this.handler = closeModal.bind(instance);
+        document.addEventListener('keydown', this.handler);
+      },
+
+      onClose() {
+        document.removeEventListener('keydown', this.handler);
+      },
+    }
+  );
+  instance.show();
+
+  document.addEventListener('click', evt => {
+    const btnClose = evt.target.closest('#js-book-modal-btn-close');
+
+    if (btnClose) {
+      instance.close();
+    }
+  });
+}
+
+function closeModal(evt) {
+  if (evt.code === 'Escape') {
+    this.close();
+  }
 }
 
 export { createMarkup };

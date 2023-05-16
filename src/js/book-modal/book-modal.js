@@ -2,8 +2,9 @@ import { getBookId } from '../utils/get-books-id';
 import { createMarkup } from './create-modal';
 
 const book = document.querySelector('.js-home-category-books-list');
-
 const basketArr = JSON.parse(localStorage.getItem('books')) ?? [];
+
+book.addEventListener('click', onClick);
 
 function onClick(evt) {
   //   console.log(evt.target);
@@ -17,11 +18,9 @@ function onClick(evt) {
       }
 
       const addBook = document.querySelector('#js-book-modal-btn');
-
-      document.querySelector('.book-modal-buy').style.display = 'none';
-      // addBook.addEventListener('click', addToCart);
-
       const inStorage = basketArr.some(({ _id }) => _id === obj._id);
+      document.querySelector('.book-modal-buy').style.display = 'none';
+
       if (inStorage) {
         addBook.addEventListener('click', addToCart);
 
@@ -47,20 +46,21 @@ function onClick(evt) {
 
           if (inStorage) {
             return;
-          } else {
-            basketArr.push(obj);
-            localStorage.setItem('books', JSON.stringify(basketArr));
           }
+          basketArr.push(obj);
+          localStorage.setItem('books', JSON.stringify(basketArr));
         } else {
           evt.target.classList.remove('js-remove');
           evt.target.classList.add('js-add');
 
           document.querySelector('.book-modal-buy').style.display = 'none';
 
-          if (inStorage) {
-            basketArr.splice(obj, 1);
-            localStorage.setItem('books', JSON.stringify(basketArr));
-          }
+          basketArr.map(localBook => {
+            if (localBook._id === obj._id) {
+              basketArr.splice(basketArr.indexOf(localBook), 1);
+              localStorage.setItem('books', JSON.stringify(basketArr));
+            }
+          });
         }
       }
     })

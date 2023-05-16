@@ -127,9 +127,19 @@ body.dark-theme .icon-book-modal-list {
   border-radius: 40px;
   cursor: pointer;
   @media screen and (min-width: 768px) {
-    padding: 20px 95px;
+    // padding: 20px 95px;
     font-size: 18px;
     line-height: 24px;
+  }
+}
+.book-modal-btn.js-add {
+  @media screen and (min-width: 768px) {
+    padding: 20px 146.5px;
+  }
+}
+.book-modal-btn.js-remove {
+  @media screen and (min-width: 768px) {
+    padding: 20px 95px;
   }
 }
 .book-modal-buy {
@@ -148,10 +158,42 @@ body.dark-theme .icon-book-modal-list {
   color: rgba(17, 17, 17, 0.5);
   @media screen and (min-width: 768px) {
     width: 324px;
-
     font-size: 12px;
     line-height: 14px;
   }
+}
+body.dark-theme .book-modal-buy {
+  color: var(--primary-text-color-theme-dark);
+}
+.book-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    top: 31px;
+    right: 31px;
+  }
+}
+.icon-book-modal-close {
+  width: 14px;
+  height: 14px;
+}
+.icon-book-modal-close:hover,
+.icon-book-modal-close:focus {
+  fill: var(--accent-color);
+  transition: var(--animation);
+}
+body.dark-theme .icon-book-modal-close {
+  fill: var(--title-text-color-theme-dark);
+}
+body.dark-theme .icon-book-modal-close:hover,
+body.dark-theme .icon-book-modal-close:focus {
+  fill: var(--accent-color);
+  transition: var(--animation);
 }
 .js-add::after {
   content: 'Add to shopping list';

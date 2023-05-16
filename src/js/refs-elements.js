@@ -26,7 +26,9 @@ export const refs = {
   btnSignIn: document.querySelector('[data-sign="in"]'),
   btnGoogle: document.querySelector('[name="submitUpBtn"]'),
   switcherCircle: document.querySelector('.switcher-input'),
-  btnOpenBurgerMenu: document.querySelector('#openMenu'),
+  btnOpenBurgerMenu: document.querySelector('.js-open-menu'),
   headerNav: document.querySelector('.header__nav'),
   supportUkraineAside: document.querySelector('.support-box'),
+  headerHomeBtn: document.querySelector('.js-nav__list-home'),
+  headerShoppingListBtn: document.querySelector('.js-nav__list-sl'),
 };

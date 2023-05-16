@@ -120,10 +120,20 @@ body.dark-theme .sl-card {
   width: 8px;
 }
 
+
 .sl-book-descr::-webkit-scrollbar-thumb {
   background-color: var(--secondary-text-color);
   border-radius: 12px;
-  height: 4px;
+  height: 4px;}
+
+.sl-book-author {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: -0.04em;
+    color: var(--secondary-text-color);
+
 }
 
 body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {

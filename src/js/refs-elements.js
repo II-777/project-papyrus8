@@ -18,7 +18,6 @@ export const refs = {
 
   switcherEl: document.querySelector('.js-dark-switcher'),
 
-  categoryAllCategories: document.querySelector('.js-all-categories'),
   btnOpenModalLogin: document.querySelector('.header__menu-login'),
   modalLogin: document.querySelector('#login-modal'),
   btnCloseModalLogin: document.querySelector('.modal-close-btn'),

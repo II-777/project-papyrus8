@@ -7,7 +7,7 @@ function createMarkup(product) {
   basicLightbox
     .create(
       `<div class="book-modal">
-    <img src="${product.book_image}" alt="" class="book-modal-img"/>
+    <img src="${product.book_image}" alt="${product.title}" class="book-modal-img"/>
     <div class='book-modal-details'>
         <h2 class="book-modal-title">${product.title}</h2>
         <h3 class="book-modal-author">${product.author}</h3>
@@ -30,7 +30,7 @@ function createMarkup(product) {
         </li>
         </ul>
     </div>
-    <button class='book-modal-btn js-add'></button>
+    <button class='book-modal-btn js-add' id='js-book-modal-btn'></button>
     <p class='book-modal-buy'>Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
     </div>`
     )

@@ -8,3 +8,6 @@
 .accent-word {
   margin-left: 12px;
 }
+body.dark-theme .category-active {
+  color: var(--hover-color);
+}

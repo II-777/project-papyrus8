@@ -19,6 +19,10 @@
     width: 279px;
   }
 }
+body.dark-theme .book-modal {
+  background-color: var(--primary-bg-color-dark);
+  border: 2px solid var(--title-text-color-theme-dark);
+}
 .book-modal-img {
   width: 287px;
   height: 408px;
@@ -44,6 +48,9 @@
     font-size: 24px;
     line-height: 28px;
   }
+}
+body.dark-theme .book-modal-title {
+  color: var(--title-text-color-theme-dark);
 }
 .book-modal-author {
   margin-bottom: 18px;
@@ -75,11 +82,17 @@
     margin-bottom: 20px;
   }
 }
+body.dark-theme .book-modal-desc {
+  color: var(--title-text-color-theme-dark);
+}
 .icon-book-modal-list {
   margin-bottom: 40px;
   display: flex;
   column-gap: 20px;
   align-items: center;
+}
+body.dark-theme .icon-book-modal-list {
+  fill: var(--title-text-color-theme-dark);
 }
 .icon-book-modal-amazon {
   width: 62px;
@@ -145,4 +158,9 @@
 }
 .js-remove::after {
   content: 'Remove from the shopping list';
+}
+body.dark-theme .book-modal,
+body.dark-theme .book-modal-btn {
+  background-color: var(--primary-bg-color-dark);
+  color: var(--title-text-color-theme-dark);
 }

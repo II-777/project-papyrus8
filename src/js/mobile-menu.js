@@ -6,7 +6,9 @@ btnOpen.addEventListener('click', onClickBtnOpen);
 btnClose.addEventListener('click',onClickBtnClose)
 
 let activdisplay = getComputedStyle(btnClose).display;
+
 function onClickBtnOpen() {
+        document.body.style.overflow = "hidden"
         btnOpen.classList.add('is-open');
         menuContainer.classList.add('is-open')
         if (btnOpen.classList.contains('is-open')) {
@@ -16,6 +18,7 @@ function onClickBtnOpen() {
         }
 }
 function onClickBtnClose() {
+        document.body.style.overflow = "auto"
         btnOpen.classList.remove('is-open');
         btnClose.classList.toggle('block');
         btnClose.classList.remove('is-open');

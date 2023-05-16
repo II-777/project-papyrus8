@@ -1,40 +1,43 @@
 body.dark-theme {
   .auth-modal {
     background-color: var(--primary-bg-color-dark);
-    border-color: var(--primary-bg-color-light);
+    border: 2px solid #F6F6F6;
   }
   .modal-icon {
-    stroke: var(--primary-bg-color-light);
+    fill: #F6F6F6;
   }
   .modal-input {
-    color: var(--primary-bg-color-light);
+    color: #F6F6F6;
     background-color: var(--primary-bg-color-dark);
-    border-color: var(--primary-bg-color-light);
+    border-color: #F6F6F6;
 
     &:focus {
       border-color: var(--accent-color);
       outline: transparent;
+      
     }
     &::placeholder {
-      color: var(--primary-bg-color-light);
+      color: #F6F6F6;
+      
     }
   }
   .modal-submit-btn {
-    background-color: var(--primary-bg-color-light);
+    background-color: #F6F6F6;
     color: #202022;
     &:hover,
     &:focus {
-      color: var(--primary-text-color-theme-dark);
+      color: #F6F6F6;
       background-color: var(--accent-color);
     }
   }
   .modal-sign-btn {
     color: var(--primary-text-color-theme-dark);
-    // &.is-active {
-      // color: var(--accent-color);
-    // }
+    &.is-active {
+      color: var(--accent-color);
+    }
   }
   .modal-close-icon {
-    stroke: var(--primary-bg-color-light);
+    fill: #F6F6F6;
+    
   }
 }

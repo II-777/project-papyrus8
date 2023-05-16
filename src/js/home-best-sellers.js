@@ -9,18 +9,29 @@ let options = {
 };
 export let observer = new IntersectionObserver(scrollByCategoriesDown, options);
 export let bestsellers = [];
-
-getTopBooks()
-  .then(data => {
-    bestsellers = data;
-    refs.homeCategoryBooksList.insertAdjacentHTML(
-      'beforeend',
-      createCategoryBooksList(bestsellers)
-    );
-    observer.observe(refs.homeObserverTarget);
-  })
-  .catch(err => console.log(err));
-
+refs.categoriesContainer.addEventListener('click', onAllCategoriesClick);
+function onAllCategoriesClick(evt) {
+  if (!evt.target.classList.contains('js-all-categories')) {
+    return;
+  }
+  refs.homeCategoryBooksList.innerHTML = '';
+  refs.homeMainTitle.textContent = 'Best sellers';
+  refs.homeMainTitleAccent.textContent = 'Books';
+  bestSellersToRender();
+}
+function bestSellersToRender() {
+  getTopBooks()
+    .then(data => {
+      bestsellers = data;
+      refs.homeCategoryBooksList.insertAdjacentHTML(
+        'beforeend',
+        createCategoryBooksList(bestsellers)
+      );
+      observer.observe(refs.homeObserverTarget);
+    })
+    .catch(err => console.log(err));
+}
+bestSellersToRender();
 function createCategoryBooksList(bestSellers) {
   endCategory = bestSellers.length;
   return bestSellers

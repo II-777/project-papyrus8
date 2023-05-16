@@ -66,3 +66,5 @@ function createAllCategories() {
   allCategory.textContent = 'All categories';
   refs.categoriesContainer.prepend(allCategory);
 }
+export const categoryAllCategories =
+  document.querySelector('.js-all-categories');

@@ -43,8 +43,6 @@ function onCategoryClick(evt) {
   arrClass.map(item => item.classList.remove('category-active'));
   evt.target.classList.add('category-active');
 
-  console.log(evt.target.textContent.length);
-
   refs.homeCategoryBooksList.innerHTML = '';
   observer.unobserve(refs.homeObserverTarget);
   const categoryName = evt.target.dataset.category;
@@ -68,16 +66,20 @@ function onCategoryClick(evt) {
 
   if (categoryName) {
     addCategoryTitleAccent(categoryName);
-  }
 
-  getBooksInCategory(categoryName)
-    .then(data =>
-      refs.homeCategoryBooksList.insertAdjacentHTML(
-        'beforeend',
-        createMarkup(data)
-      )
-    )
-    .catch(err => console.log(err));
+    if (evt.target.classList.contains('js-all-categories')) {
+      return;
+    } else {
+      getBooksInCategory(categoryName)
+        .then(data =>
+          refs.homeCategoryBooksList.insertAdjacentHTML(
+            'beforeend',
+            createMarkup(data)
+          )
+        )
+        .catch(err => console.log(err));
+    }
+  }
 }
 
 function createMarkup(obj) {

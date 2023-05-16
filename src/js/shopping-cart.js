@@ -16,9 +16,7 @@ function renderSlPage() {
     slPage.innerHTML = createCardMarkup(slBooksData);
     const removeBtn = slPage.querySelectorAll('.js-remove-book');
     removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
-  }
-
-  if (!slBooksData.length) {
+  } else {
     slPage.innerHTML = emptyCart;
   }
 }

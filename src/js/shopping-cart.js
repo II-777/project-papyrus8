@@ -17,12 +17,12 @@ function renderSlPage() {
       slPage.innerHTML = createCardMarkup(slBooksData);
       const removeBtn = slPage.querySelectorAll('.js-remove-book');
       removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
-    } 
+    }
 
     if (!slBooksData) {
       localStorage.clear();
       slPage.innerHTML = emptyCart;
-    }    
+    }
 }
 renderSlPage();
 
@@ -43,6 +43,7 @@ function removeBookFromCart(event) {
       renderSlPage();
     }
   });
+}
 // Creating markup function
 
 function createCardMarkup(booksData) {
@@ -52,7 +53,7 @@ function createCardMarkup(booksData) {
       const iBooksUrl = buy_links[1].url;
       const bookshopUrl = buy_links[4].url;
 
-      return `<li><div class="sl-card"> 
+      return `<li><div class="sl-card">
       <img src="${book_image}" alt="${title}" class="sl-book-img">
       <div class="sl-book-info">
           <h3 class="sl-book-title">${title}</h3>

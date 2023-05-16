@@ -115,15 +115,19 @@ ul {
     }
   }
 }
+body.dark-theme .nav__list-home {
+  color: var(--title-text-color-theme-dark);
+}
 
 .current {
   background-color: var(--hover-color);
   font-weight: 700;
-  color: #111111;
+  color: var(--header-bg-color-theme-dark);
   .header__nav-icon {
     fill: #111111;
   }
 }
+
 .header__menu-login {
   display: flex;
   justify-content: space-between;
@@ -410,7 +414,7 @@ color: var(--accent-color);
 }
 
 .mobile-menu__singin--link {
- //display: none;
+  //display: none;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
@@ -492,7 +496,7 @@ color: var(--accent-color);
     color: #111;
   }
 }
-.mobile-menu__container{
+.mobile-menu__container {
   display: flex;
 }
 .container.mobile-menu__container {

@@ -18,8 +18,7 @@ function renderSlPage() {
     removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
   }
 
-  if (!slBooksData) {
-    localStorage.clear();
+  if (!slBooksData.length) {
     slPage.innerHTML = emptyCart;
   }
 }
@@ -31,11 +30,10 @@ function removeBookFromCart(event) {
   const slCard = event.target.closest('.sl-card');
   slCard.classList.add('removing');
   slCard.addEventListener('transitionend', () => {
-    const slTitle = slCard.querySelector('.sl-book-title').textContent;
-    slBooksData = slBooksData.filter(book => book.title !== slTitle);
-
-    if (slBooksData.length === 0) {
-      localStorage.clear();
+    const slBookId = slCard.dataset.id;
+    slBooksData = slBooksData.filter(book => book._id !== slBookId);
+    localStorage.setItem('books', JSON.stringify(slBooksData));
+    if (!slBooksData.length) {
       slPage.innerHTML = emptyCart;
     } else {
       renderSlPage();
@@ -46,12 +44,21 @@ function removeBookFromCart(event) {
 
 function createCardMarkup(booksData) {
   return booksData
-    .map(({ book_image, description, author, list_name, title, buy_links }) => {
-      const amazonUrl = buy_links[0].url;
-      const iBooksUrl = buy_links[1].url;
-      const bookshopUrl = buy_links[4].url;
+    .map(
+      ({
+        _id,
+        book_image,
+        description,
+        author,
+        list_name,
+        title,
+        buy_links,
+      }) => {
+        const amazonUrl = buy_links[0].url;
+        const iBooksUrl = buy_links[1].url;
+        const bookshopUrl = buy_links[4].url;
 
-      return `<li><div class="sl-card">
+        return `<li><div class="sl-card" data-id=${_id}>
       <img src="${book_image}" alt="${title}" class="sl-book-img">
       <div class="sl-book-info">
           <h3 class="sl-book-title">${title}</h3>
@@ -76,7 +83,8 @@ function createCardMarkup(booksData) {
       </button>
       </div>
     </li>`;
-    })
+      }
+    )
     .join('');
 }
 
@@ -85,4 +93,8 @@ if (
   window.screen.width < 1440
 ) {
   refs.supportUkraineAside.style.display = 'none';
+}
+if (window.location.pathname === '/shopping-cart.html') {
+  refs.headerHomeBtn.classList.remove('current');
+  refs.headerShoppingListBtn.classList.add('current');
 }

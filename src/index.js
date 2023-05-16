@@ -10,3 +10,4 @@ import './js/mobile-menu';
 import './js/auth/auth.js';
 import './js/modal-footer-team';
 import './js/burger';
+import './js/scroll-up';

@@ -7,6 +7,19 @@
     z-index: 999;
     background-color: #00000079;
   }
+
+  body.dark-theme .team__modal{
+    background-color: #000000;
+    border: 2px solid;
+    border-color: #d0d0d0;
+  }
+  body.dark-theme .team__developer{
+    color: #f7f7f7;
+  }
+  body.dark-theme .team__modal--close{
+    fill: #f7f7f7
+  }
+  
   .team__backdrop--hidden {
     position: absolute;
     white-space: nowrap;
@@ -35,7 +48,8 @@
   
     &:hover,
     &:focus {
-      fill: #B92F2C;
+      fill: #4f2ee8;
+      ;
       transform: rotate(360deg);
     }
   }
@@ -51,17 +65,22 @@
     margin: 0;
     padding: 7px;
     background-color: #f7f7f7;
-    transform: translateX(-50%);
-    overflow-y: scroll;
+    transform: translate(-50%, -10%);
+   overflow: scroll;
+    
     
     width: calc(100vw - 30px);
     height: 100%;
-    max-height: 558px;
-    border-radius: 3px;
+    max-height: 950px;
+    border-radius: 15px;
     height: max-content;
     padding-left: 20px;
     @media screen and (min-width: 768px) {
       width: 840px;
+
+    }
+    @media screen and (min-width: 1200px){
+      overflow: auto;
     }
   }
   
@@ -79,10 +98,7 @@
     text-shadow: 1px 1px 1px #ccc, 1px -1px 1px #ccc, -1px 1px 1px #ccc,
       -1px -1px 1px #ccc;
     transition: all 1s;
-    &:hover,
-    &:focus {
-      color: #B92F2C;
-    }
+   
   
     @media screen and (min-width: 768px) {
       padding-top: 15px;
@@ -97,7 +113,7 @@
     z-index: -1;
     width: 100%;
     margin: auto;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #fff9;
     bottom: 0.15em;
     transition: all 1s;
   }
@@ -183,5 +199,5 @@
     
     margin-bottom: 10px;
 
-    color: #B92F2C;
+    color: #4f2ee8;
 }

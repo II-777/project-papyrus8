@@ -91,16 +91,18 @@
   text-transform: uppercase;
   background: var(--title-text-color-theme-light);
   border-radius: 40px;
-  color: var(--title-text-color-theme-light);
+  color: #F3F3F3;
   border-style: none;
   transition: background-color var(--animation), outline-offset var(--animation),
     color var(--animation);
-
-  &:hover,
-  &:focus {
-    background-color: var(--accent-color);
-  }
+ 
 }
+
+.modal-submit-btn:hover,
+.modal-submit-btn:focus {
+    background-color: var(--accent-color);
+}
+
 
 .modal-sign-btn {
   cursor: pointer;
@@ -134,8 +136,8 @@
   stroke: var(--title-text-color-theme-light);
   transition: stroke var(--animation);
   @media screen and (min-width: 768px) {
-    width: 28px;
-    height: 28px;
+    width: 14px;
+    height: 14px;
   }
 }
 

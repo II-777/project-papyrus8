@@ -120,17 +120,23 @@ function onClick(evt) {
   });
 
   sliderButton.addEventListener('click', () => {
-    const itemsBottom = itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / sliderItemHeight;
+    const itemsBottom = itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 75;
 
     if (itemsBottom >= slidesToScroll) {
       position -= movePosition;
     } else {
       position = 0;
     }
-
     setPosition();
-  })
 
+  list.style.transition = 'transform 0.3s ease-out'; // Додаємо плавну анімацію
+  setPosition();
+
+  setTimeout(() => {
+    list.style.transition = ''; // Знімаємо анімацію після прокрутки
+  }, 300);
+  })
+  
   const setPosition = () => {
   list.style.transform = `translateY(${position}px)`
 }

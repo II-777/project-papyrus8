@@ -102,41 +102,78 @@ function onClick(evt) {
   }
 }
 
-  let position = 0;
-  const slidesToShow = 6;
-  const slidesToScroll = 1;
+let position = 0;
+let slidesToShow = 6;
+let slidesToScroll = 1;
 
-  const container = document.querySelector('.slider-container')
-  const list = document.querySelector('.support-list')
-  // const link = document.querySelector('.support-link')
-  const sliderButton = document.querySelector('.slider-button');
-  const itemsSupport = document.querySelectorAll('.support-link');
-  const itemsCount = itemsSupport.length;
-  const sliderItemHeight = container.clientHeight /slidesToShow;
-  const movePosition = slidesToScroll * sliderItemHeight;
+const container = document.querySelector('.slider-container');
+const list = document.querySelector('.support-list');
+const sliderButton = document.querySelector('.slider-button');
+const itemsSupport = document.querySelectorAll('.support-link');
+let itemsCount = itemsSupport.length;
+let sliderItemHeight = getSliderItemHeight();
+const movePosition = slidesToScroll * sliderItemHeight;
 
-  itemsSupport.forEach((item) =>{
-    item.style.minHeight = `${sliderItemHeight}px`;
-  });
+itemsSupport.forEach((item) => {
+  item.style.minHeight = `${sliderItemHeight}px`;
+});
 
-  sliderButton.addEventListener('click', () => {
-    const itemsBottom = itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 75;
+sliderButton.addEventListener('click', () => {
+  const itemsBottom = getItemsBottom();
 
-    if (itemsBottom >= slidesToScroll) {
-      position -= movePosition;
-    } else {
-      position = 0;
-    }
-    setPosition();
+  if (itemsBottom >= slidesToScroll) {
+    position -= movePosition;
+  } else {
+    position = 0;
+  }
 
-  list.style.transition = 'transform 0.3s ease-out'; // Додаємо плавну анімацію
+  list.style.transition = 'transform 0.3s ease-out';
   setPosition();
 
   setTimeout(() => {
-    list.style.transition = ''; // Знімаємо анімацію після прокрутки
+    list.style.transition = '';
   }, 300);
-  })
-  
-  const setPosition = () => {
-  list.style.transform = `translateY(${position}px)`
+});
+
+window.addEventListener('resize', () => {
+  sliderItemHeight = getSliderItemHeight();
+  itemsSupport.forEach((item) => {
+    item.style.minHeight = `${sliderItemHeight}px`;
+  });
+  itemsCount = itemsSupport.length;
+  setPosition();
+});
+
+const setPosition = () => {
+  list.style.transform = `translateY(${position}px)`;
+};
+
+function getSliderItemHeight() {
+  const windowWidth = window.innerWidth;
+
+  if (windowWidth >= 1440) {
+    slidesToShow = 6;
+    slidesToScroll = 1;
+    return container.clientHeight / slidesToShow;
+  } else if (windowWidth >= 768) {
+    slidesToShow = 6;
+    slidesToScroll = 1;
+    return container.clientHeight / slidesToShow;
+  } else {
+    slidesToShow = 6;
+    slidesToScroll = 1;
+    return container.clientHeight / slidesToShow;
+  }
+}
+
+function getItemsBottom() {
+  const windowWidth = window.innerWidth;
+
+  if (windowWidth >= 1440) {
+    return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 75;
+  } else if (windowWidth >= 768) {
+    return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 73;
+  } else {
+    return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 55;
+  }
 }

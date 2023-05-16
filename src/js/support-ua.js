@@ -103,30 +103,77 @@ function onClick(evt) {
 }
 
 let position = 0;
-const slidesToShow = 6;
-const slidesToScroll = 1;
+let slidesToShow = 6;
+let slidesToScroll = 1;
 
-const container = document.querySelector('.slider-container') 
-const list = document.querySelector('.support-list') 
-// const link = document.querySelector('.support-link') 
+const container = document.querySelector('.slider-container');
+const list = document.querySelector('.support-list');
 const sliderButton = document.querySelector('.slider-button');
 const itemsSupport = document.querySelectorAll('.support-link');
-const itemsCount = itemsSupport.length;
-const sliderItemHeight = container.clientHeight /slidesToShow;
+let itemsCount = itemsSupport.length;
+let sliderItemHeight = getSliderItemHeight();
 const movePosition = slidesToScroll * sliderItemHeight;
 
-itemsSupport.forEach((item) =>{
+itemsSupport.forEach((item) => {
   item.style.minHeight = `${sliderItemHeight}px`;
 });
 
 sliderButton.addEventListener('click', () => {
-const itemsBotton = itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / sliderItemHeight;
-  
-  position -= itemsBotton >= slidesToScroll ? movePosition : itemsBotton * sliderItemHeight;
-  
+  const itemsBottom = getItemsBottom();
+
+  if (itemsBottom >= slidesToScroll) {
+    position -= movePosition;
+  } else {
+    position = 0;
+  }
+
+  list.style.transition = 'transform 0.3s ease-out';
   setPosition();
-  
-})
+
+  setTimeout(() => {
+    list.style.transition = '';
+  }, 300);
+});
+
+window.addEventListener('resize', () => {
+  sliderItemHeight = getSliderItemHeight();
+  itemsSupport.forEach((item) => {
+    item.style.minHeight = `${sliderItemHeight}px`;
+  });
+  itemsCount = itemsSupport.length;
+  setPosition();
+});
 
 const setPosition = () => {
-list.style.transform = `translateY(${position}px)`
+  list.style.transform = `translateY(${position}px)`;
+};
+
+function getSliderItemHeight() {
+  const windowWidth = window.innerWidth;
+
+  if (windowWidth >= 1440) {
+    slidesToShow = 6;
+    slidesToScroll = 1;
+    return container.clientHeight / slidesToShow;
+  } else if (windowWidth >= 768) {
+    slidesToShow = 6;
+    slidesToScroll = 1;
+    return container.clientHeight / slidesToShow;
+  } else {
+    slidesToShow = 6;
+    slidesToScroll = 1;
+    return container.clientHeight / slidesToShow;
+  }
+}
+
+function getItemsBottom() {
+  const windowWidth = window.innerWidth;
+
+  if (windowWidth >= 1440) {
+    return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 75;
+  } else if (windowWidth >= 768) {
+    return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 73;
+  } else {
+    return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 55;
+  }
+}

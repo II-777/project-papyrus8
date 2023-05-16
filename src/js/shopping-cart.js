@@ -1,28 +1,27 @@
-
-import icon from '../images/icon.svg'
-import image from '../images/books-shopping.png'
+import icon from '../images/icon.svg';
+import image from '../images/books-shopping.png';
+import { refs } from './refs-elements';
 
 const slPage = document.querySelector('.js-sl');
 const emptyCart = `<div class="empty-cart">
     <p class="sl-message">This page is empty, add some books and proceed to order.</p>
     <img src="${image}" alt="books">
-  </div>`
+  </div>`;
 
-  // Getting data from local Storage
+// Getting data from local Storage
 let slBooksData = JSON.parse(localStorage.getItem('books'));
 
 function renderSlPage() {
+  if (slBooksData) {
+    slPage.innerHTML = createCardMarkup(slBooksData);
+    const removeBtn = slPage.querySelectorAll('.js-remove-book');
+    removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
+  }
 
-    if (slBooksData) {
-      slPage.innerHTML = createCardMarkup(slBooksData);
-      const removeBtn = slPage.querySelectorAll('.js-remove-book');
-      removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
-    } 
-
-    if (!slBooksData) {
-      localStorage.clear();
-      slPage.innerHTML = emptyCart;
-    }    
+  if (!slBooksData) {
+    localStorage.clear();
+    slPage.innerHTML = emptyCart;
+  }
 }
 renderSlPage();
 
@@ -38,11 +37,11 @@ function removeBookFromCart(event) {
     if (slBooksData.length === 0) {
       localStorage.clear();
       slPage.innerHTML = emptyCart;
-
     } else {
       renderSlPage();
     }
   });
+}
 // Creating markup function
 
 function createCardMarkup(booksData) {
@@ -77,6 +76,13 @@ function createCardMarkup(booksData) {
       </button>
       </div>
     </li>`;
+    })
+    .join('');
+}
 
-  }).join('');
+if (
+  window.location.pathname === '/shopping-cart.html' &&
+  window.screen.width < 1440
+) {
+  refs.supportUkraineAside.style.display = 'none';
 }

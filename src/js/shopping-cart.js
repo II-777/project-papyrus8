@@ -1,38 +1,50 @@
 import icon from '../images/icon.svg'
+import image from '../images/books-shopping.png'
 
+const slPage = document.querySelector('.js-sl');
+const emptyCart = `<div class="empty-cart">
+    <p class="sl-message">This page is empty, add some books and proceed to order.</p>
+    <img src="${image}" alt="books">
+  </div>`
 
-const slPage = document.querySelector('.js-sl')
+  // Getting data from local Storage
 
-// Getting data from local Storage
-
-let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
-
-console.log(slBooksData);
+let slBooksData = JSON.parse(localStorage.getItem('books'));
 
 function renderSlPage() {
-
     if (slBooksData) {
       slPage.innerHTML = createCardMarkup(slBooksData);
       const removeBtn = slPage.querySelectorAll('.js-remove-book');
       removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
     } 
 
-    if (slBooksData.length === 0) {
+    if (!slBooksData) {
       localStorage.clear();
-    }
-    
+      slPage.innerHTML = emptyCart;
+    }    
 }
 renderSlPage()
 
 //  Removing a book from shopping list 
 
 function removeBookFromCart(event) {
-  const slTitle = event.target.closest('.sl-card').querySelector('.sl-book-title').textContent;
+  const slCard = event.target.closest('.sl-card');
+  slCard.classList.add('removing');
+  slCard.addEventListener('transitionend', () => {
+    const slTitle = slCard.querySelector('.sl-book-title').textContent;
+    slBooksData = slBooksData.filter(book => book.title !== slTitle);
 
-  slBooksData = slBooksData.filter(book => book.title !== slTitle);
-  
-  renderSlPage();
+    if (slBooksData.length === 0) {
+      localStorage.clear();
+      slPage.innerHTML = emptyCart;
+
+    } else {
+      renderSlPage();
+    }
+  });
 }
+
+// Creating markup function
 
 function createCardMarkup(booksData) {
   return booksData.map(({book_image, description, author, list_name, title, buy_links}) => {

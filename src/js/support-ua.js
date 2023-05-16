@@ -145,34 +145,34 @@ function onClick(evt) {
 //     }
 //   });
   
-  let position = 0;
-  const slidesToShow = 6;
-  const slidesToScroll = 1;
-  
-  const container = document.querySelector('.slider-container') 
-  const list = document.querySelector('.support-list') 
-  // const link = document.querySelector('.support-link') 
-  const sliderButton = document.querySelector('.slider-button');
-  const itemsSupport = document.querySelectorAll('.support-link');
-  const itemsCount = itemsSupport.length;
-  const sliderItemHeight = container.clientHeight /slidesToShow;
-  const movePosition = slidesToScroll * sliderItemHeight;
-  
-  itemsSupport.forEach((item) =>{
-    item.style.minHeight = `${sliderItemHeight}px`;
-  });
-  
-  sliderButton.addEventListener('click', () => {
-  const itemsBotton = itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / sliderItemHeight;
-    
-    position -= itemsBotton >= slidesToScroll ? movePosition : itemsBotton * sliderItemHeight;
-    
-    setPosition();
-    
-  })
+let position = 0;
+const slidesToShow = 6;
+const slidesToScroll = 1;
 
-  const setPosition = () => {
-  list.style.transform = `translateY(${position}px)`
+const container = document.querySelector('.slider-container') 
+const list = document.querySelector('.support-list') 
+// const link = document.querySelector('.support-link') 
+const sliderButton = document.querySelector('.slider-button');
+const itemsSupport = document.querySelectorAll('.support-link');
+const itemsCount = itemsSupport.length;
+const sliderItemHeight = container.clientHeight /slidesToShow;
+const movePosition = slidesToScroll * sliderItemHeight;
+
+itemsSupport.forEach((item) =>{
+  item.style.minHeight = `${sliderItemHeight}px`;
+});
+
+sliderButton.addEventListener('click', () => {
+const itemsBotton = itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / sliderItemHeight;
+  
+  position -= itemsBotton >= slidesToScroll ? movePosition : itemsBotton * sliderItemHeight;
+  
+  setPosition();
+  
+})
+
+const setPosition = () => {
+list.style.transform = `translateY(${position}px)`
 }
 
 

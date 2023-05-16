@@ -64,7 +64,6 @@ import serhiyPrytulaCharityFoundation from '../images/support-ua/serhiy-prytula.
 import united from '../images/support-ua/united24.png';
 import medecinsSansFrontieres from '../images/support-ua/medecins-sans-frontieres.png';
 import worldVision from '../images/support-ua/world-vision.png';
-
 import caveTheChildren2x from '../images/support-ua/save-the-children2x.png';
 import projectHope2x from '../images/support-ua/project-hope2x.png';
 import internationalMedicalCorps2x from '../images/support-ua/international-medical-corps2x.png';
@@ -89,7 +88,7 @@ function createImageCardMarkup(supportArray) {
       return `<li class="support-link js-support">
         <a class="js-target" href="${url}" target="_blank">
           <span class="support-number">${num}
-          <img class="support-img" srcset="${img} 1x, ${img2x} 2x" 
+          <img class="support-img" srcset="${img} 1x, ${img2x} 2x"
           src="${img}" alt="${title}"/></span>
         </a>
       </li>`;
@@ -103,77 +102,35 @@ function onClick(evt) {
   }
 }
 
-// const sliderButton = document.querySelector('.slider-button');
-// let currentIndex = 0;
-// const slideHeight = supportList.querySelector('.js-support').offsetHeight;
-// const slidesToShow = 6;
-
-// sliderButton.addEventListener('click', () => {
-//   const maxIndex = supportList.children.length - 1;
-//   if (currentIndex < maxIndex) {
-//     currentIndex++;
-//     if (currentIndex > maxIndex - slidesToShow) {
-//       supportList.style.transform = `translateY(-${slideHeight * (maxIndex - slidesToShow)}px)`;
-//     } else {
-//       supportList.style.transform = `translateY(-${slideHeight * currentIndex}px)`;
-//     }
-//   }
-// });
-
-// let position = 0;
-// const slidesToShow = 6;
-// const slidesToScroll = 2;
-
-// const container = document.querySelector('.slider-container')
-// const list = document.querySelector('.support-list')
-// const link = document.querySelector('.support-link')
-// const sliderButton = document.querySelector('.slider-button');
-
-//   let currentIndex = 0;
-//   const slideHeight = supportList.querySelector('.js-support').offsetHeight;
-//   const slidesToShow = 6;
-  
-//   sliderButton.addEventListener('click', () => {
-//     const maxIndex = supportList.children.length - 1;
-//     if (currentIndex < maxIndex) {
-//       currentIndex++;
-//       if (currentIndex > maxIndex - slidesToShow) {
-//         supportList.style.transform = `translateY(-${slideHeight * (maxIndex - slidesToShow)}px)`;
-//       } else {
-//         supportList.style.transform = `translateY(-${slideHeight * currentIndex}px)`;
-//       }
-//     }
-//   });
-  
   let position = 0;
   const slidesToShow = 6;
   const slidesToScroll = 1;
-  
-  const container = document.querySelector('.slider-container') 
-  const list = document.querySelector('.support-list') 
-  // const link = document.querySelector('.support-link') 
+
+  const container = document.querySelector('.slider-container')
+  const list = document.querySelector('.support-list')
+  // const link = document.querySelector('.support-link')
   const sliderButton = document.querySelector('.slider-button');
   const itemsSupport = document.querySelectorAll('.support-link');
   const itemsCount = itemsSupport.length;
   const sliderItemHeight = container.clientHeight /slidesToShow;
   const movePosition = slidesToScroll * sliderItemHeight;
-  
+
   itemsSupport.forEach((item) =>{
     item.style.minHeight = `${sliderItemHeight}px`;
   });
-  
+
   sliderButton.addEventListener('click', () => {
-  const itemsBotton = itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / sliderItemHeight;
-    
-    position -= itemsBotton >= slidesToScroll ? movePosition : itemsBotton * sliderItemHeight;
-    
+    const itemsBottom = itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / sliderItemHeight;
+
+    if (itemsBottom >= slidesToScroll) {
+      position -= movePosition;
+    } else {
+      position = 0;
+    }
+
     setPosition();
-    
   })
 
   const setPosition = () => {
   list.style.transform = `translateY(${position}px)`
 }
-
-
-

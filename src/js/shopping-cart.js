@@ -1,40 +1,49 @@
-import icon from '../images/icon.svg';
-import { refs } from './refs-elements';
-// // import Pagination from 'tui-pagination';
-// // import 'tui-pagination/dist/tui-pagination.css';
+
+import icon from '../images/icon.svg'
+import image from '../images/books-shopping.png'
 
 const slPage = document.querySelector('.js-sl');
+const emptyCart = `<div class="empty-cart">
+    <p class="sl-message">This page is empty, add some books and proceed to order.</p>
+    <img src="${image}" alt="books">
+  </div>`
 
-// Getting data from local Storage
-
-let slBooksData = JSON.parse(localStorage.getItem('books')) || [];
-
-console.log(slBooksData);
+  // Getting data from local Storage
+let slBooksData = JSON.parse(localStorage.getItem('books'));
 
 function renderSlPage() {
-  if (slBooksData) {
-    slPage.innerHTML = createCardMarkup(slBooksData);
-    const removeBtn = slPage.querySelectorAll('.js-remove-book');
-    removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
-  }
 
-  if (slBooksData.length === 0) {
-    localStorage.clear();
-  }
+    if (slBooksData) {
+      slPage.innerHTML = createCardMarkup(slBooksData);
+      const removeBtn = slPage.querySelectorAll('.js-remove-book');
+      removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
+    } 
+
+    if (!slBooksData) {
+      localStorage.clear();
+      slPage.innerHTML = emptyCart;
+    }    
 }
 renderSlPage();
 
 //  Removing a book from shopping list
 
 function removeBookFromCart(event) {
-  const slTitle = event.target
-    .closest('.sl-card')
-    .querySelector('.sl-book-title').textContent;
+  const slCard = event.target.closest('.sl-card');
+  slCard.classList.add('removing');
+  slCard.addEventListener('transitionend', () => {
+    const slTitle = slCard.querySelector('.sl-book-title').textContent;
+    slBooksData = slBooksData.filter(book => book.title !== slTitle);
 
-  slBooksData = slBooksData.filter(book => book.title !== slTitle);
+    if (slBooksData.length === 0) {
+      localStorage.clear();
+      slPage.innerHTML = emptyCart;
 
-  renderSlPage();
-}
+    } else {
+      renderSlPage();
+    }
+  });
+// Creating markup function
 
 function createCardMarkup(booksData) {
   return booksData
@@ -68,40 +77,6 @@ function createCardMarkup(booksData) {
       </button>
       </div>
     </li>`;
-    })
-    .join('');
-}
 
-// Pagination
-
-// const container = document.getElementById('pagination');
-// const options = {
-//   totalItems: 200,
-//   itemsPerPage: 4,
-//   visiblePages: 3,
-//   page: 1,
-//   centerAlign: true,
-//   firstItemClassName: 'tui-first-child',
-//   lastItemClassName: 'tui-last-child',
-//   template: {
-//     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-//     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-//     moveButton:
-//       '<a href="#" class="tui-page-btn tui-{{type}}">' +
-//       '<span class="tui-ico-{{type}}">{{type}}</span>' +
-//       '</a>',
-//     disabledMoveButton:
-//       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-//       '<span class="tui-ico-{{type}}">{{type}}</span>' +
-//       '</span>',
-//   },
-// }
-
-// const pagination = new Pagination(container, options);
-
-if (
-  window.location.pathname === '/shopping-cart.html' &&
-  window.screen.width < 1440
-) {
-  refs.supportUkraineAside.style.display = 'none';
+  }).join('');
 }

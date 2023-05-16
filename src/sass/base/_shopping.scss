@@ -1,9 +1,5 @@
 body {
-  background-color: #f6f6f6;
-}
-.shopping-list-wrapper {
-  display: flex;
-  column-gap: 40px;
+    background-color: #f6f6f6;
 }
 .sl-title {
   font-weight: 700;
@@ -13,7 +9,8 @@ body {
 
   color: #111111;
 
-  // margin-top: 40px;
+
+    color: var(--title-text-color-theme-light);
 
   margin-bottom: 40px;
 }
@@ -27,7 +24,7 @@ body {
 }
 
 .sl-part {
-  color: rgba(79, 46, 232, 1);
+    color: var(--accent-color);
 }
 
 .sl-list > li {
@@ -35,17 +32,17 @@ body {
 }
 
 .trash-btn {
-  position: relative;
-  top: 14px;
-  right: 14px;
-  padding: 12px;
+    position: relative;
+    top: 14px;
+    right: 14px;
+    padding: 12px;
 
-  width: 28px;
-  height: 28px;
-  border: none;
-  background: #4f2ee8;
-  border-radius: 50%;
-  cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .trash-btn > svg {
@@ -66,11 +63,16 @@ body {
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
 
-  background-color: #fff;
-}
-body.dark-theme .sl-card {
-  background-color: var(--header-bg-color-theme-dark);
-}
+    background-color: var(--header-bg-color-theme-light);
+    
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  } 
+  
+  .sl-card.removing {
+    opacity: 0;
+  }
+
 .sl-book-img {
   margin: 14px;
   border-radius: 8px;
@@ -82,46 +84,40 @@ body.dark-theme .sl-card {
   line-height: 1.16;
   letter-spacing: 0.03em;
 
-  color: #b4afaf;
+  color: var(--secondary-text-color);
 
   margin-bottom: 8px;
 }
 
 .sl-book-title {
-  max-width: 170px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #111111;
+    max-width: 170px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    color: var(--title-text-color-theme-light);
 
-  margin-top: 14px;
-  margin-bottom: 4px;
+    margin-top: 14px;
+    margin-bottom: 4px;
 }
 
 .sl-book-descr {
   height: 68px;
   overflow-y: scroll;
 
-  margin-bottom: 8px;
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.3;
-  letter-spacing: -0.04em;
-  color: #111111;
-}
-.sl-book-descr::-webkit-scrollbar {
-  width: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    letter-spacing: -0.04em;
+    color: var(--title-text-color-theme-light);
 }
 
-.sl-book-descr::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-text-color);
-  border-radius: 12px;
-  height: 4px;
-}
-// .sl-book-descr::-webkit-scrollbar-track {
-//   background-color: var(--primary-text-color-theme-dark);
-// }
+.sl-book-author {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: -0.04em;
+    color: var(--secondary-text-color);
 
 body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
   background-color: black;
@@ -174,98 +170,83 @@ body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
 // Tablet styles
 
 @media screen and (min-width: 768px) {
-  .sl-card {
-    height: 213px;
-  }
+    .sl-card {
+        height: 213px;
+    }
+    
+    .sl-book-img {
+        width: 116px;
+        margin: 24px;
+    }
 
-  .sl-book-img {
-    width: 116px;
-    margin: 24px;
-  }
+    .sl-book-title {
+        margin-top: 24px;
+        overflow: visible;
+        width: auto;
+    }
 
-  .sl-book-title {
-    margin-top: 24px;
-    overflow: visible;
-    width: auto;
-  }
+    .sl-book-cat {
+        margin-bottom: 14px;
+    }
 
-  .sl-book-cat {
-    margin-bottom: 14px;
-  }
+    .sl-book-descr {
+        margin-bottom: 20px;
+        padding: 0;
+    }
 
-  .sl-book-descr {
-    margin-bottom: 20px;
-    padding: 0;
-  }
+    .sl-book-author {
+        overflow: visible;
+    }
 
-  .sl-book-author {
-    overflow: visible;
-  }
+    .trash-btn {
+        top: 24px;
+        right: 24px;
 
-  .trash-btn {
-    top: 24px;
-    right: 24px;
+        width: 34px;
+        height: 34px;
+    }
 
-    width: 34px;
-    height: 34px;
-  }
+    .trash-btn>svg {
+        width: 18px;
+        height: 18px;
+    }
 
-  .trash-btn > svg {
-    width: 18px;
-    height: 18px;
-  }
+    .sl-book-info {
+        width: inherit;
+    }
 
-  .sl-book-info {
-    width: inherit;
-  }
+    .empty-cart {
+        margin-top: 140px;
+    }
+    
+    .sl-message {
+        font-size: 18px;
+        line-height: 1.33;
 
-  .empty-cart {
-    margin-top: 140px;
-  }
+        margin-bottom: 20px;
+    }
 
-  .sl-message {
-    font-size: 18px;
-    line-height: 1.33;
+    .empty-cart>img {
+        width: 322px;
 
-    margin-bottom: 20px;
-  }
+    }
 
-  .empty-cart > img {
-    width: 322px;
-  }
+    .sl-amazon {
+        width: 48px;
+        height: 15px;
+    }
 
-  .sl-amazon {
-    width: 48px;
-    height: 15px;
-  }
+    .sl-ibooks {
+        width: 28px;
+        height: 27px;
+    }
 
-  .sl-ibooks {
-    width: 28px;
-    height: 27px;
-  }
+    .sl-bookshop {
+        width: 32px;
+        height: 30px;
+    }
 
-  .sl-bookshop {
-    width: 32px;
-    height: 30px;
-  }
-
-  .sl-eshops > li:not(:last-child) {
-    margin-right: 16px;
-  }
-}
-body.dark-theme .sl-amazon,
-body.dark-theme .sl-ibooks,
-body.dark-theme .sl-bookshop {
-  fill: white;
-}
-body.dark-theme .sl-title {
-  color: #ffffff;
-}
-
-body.dark-theme .sl-book-descr {
-  color: #ffffff;
-}
-
-body.dark-theme .sl-book-title {
-  color: #ffffff;
+    .sl-eshops>li:not(:last-child) {
+        margin-right: 16px;
+    }
 }

@@ -415,13 +415,13 @@ body.dark-theme .header__nav-sl {
 }
 
 .mobile-menu__singin--link {
-  display: none;
+ //display: none;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
   color: #ffffff;
-
+  display: flex;
   width: 184px;
 
   background: #4f2ee8;
@@ -497,7 +497,9 @@ body.dark-theme .header__nav-sl {
     color: #111;
   }
 }
-
+.mobile-menu__container{
+  display: flex;
+}
 .container.mobile-menu__container {
   &.show {
     display: flex;

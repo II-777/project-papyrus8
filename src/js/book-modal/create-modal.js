@@ -1,4 +1,3 @@
-import { getBookId } from '../utils/get-books-id';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import icon from '../../images/icon.svg';

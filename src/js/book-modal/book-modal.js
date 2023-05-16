@@ -5,9 +5,8 @@ import { createMarkup } from './create-modal';
 // import icon from '../../images/icon.svg';
 
 const book = document.querySelector('.js-home-category-books-list');
-const basketArr = JSON.parse(localStorage.getItem('books')) ?? [];
 
-book.addEventListener('click', onClick);
+const basketArr = JSON.parse(localStorage.getItem('books')) ?? [];
 
 function onClick(evt) {
   //   console.log(evt.target);

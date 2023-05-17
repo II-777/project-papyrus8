@@ -32,6 +32,7 @@ body {
 
 .sl-list > li {
   margin-bottom: 20px;
+  max-width: 335px;
 }
 
 .trash-btn {
@@ -196,6 +197,10 @@ body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
 // Tablet styles
 
 @media screen and (min-width: 768px) {
+  .sl-list > li {
+    max-width: 704px;  
+}
+
   .sl-card {
     height: 213px;
   }
@@ -243,6 +248,11 @@ body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
 
   .empty-cart {
     margin-top: 140px;
+
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .sl-message {
@@ -290,4 +300,10 @@ body.dark-theme .sl-book-descr {
 
 body.dark-theme .sl-book-title {
   color: #ffffff;
+}
+
+@media screen and (min-width: 1440px) {
+  .sl-list > li {
+    max-width: 996px;  
+    }
 }

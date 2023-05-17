@@ -1,5 +1,7 @@
 import { getBookId } from '../utils/get-books-id';
 import { createMarkup } from './create-modal';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../auth/auth-listeners/auth-config-firebase';
 
 const book = document.querySelector('.js-home-category-books-list');
 const basketArr = JSON.parse(localStorage.getItem('books')) ?? [];
@@ -19,20 +21,34 @@ function onClick(evt) {
 
       const addBook = document.querySelector('#js-book-modal-btn');
       const inStorage = basketArr.some(({ _id }) => _id === obj._id);
-      document.querySelector('.book-modal-buy').style.display = 'none';
+      const authText = document.querySelector('.js-book-modal-authorized');
+      const textBuy = document.querySelector('.book-modal-buy');
+      textBuy.style.display = 'none';
+
+      const user = auth.currentUser;
+      onAuthStateChanged(auth, user => {
+        if (!user) {
+          // const uid = user.uid;
+          textBuy.style.display = 'none';
+          addBook.style.display = 'none';
+          authText.style.display = 'block';
+        } else {
+          authText.style.display = 'none';
+        }
+      });
 
       if (inStorage) {
         addBook.addEventListener('click', addToCart);
 
         addBook.classList.remove('js-add');
         addBook.classList.add('js-remove');
-        document.querySelector('.book-modal-buy').style.display = 'block';
+        textBuy.style.display = 'block';
       } else {
         addBook.addEventListener('click', addToCart);
 
         addBook.classList.add('js-add');
         addBook.classList.remove('js-remove');
-        document.querySelector('.book-modal-buy').style.display = 'none';
+        textBuy.style.display = 'none';
       }
 
       function addToCart(evt) {
@@ -42,7 +58,7 @@ function onClick(evt) {
         if (btnAdd) {
           evt.target.classList.remove('js-add');
           evt.target.classList.add('js-remove');
-          document.querySelector('.book-modal-buy').style.display = 'block';
+          textBuy.style.display = 'block';
 
           if (inStorage) {
             return;
@@ -53,7 +69,7 @@ function onClick(evt) {
           evt.target.classList.remove('js-remove');
           evt.target.classList.add('js-add');
 
-          document.querySelector('.book-modal-buy').style.display = 'none';
+          textBuy.style.display = 'none';
 
           basketArr.map(localBook => {
             if (localBook._id === obj._id) {

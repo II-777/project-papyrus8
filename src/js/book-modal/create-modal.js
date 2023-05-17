@@ -30,6 +30,7 @@ function createMarkup(product) {
     </div>
     <button class='book-modal-btn js-add' id='js-book-modal-btn'></button>
     <p class='book-modal-buy'>Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
+    <p class='book-modal-buy js-book-modal-authorized'>You are not authorized. Please log in to buy this book</p>
     <button class='book-modal-close' id='js-book-modal-btn-close'>
     <svg class='icon-book-modal-close'><use href='${icon}#icon-closeCross'></use></svg>
     </button>

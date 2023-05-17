@@ -15,8 +15,6 @@ body::-webkit-scrollbar-thumb {
 
 body.dark-theme::-webkit-scrollbar-thumb {
   background-color: rgba(17, 17, 17, 0.6);
-
-
 }
 .header__book {
   margin-bottom: 40px;
@@ -112,7 +110,7 @@ body.dark-theme .home-books-book-title {
   font-style: italic;
   font-weight: 400;
   font-size: 12px;
-  line-height: 1.2x;
+  line-height: 1.2;
   letter-spacing: -0.04em;
   color: var(--secondary-text-color);
 }

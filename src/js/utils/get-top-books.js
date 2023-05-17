@@ -5,7 +5,6 @@ import { instanceApiServiceTopBooks } from '../api-service';
 export async function getTopBooks() {
   try {
     const objectResolve = await instanceApiServiceTopBooks.fetchPhoto();
-    // console.log(objectResolve);
 
     if (objectResolve.length === 0) {
       return Notify.failure(

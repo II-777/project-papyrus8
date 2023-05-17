@@ -21,7 +21,6 @@ function onBtnMoreClick(evt) {
       item.classList.add('category-active');
     }
   });
-  console.log(arrClass[2].dataset.category);
 
   addCategoryTitleAccent(categoryName);
 

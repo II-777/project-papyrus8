@@ -93,6 +93,10 @@ if (
   refs.supportUkraineAside.style.display = 'none';
 }
 if (window.location.pathname === '/shopping-cart.html') {
-  refs.headerHomeBtn.classList.remove('current');
-  refs.headerShoppingListBtn.classList.add('current');
+  for (let homeBtn of refs.headerHomeBtn) {
+    homeBtn.classList.remove('current');
+  }
+  for (let slBtn of refs.headerShoppingListBtn) {
+    slBtn.classList.add('current');
+  }
 }

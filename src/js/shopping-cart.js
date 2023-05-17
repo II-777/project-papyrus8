@@ -2,6 +2,17 @@ import icon from '../images/icon.svg';
 import image from '../images/books-shopping.png';
 import { refs } from './refs-elements';
 
+if (
+  window.location.pathname === '/shopping-cart.html' &&
+  window.screen.width < 1440
+) {
+  refs.supportUkraineAside.style.display = 'none';
+}
+if (window.location.pathname === '/shopping-cart.html') {
+  refs.headerHomeBtn.classList.remove('current');
+  refs.headerShoppingListBtn.classList.add('current');
+}
+
 const slPage = document.querySelector('.js-sl');
 const emptyCart = `<div class="empty-cart">
     <p class="sl-message">This page is empty, add some books and proceed to order.</p>
@@ -12,6 +23,13 @@ const emptyCart = `<div class="empty-cart">
 let slBooksData = JSON.parse(localStorage.getItem('books'));
 
 function renderSlPage() {
+  if (!slBooksData || slBooksData === []) {
+    slPage.innerHTML = emptyCart;
+  } else {
+    slPage.innerHTML = createCardMarkup(slBooksData);
+    const removeBtn = slPage.querySelectorAll('.js-remove-book');
+    removeBtn.forEach(btn => btn.addEventListener('click', removeBookFromCart));
+  }
   if (slBooksData) {
     slPage.innerHTML = createCardMarkup(slBooksData);
     const removeBtn = slPage.querySelectorAll('.js-remove-book');
@@ -86,17 +104,3 @@ function createCardMarkup(booksData) {
     .join('');
 }
 
-if (
-  window.location.pathname === '/shopping-cart.html' &&
-  window.screen.width < 1440
-) {
-  refs.supportUkraineAside.style.display = 'none';
-}
-if (window.location.pathname === '/shopping-cart.html') {
-  for (let homeBtn of refs.headerHomeBtn) {
-    homeBtn.classList.remove('current');
-  }
-  for (let slBtn of refs.headerShoppingListBtn) {
-    slBtn.classList.add('current');
-  }
-}

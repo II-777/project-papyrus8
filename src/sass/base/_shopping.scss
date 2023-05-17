@@ -192,7 +192,9 @@ body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
 
   color: rgba(0, 0, 0, 0.6);
 }
-
+body.dark-theme .sl-message {
+  color: #ffffff;
+}
 // Tablet styles
 
 @media screen and (min-width: 768px) {
@@ -257,7 +259,6 @@ body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
   .sl-message {
     font-size: 18px;
     line-height: 1.33;
-
     margin-bottom: 20px;
   }
   body.dark-theme .sl-message {

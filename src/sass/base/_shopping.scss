@@ -121,20 +121,19 @@ body.dark-theme .sl-card {
   width: 8px;
 }
 
-
 .sl-book-descr::-webkit-scrollbar-thumb {
   background-color: var(--secondary-text-color);
   border-radius: 12px;
-  height: 4px;}
+  height: 4px;
+}
 
 .sl-book-author {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.16;
-    letter-spacing: -0.04em;
-    color: var(--secondary-text-color);
-
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  color: var(--secondary-text-color);
 }
 
 body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
@@ -193,13 +192,15 @@ body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
 
   color: rgba(0, 0, 0, 0.6);
 }
-
+body.dark-theme .sl-message {
+  color: #ffffff;
+}
 // Tablet styles
 
 @media screen and (min-width: 768px) {
   .sl-list > li {
-    max-width: 704px;  
-}
+    max-width: 704px;
+  }
 
   .sl-card {
     height: 213px;
@@ -258,7 +259,6 @@ body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
   .sl-message {
     font-size: 18px;
     line-height: 1.33;
-
     margin-bottom: 20px;
   }
 
@@ -304,6 +304,6 @@ body.dark-theme .sl-book-title {
 
 @media screen and (min-width: 1440px) {
   .sl-list > li {
-    max-width: 996px;  
-    }
+    max-width: 996px;
+  }
 }

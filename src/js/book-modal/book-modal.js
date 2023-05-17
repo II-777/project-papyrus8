@@ -1,3 +1,6 @@
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../auth/auth-listeners/auth-config-firebase";
+
 import { getBookId } from '../utils/get-books-id';
 import { createMarkup } from './create-modal';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -49,12 +52,11 @@ function onClick(evt) {
         addBook.classList.add('js-add');
         addBook.classList.remove('js-remove');
         textBuy.style.display = 'none';
-      }
-
+      
       function addToCart(evt) {
         const btnAdd = evt.target.classList.contains('js-add');
         const inStorage = basketArr.some(({ _id }) => _id === obj._id);
-
+        
         if (btnAdd) {
           evt.target.classList.remove('js-add');
           evt.target.classList.add('js-remove');

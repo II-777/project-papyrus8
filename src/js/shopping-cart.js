@@ -8,10 +8,10 @@ if (
 ) {
   refs.supportUkraineAside.style.display = 'none';
 }
-if (window.location.pathname === '/shopping-cart.html') {
-  refs.headerHomeBtn.classList.remove('current');
-  refs.headerShoppingListBtn.classList.add('current');
-}
+// if (window.location.pathname === '/shopping-cart.html') {
+//   refs.headerHomeBtn.classList.remove('current');
+//   refs.headerShoppingListBtn.classList.add('current');
+// }
 
 const slPage = document.querySelector('.js-sl');
 const emptyCart = `<div class="empty-cart">
@@ -103,4 +103,3 @@ function createCardMarkup(booksData) {
     )
     .join('');
 }
-

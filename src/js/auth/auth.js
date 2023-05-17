@@ -1,5 +1,5 @@
-import { auth } from "./auth-listeners/auth-config-firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./auth-listeners/auth-config-firebase";
 
 import { refs } from "../refs-elements";
 import { onOpenModalLogin, onCloseModalLogin } from "./auth-listeners/modal-login";
@@ -18,11 +18,11 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
     refs.btnOpenModalLogin.textContent = 'Log out';
-    if(refs.headerNav.getAttribute('style')){
-        refs.headerNav.removeAttribute('style')
-      }
+    // if(refs.headerNav.getAttribute('style')){
+    //     refs.headerNav.removeAttribute('style')
+    //   }
   } else {
-    refs.headerNav.style.visibility = "hidden";
+    // refs.headerNav.style.visibility = "hidden";
   }
 }
 );

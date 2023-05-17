@@ -530,10 +530,11 @@ body.dark-theme .shopping__list-svg {
 
 body.dark-theme .header__book {
   background-color: var(--header-bg-color-theme-dark);
+   border-radius: 0px 0px 8px 8px;
+  border: 1.5px solid var(--title-text-color-theme-dark);
 }
 body.dark-theme .header__container {
-  border-radius: 0px 0px 8px 8px;
-  border: 1.5px solid var(--title-text-color-theme-dark);
+ 
   background-color: var(--header-bg-color-theme-dark);
   fill: var(--title-text-color-theme-dark);
 }

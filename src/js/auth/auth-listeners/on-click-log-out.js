@@ -6,7 +6,7 @@ import { refs } from "../../refs-elements";
 
 export function onClickLogOut() {
   signOut(auth).then(() => {
-    Notify.success('Пользователь вышел из сис-мы');
+    Notify.success('Користувач вийшов!');
     refs.headerNav.setAttribute('hidden', true);
   }).catch((error) => {
     const errorCode = error.code;

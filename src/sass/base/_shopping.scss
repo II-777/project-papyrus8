@@ -261,7 +261,9 @@ body.dark-theme .sl-message {
     line-height: 1.33;
     margin-bottom: 20px;
   }
-
+  body.dark-theme .sl-message {
+    color: #ffffff;
+  }
   .empty-cart > img {
     width: 322px;
   }

@@ -103,3 +103,4 @@ function createCardMarkup(booksData) {
     )
     .join('');
 }
+

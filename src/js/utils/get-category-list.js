@@ -4,7 +4,6 @@ import { instanceApiServiceCategoryList } from '../api-service';
 export async function getCategoryList() {
   try {
     const objectResolve = await instanceApiServiceCategoryList.fetchPhoto();
-    // console.log(objectResolve);
 
     if (objectResolve.length === 0) {
       return Notify.failure(

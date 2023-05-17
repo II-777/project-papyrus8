@@ -286,7 +286,7 @@ body.dark-theme .nav__list-home {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  padding: 72px 171px 660px 20px;
+  padding: 20px 171px 660px 0px;
 
   background-image: url(/src/images/books.png),
     radial-gradient(
@@ -349,7 +349,7 @@ body.dark-theme .nav__list-home {
   display: none;
 }
 .mobile-menu--list {
-  // display: none;
+   display: none;
 
   &.show {
     justify-content: center;
@@ -410,7 +410,7 @@ body.dark-theme .nav__list-home {
 }
 
 .mobile-menu__singin--link {
-  //display: none;
+ //display: none;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
@@ -453,7 +453,7 @@ body.dark-theme .nav__list-home {
 }
 
 .show__icon {
-  display: none;
+ display: none;
   &.show {
     display: flex;
     align-items: center;
@@ -473,7 +473,7 @@ body.dark-theme .nav__list-home {
 }
 
 .mobile-menu__user_name {
-  display: none;
+ // display: none;
 
   &.show {
     display: flex;

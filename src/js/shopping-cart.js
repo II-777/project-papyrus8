@@ -1,5 +1,6 @@
 import icon from '../images/icon.svg';
 import image from '../images/books-shopping.png';
+import image2x from '../images/books-shopping2@.png';
 import { refs } from './refs-elements';
 
 if (
@@ -16,7 +17,7 @@ if (
 const slPage = document.querySelector('.js-sl');
 const emptyCart = `<div class="empty-cart">
     <p class="sl-message">This page is empty, add some books and proceed to order.</p>
-    <img src="${image}" alt="books">
+    <img srcset="${image} 1x, ${image2x} 2x" alt="books">
   </div>`;
 
 // Getting data from local Storage

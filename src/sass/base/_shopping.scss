@@ -201,6 +201,10 @@ body.dark-theme .sl-book-descr::-webkit-scrollbar-thumb {
     max-width: 704px;  
 }
 
+  .sl-cont {
+    width: inherit;
+  }
+  
   .sl-card {
     height: 213px;
   }

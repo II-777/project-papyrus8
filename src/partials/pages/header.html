@@ -10,7 +10,7 @@
         </svg>
       </a>
 
-      <div class="header__nav" style="display: none;">
+      <div class="header__nav">
         <a
           href="/src/index.html"
           class="nav__list-home js-nav__list-home current"
@@ -70,9 +70,8 @@
 </header>
 
 <div class="mobile-menu js-menu-container">
-
   <div class="container mobile-menu__container mobile-menu--thumb">
-    <button type="button" class="header__menu-login mobile-menu__singin--link">
+    <button type="button" class="header__menu-login btn-logout">
       Sign up
       <svg class="login-icon-aroww">
         <use href="/src/images/icon.svg#icon-arrowRight"></use>
@@ -86,24 +85,22 @@
       <a class="mobile-menu__user_name" href="#">User Name</a>
     </div>
 
-
-  <ul class="mobile-menu--list js-mobile__nav">
-    <li class="mobile-menu--home js-nav__list-home current">
-      <a href="/src/index.html">Home</a>
-    </li>
-    <li class="mobile-menu--shoping js-nav__list-sl">
-      <a href="/src/shopping-cart.html">Shopping list </a>
-      <svg class="mobile-menu--icon" width="20px" height="20px">
-        <use href="/src/images/icon.svg#icon-cart"></use>
-
+    <ul class="mobile-menu--list js-mobile__nav">
+      <li class="mobile-menu--home current">
+        <a href="/src/index.html">Home</a>
+      </li>
+      <li class="mobile-menu--shoping">
+        <a href="/src/shopping-cart.html">Shopping list </a>
+        <svg class="mobile-menu--icon" width="20px" height="20px">
+          <use href="/src/images/icon.svg#icon-cart"></use>
+        </svg>
+      </li>
+    </ul>
+    <button class="mobile-menu--log-out" type="button">
+      Log out
+      <svg width="20px" height="20px">
+        <use href="/src/images/icon.svg#icon-arrowRight"></use>
       </svg>
-    </li>
-  </ul>
-  <button class="mobile-menu--log-out" type="button">
-    Log out
-    <svg width="20px" height="20px">
-      <use href="/src/images/icon.svg#icon-arrowRight"></use>
-    </svg>
-  </button>
-  <!-- </div> -->
+    </button>
+  </div>
 </div>

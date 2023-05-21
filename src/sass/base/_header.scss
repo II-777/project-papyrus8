@@ -149,7 +149,7 @@ body.dark-theme .nav__list-home {
 }
 @media screen and(max-width:767px) {
   .btn-logout {
-    // display: none;
+    display: none;
   }
 }
 .header__theme-switcher {
@@ -286,7 +286,8 @@ body.dark-theme .nav__list-home {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  padding: 20px 171px 660px 0px;
+  padding: 72px 171px 660px 20px;
+
   background-image: url(/src/images/books.png),
     radial-gradient(
       183.6% 183.01% at 59.76% -23.42%,
@@ -348,7 +349,8 @@ body.dark-theme .nav__list-home {
   display: none;
 }
 .mobile-menu--list {
-   display: none;
+  // display: none;
+
   &.show {
     justify-content: center;
     gap: 16px;
@@ -387,16 +389,18 @@ body.dark-theme .nav__list-home {
   line-height: 1.29;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #fff;
+  color: #111111;
 }
 
+.mobile-menu--icon {
+  fill: #111111;
+}
 .mobile-menu--shoping.current {
   font-weight: 700;
   color: #111111;
   padding: 8px 16px 8px 16px;
   background: #eac645;
   border-radius: 36px;
-  width: 160px;
 }
 .mobile-menu--icon {
   fill: #111111;
@@ -406,7 +410,7 @@ body.dark-theme .nav__list-home {
 }
 
 .mobile-menu__singin--link {
- //display: none;
+  //display: none;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
@@ -449,7 +453,7 @@ body.dark-theme .nav__list-home {
 }
 
 .show__icon {
- display: none;
+  display: none;
   &.show {
     display: flex;
     align-items: center;
@@ -469,7 +473,7 @@ body.dark-theme .nav__list-home {
 }
 
 .mobile-menu__user_name {
- // display: none;
+  display: none;
 
   &.show {
     display: flex;
@@ -488,19 +492,19 @@ body.dark-theme .nav__list-home {
     color: #111;
   }
 }
-// .mobile-menu__container {
-//   display: flex;
-// }
-// .container.mobile-menu__container {
-//   &.show {
-//     display: flex;
-//     flex-direction: column;
-//     min-height: calc(100vh - 112px);
-//     padding-top: 20px;
-//     padding-bottom: 20px;
-//     padding-left: 0px;
-//   }
-// }
+.mobile-menu__container {
+  display: flex;
+}
+.container.mobile-menu__container {
+  &.show {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 112px);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+  }
+}
 
 /////////////////////////////DARK THEME STYLES
 

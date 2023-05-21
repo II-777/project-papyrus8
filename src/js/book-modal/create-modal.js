@@ -12,17 +12,17 @@ function createMarkup(product) {
         <p class='book-modal-desc'>${product.description}</p>
         <ul class='icon-book-modal-list'>
         <li>
-            <a href="${product.buy_links[0].url}" target="_blank">
+            <a href="${product.buy_links[0].url}">
             <svg class='icon-book-modal-amazon'><use href="${icon}#icon-amazon"></use></svg>
             </a>
         </li>
         <li>
-            <a href="${product.buy_links[1].url}" target="_blank">
+            <a href="${product.buy_links[1].url}">
             <svg class='icon-book-modal-ibooks'><use href="${icon}#icon-ibooks"></use></svg>
             </a>
         </li>
         <li>
-            <a href="${product.buy_links[4].url}" target="_blank">
+            <a href="${product.buy_links[4].url}">
             <svg class='icon-book-modal-bookshop'><use href="${icon}#icon-bookshop"></use></svg>
             </a>
         </li>

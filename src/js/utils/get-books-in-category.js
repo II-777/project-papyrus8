@@ -6,6 +6,7 @@ export async function getBooksInCategory(category) {
   try {
     instanceApiSelectedCategory.selectedCategory = category;
     const objectResolve = await instanceApiSelectedCategory.fetchPhoto();
+    // console.log(objectResolve);
 
     if (objectResolve.length === 0) {
       return Notify.failure(

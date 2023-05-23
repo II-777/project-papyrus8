@@ -3,6 +3,7 @@
 ## GoIT Academy Group Project (Team 8 - Web Weavers)
 
 [Live Website](https://ii-777.github.io/project-papyrus8/)
+
 [Figma: Bookshelf](https://www.figma.com/file/JB3QBTgXBIHU24nMOtmVmK/Book?node-id=0-1&t=ql5eRhMaBuMR1Eje-0)
 
 ### Contributors:

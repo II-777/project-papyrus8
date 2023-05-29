@@ -1,0 +1,35 @@
+.scroll-up__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition, visibility $transition;
+
+  cursor: pointer;
+
+  z-index: 95;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+
+  background-color: $main-accent-color;
+  border-radius: 50%;
+  border: none;
+  outline: 5px rgba(79, 46, 232, 0.3) solid;
+
+  transition: transform $transition;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+}
+
+.scroll-up__img {
+  fill: $white;
+}

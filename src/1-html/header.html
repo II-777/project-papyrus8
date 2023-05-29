@@ -1,0 +1,201 @@
+<header class="page-header">
+  <div class="container">
+    <div class="header-box">
+      <a class="logo-link link" href="./index.html">
+        <svg class="logo-name" width="24" height="24">
+          <use class="logo-light" href="./4-images/symbol-defs.svg#logo"></use>
+        </svg>
+        Bookshelf
+      </a>
+
+      <!----- Navigation ----->
+      <nav class="header-nav-main">
+        <ul class="header-nav-list list" hidden>
+          <li class="header-nav-item header-home-btn">
+            <a class="header-nav-link link" href="./index.html">Home</a>
+          </li>
+          <li class="header-nav-item header-shopping-btn">
+            <a class="header-nav-link link" href="./shopping-list.html"
+              >Shopping List
+              <svg class="logo-shop" width="20" height="20">
+                <use href="./4-images/symbol-defs.svg#shop-bag"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header-btn-box">
+        <label class="switch">
+          <input
+            class="switch__input js-theme-toggle"
+            type="checkbox"
+            role="switch"
+          />
+          <svg
+            class="switch__icon switch__icon--light"
+            viewBox="0 0 12 12"
+            width="12px"
+            height="12px"
+            aria-hidden="true"
+          >
+            <g
+              fill="none"
+              stroke="#fff"
+              stroke-width="1"
+              stroke-linecap="round"
+            >
+              <circle cx="6" cy="6" r="2" />
+              <g stroke-dasharray="1.5 1.5">
+                <polyline points="6 10,6 11.5" transform="rotate(0,6,6)" />
+                <polyline points="6 10,6 11.5" transform="rotate(45,6,6)" />
+                <polyline points="6 10,6 11.5" transform="rotate(90,6,6)" />
+                <polyline points="6 10,6 11.5" transform="rotate(135,6,6)" />
+                <polyline points="6 10,6 11.5" transform="rotate(180,6,6)" />
+                <polyline points="6 10,6 11.5" transform="rotate(225,6,6)" />
+                <polyline points="6 10,6 11.5" transform="rotate(270,6,6)" />
+                <polyline points="6 10,6 11.5" transform="rotate(315,6,6)" />
+              </g>
+            </g>
+          </svg>
+          <svg
+            class="switch__icon switch__icon--dark"
+            viewBox="0 0 12 12"
+            width="12px"
+            height="12px"
+            aria-hidden="true"
+          >
+            <g
+              fill="none"
+              stroke="#fff"
+              stroke-width="1"
+              stroke-linejoin="round"
+              transform="rotate(-45,6,6)"
+            >
+              <path
+                d="m9,10c-2.209,0-4-1.791-4-4s1.791-4,4-4c.304,0,.598.041.883.105-.995-.992-2.367-1.605-3.883-1.605C2.962.5.5,2.962.5,6s2.462,5.5,5.5,5.5c1.516,0,2.888-.613,3.883-1.605-.285.064-.578.105-.883.105Z"
+              />
+            </g>
+          </svg>
+          <span class="switch__sr">Dark Mode</span>
+        </label>
+
+        <!---- Burger button ---->
+        <button
+          class="mobile-menu-open-btn js-open-menu js-close-menu"
+          type="button"
+          aria-expanded="false"
+          aria-label="Mobile menu"
+        >
+          <svg class="burger-icon" width="28" height="28">
+            <use
+              class="mobile-menu-open-icon"
+              href="./4-images/symbol-defs.svg#burger"
+            ></use>
+            <use
+              class="mobile-menu-close-icon"
+              href="./4-images/symbol-defs.svg#close"
+            ></use>
+          </svg>
+        </button>
+
+        <div class="sign-up-box">
+          <button
+            class="sign-up-btn signUpBtn"
+            type="button"
+            data-sign-modal-open
+          >
+            Sign up
+            <svg class="sign-up-icon" width="20" height="20">
+              <use href="./4-images/symbol-defs.svg#arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="authorized-box" hidden>
+          <button class="authorized-btn" type="button">
+            <span class="user-icon-box">
+              <svg class="user-icon" width="19" height="19">
+                <use href="./4-images/symbol-defs.svg#user"></use>
+              </svg>
+            </span>
+            <span class="user-name">Stephen</span>
+            <svg class="user-icon-arrow" width="23" height="26">
+              <use href="./4-images/symbol-defs.svg#caret-down"></use>
+            </svg>
+          </button>
+          <button type="button" class="log-out-btn">
+            Log out
+            <svg class="sign-up-icon" width="20" height="20">
+              <use href="./4-images/symbol-defs.svg#arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!----- Mobile ----->
+<div class="mobile-menu-container js-menu-container" data-mobile-menu>
+  <div class="sign-up-mobile-menu-box">
+    <button
+      type="button"
+      class="sign-up-btn-mobile signUpBtn"
+      data-sign-modal-open
+    >
+      Sign up
+      <svg class="sign-up-icon">
+        <use href="./4-images/symbol-defs.svg#arrow-right"></use>
+      </svg>
+    </button>
+  </div>
+
+  <div class="authorized-mobile-menu-box" hidden>
+    <div class="authorized-mobile-menu-user">
+      <div class="user-icon-box">
+        <svg class="user-icon" width="19" height="19">
+          <use href="./4-images/symbol-defs.svg#user"></use>
+        </svg>
+      </div>
+      <span class="user-name user-name-mobile">Stephen</span>
+    </div>
+    <ul class="mobile-nav-list list">
+      <li class="mobile-nav-item mobile-home-btn">
+        <a class="mobile-nav-link link" href="./index.html">home</a>
+      </li>
+      <li class="mobile-nav-item mobile-shopping-btn">
+        <a class="mobile-nav-link link" href="./shopping-list.html"
+          >shopping list
+          <svg class="logo-shop logo-shop-mobile" width="20" height="20">
+            <use href="./4-images/symbol-defs.svg#shop-bag"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+    <button type="button" class="log-out-mobile-btn">
+      Log out
+      <svg class="sign-up-icon">
+        <use href="./4-images/symbol-defs.svg#arrow-right"></use>
+      </svg>
+    </button>
+  </div>
+  <picture class="bg-mobile-menu">
+    <source
+      srcset="
+        ./4-images/bg-mobile-menu.webp    1x,
+        ./4-images/bg-mobile-menu@2x.webp 2x
+      "
+      type="image/webp"
+    />
+    <source
+      srcset="./4-images/bg-mobile-menu.png 1x, ./4-images/bg-mobile-menu@2x.png 2x"
+      type="image/png"
+    />
+    <img
+      src="./4-images/bg-mobile-menu.png"
+      alt="books"
+      width="450"
+      height="340"
+    />
+  </picture>
+</div>

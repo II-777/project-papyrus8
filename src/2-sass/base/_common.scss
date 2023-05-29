@@ -1,0 +1,52 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: $lt-main-text-color;
+  background-color: $lt-bg-color;
+}
+
+body.dark-theme {
+  color: $dt-main-text-color;
+  background-color: $dt-bg-color;
+}
+
+.body-shopping-container,
+.body-home-container {
+  position: relative;
+  min-width: 320px;
+}
+
+.body-shopping-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide scrollbar background */
+::-webkit-scrollbar {
+  background-color: transparent; /* For Chrome, Safari, and Opera */
+  width: 8px;
+}
+
+/* Optional: Style the scrollbar thumb and track */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: lightgray; /* Color of the thumb */
+  // width: 8px;
+
+  &:hover {
+    background-color: grey;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Color of the track */
+}

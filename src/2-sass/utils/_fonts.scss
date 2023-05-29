@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'DM Sans';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local('DM Sans Regular'), local('DMSans-Regular'),
+    url('./5-fonts/DMSans-Regular.woff2') format('woff2'),
+    url('./5-fonts/DMSans-Regular.woff') format('woff'),
+    url('./5-fonts/DMSans-Regular.ttf') format('truetype'),
+    url('./5-fonts/DMSans-Regular.eot') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: local('DM Sans Medium'), local('DMSans-Medium'),
+    url('./5-fonts/DMSans-Medium.woff2') format('woff2'),
+    url('./5-fonts/DMSans-Medium.woff') format('woff'),
+    url('./5-fonts/DMSans-Medium.ttf') format('truetype'),
+    url('./5-fonts/DMSans-Medium.eot') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: local('DM Sans Bold'), local('DMSans-Bold'),
+    url('./5-fonts/DMSans-Bold.woff2') format('woff2'),
+    url('./5-fonts/DMSans-Bold.woff') format('woff'),
+    url('./5-fonts/DMSans-Bold.ttf') format('truetype'),
+    url('./5-fonts/DMSans-Bold.eot?#iefix') format('embedded-opentype');
+}

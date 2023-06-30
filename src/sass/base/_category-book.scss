@@ -1,0 +1,13 @@
+.special-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px 24px;
+}
+.accent-word {
+  margin-left: 12px;
+}
+body.dark-theme .category-active {
+  color: var(--hover-color);
+}

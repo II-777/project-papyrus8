@@ -1,0 +1,208 @@
+.book-modal {
+  width: 335px;
+  min-height: 678px;
+  background-color: #ffffff;
+  border: 2px solid #111111;
+  border-radius: 18px;
+  padding: 40px 24px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 579px;
+    min-height: 465px;
+    padding: 40px 40px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .book-modal-details {
+    margin-left: 24px;
+    width: 279px;
+  }
+}
+body.dark-theme .book-modal {
+  background-color: var(--primary-bg-color-dark);
+  border: 2px solid var(--title-text-color-theme-dark);
+}
+.book-modal-img {
+  width: 287px;
+  height: 408px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  @media screen and (min-width: 768px) {
+    width: 192px;
+    height: 281px;
+    margin-bottom: 40px;
+  }
+}
+.book-modal-title {
+  margin-bottom: 4px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  color: #111111;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+body.dark-theme .book-modal-title {
+  color: var(--title-text-color-theme-dark);
+}
+.book-modal-author {
+  margin-bottom: 18px;
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: -0.04em;
+
+  color: #b4afaf;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+.book-modal-desc {
+  max-width: 287px;
+  margin-bottom: 14px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  color: #111111;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+body.dark-theme .book-modal-desc {
+  color: var(--title-text-color-theme-dark);
+}
+.icon-book-modal-list {
+  margin-bottom: 40px;
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+body.dark-theme .icon-book-modal-list {
+  fill: var(--title-text-color-theme-dark);
+}
+.icon-book-modal-amazon {
+  width: 62px;
+  height: 19px;
+}
+.icon-book-modal-ibooks {
+  width: 33px;
+  height: 33px;
+}
+.icon-book-modal-bookshop {
+  width: 38px;
+  height: 38px;
+}
+.home-books-item {
+  cursor: pointer;
+}
+.book-modal-btn {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 8px;
+  padding: 14px 23px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #111111;
+  border: 2px solid #4f2ee8;
+  border-radius: 40px;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    // padding: 20px 95px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+.book-modal-btn.js-add {
+  @media screen and (min-width: 768px) {
+    padding: 20px 146.5px;
+  }
+}
+.book-modal-btn.js-remove {
+  @media screen and (min-width: 768px) {
+    padding: 20px 95px;
+  }
+}
+.book-modal-buy {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  width: 242px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: rgba(17, 17, 17, 0.5);
+  @media screen and (min-width: 768px) {
+    width: 324px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+body.dark-theme .book-modal-buy {
+  color: var(--primary-text-color-theme-dark);
+}
+.book-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    top: 31px;
+    right: 31px;
+  }
+}
+.icon-book-modal-close {
+  width: 14px;
+  height: 14px;
+}
+.icon-book-modal-close:hover,
+.icon-book-modal-close:focus {
+  fill: var(--accent-color);
+  transition: var(--animation);
+}
+body.dark-theme .icon-book-modal-close {
+  fill: var(--title-text-color-theme-dark);
+}
+body.dark-theme .icon-book-modal-close:hover,
+body.dark-theme .icon-book-modal-close:focus {
+  fill: var(--accent-color);
+  transition: var(--animation);
+}
+.js-add::after {
+  content: 'Add to shopping list';
+}
+.js-remove::after {
+  content: 'Remove from the shopping list';
+}
+body.dark-theme .book-modal,
+body.dark-theme .book-modal-btn {
+  background-color: var(--primary-bg-color-dark);
+  color: var(--title-text-color-theme-dark);
+}

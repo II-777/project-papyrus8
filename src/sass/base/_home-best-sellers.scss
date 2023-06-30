@@ -1,0 +1,204 @@
+.body {
+  display: flex;
+  flex-direction: column;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 12px;
+
+  height: 200px;
+}
+
+body.dark-theme::-webkit-scrollbar-thumb {
+  background-color: rgba(17, 17, 17, 0.6);
+}
+.header__book {
+  margin-bottom: 40px;
+}
+.main-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+.categories-support-wraper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.home-main-by-category {
+  max-width: 335px;
+  margin-bottom: 40px;
+}
+.home-category-books-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px 24px;
+}
+.home-special-title {
+  display: block;
+}
+.main-title {
+  margin-bottom: 40px;
+}
+.home-main-title,
+.home-main-title-accent {
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+.home-main-title {
+  color: var(--title-text-color-theme-light);
+}
+body.dark-theme .home-main-title {
+  color: var(--title-text-color-theme-dark);
+}
+.home-main-title-accent {
+  color: var(--accent-color);
+}
+
+.home-books-category-item {
+  margin-bottom: 40px;
+}
+
+.home-books-category-title {
+  margin-bottom: 18px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--secondary-text-color);
+}
+.home-books-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.home-books-book-picture {
+  margin-bottom: 14px;
+  max-width: 335px;
+  height: 485px;
+  border-radius: 8px;
+}
+.home-books-book-title {
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--title-text-color-theme-light);
+}
+body.dark-theme .home-books-book-title {
+  color: var(--title-text-color-theme-dark);
+}
+.home-books-book-author {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: var(--secondary-text-color);
+}
+.home-see-more-btn {
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  padding: 14px 28px;
+  background-color: var(--header-bg-color-theme-light);
+  border: 2px solid var(--accent-color);
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+body.dark-theme .home-see-more-btn {
+  color: #ffffff;
+  background-color: #202024;
+}
+.home-main-scroll-up {
+  cursor: pointer;
+  position: absolute;
+  bottom: 80px;
+  right: 5px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  background-color: var(--accent-color);
+  box-shadow: 0px 0px 0px 5px rgba(79, 46, 232, 0.3);
+  border-radius: 50%;
+  border: 0px;
+  fill: var(--header-bg-color-theme-light);
+}
+
+/* tablet screen */
+@media screen and (min-width: 768px) {
+  .categories-support-wraper {
+    flex-direction: row;
+    column-gap: 32px;
+    margin-bottom: 100px;
+  }
+  .home-main-by-category {
+    max-width: 704px;
+  }
+  .home-main-title,
+  .home-main-title-accent {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+  .home-books-category-title {
+    line-height: 1.7;
+  }
+  .home-books-list {
+    margin-bottom: 20px;
+  }
+  .home-books-book-picture {
+    width: 218px;
+    height: 316px;
+  }
+}
+
+/* desktop screen */
+@media screen and (min-width: 1440px) {
+  .main-page-wrapper {
+    flex-direction: row;
+    align-items: start;
+    column-gap: 40px;
+  }
+  .categories-support-wraper {
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
+  .home-main-by-category {
+    max-width: 996px;
+    width: 996px;
+  }
+
+  .home-books-list {
+    column-gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .home-books-book-picture {
+    width: 180px;
+    height: 256px;
+  }
+}

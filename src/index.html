@@ -2,54 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Discover a world of captivating stories and enlightening knowledge at our online bookstore. Explore a vast collection of books spanning various genres, from gripping thrillers to thought-provoking non-fiction. Immerse yourself in the pages of literary wonders that will transport you to new realms of imagination and expand your horizons. Find your next literary adventure today and let the power of words ignite your mind."
-    />
-    <title>Bookshelf</title>
+    <title>papyrus8</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./sass/base/_spin.scss" />
+    <link rel="stylesheet" href="./sass/base/_support-ua.scss" />
+    <link rel="stylesheet" href="./sass/base/_all-categories.scss" />
+    <link rel="stylesheet" href="./sass/base/_footer.scss" />
+    <link rel="stylesheet" href="./sass/base/_login.scss" />
+    <link rel="stylesheet" href="./sass/base/_login-dark.scss" />
+
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="./4-images/favicon/apple-touch-icon.png"
+      href="./images/favicon/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./4-images/favicon/favicon-32x32.png"
+      href="./images/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="./4-images/favicon/favicon-16x16.png"
+      href="./images/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="./4-images/favicon/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="./4-images/favicon/safari-pinned-tab.svg"
-      color="#4f2ee8"
-    />
-    <meta name="msapplication-TileColor" content="#4f2ee8" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="./index.scss" />
+    <!-- <link rel="manifest" href="./images/favicon/site.webmanifest" /> -->
   </head>
-  <body>
-    <div class="body-home-container">
-      <include src="./1-html/header.html"></include>
-      <include src="./1-html/main-content.html"></include>
+  <body class="body">
+    <include src="./partials/pages/header.html"></include>
+    <include src="./partials/modals/login-modal.html"></include>
+    <div class="main-page-wrapper container">
+      <div class="categories-support-wraper">
+        <include src="./partials/pages/all-categories.html"></include>
+        <include src="./partials/pages/support-ua.html"></include>
+      </div>
+      <include src="./partials/pages/main-content.html"></include>
     </div>
+    <include src="./partials/pages/footer.html"></include>
+    <include src="./partials/pages/modal-footer-team.html"></include>
+    <include src="./partials/pages/scroll-up.html"></include>
+    <div class="centered-element"></div>
 
-    <!-- scroll to top btn -->
-    <include src="./1-html/components/scroll-to-top.html"></include>
-
-    <!-- loader -->
-    <include src="./1-html/components/loader.html"></include>
-
-    <!-- auth modal -->
-    <include src="./1-html/modals/auth.html"></include>
-    <!-- main script -->
     <script type="module" src="./index.js"></script>
   </body>
 </html>

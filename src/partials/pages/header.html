@@ -1,0 +1,109 @@
+<header class="header__book">
+  <div class="header__container">
+    <div class="header__nav-logo">
+      <a href="/src/index.html" class="header__link">
+        <svg class="header__logo">
+          <use href="/src/images/icon.svg#icon-logo"></use>
+        </svg>
+        <svg class="header__logo-name">
+          <use href="/src/images/icon.svg#icon-logoName"></use>
+        </svg>
+      </a>
+
+      <div class="header__nav" style="display: none;">
+        <a
+          href="/src/index.html"
+          class="nav__list-home js-nav__list-home current"
+        >
+          <span class="header__nav-link">home</span>
+        </a>
+        <a
+          href="/src/shopping-cart.html"
+          class="nav__list-home js-nav__list-sl"
+        >
+          <span class="header__nav-link header__nav-sl js-icon"
+            >shopping list</span
+          >
+          <svg
+            class="header__nav-icon shopping__list-svg"
+            width="20px"
+            height="20px"
+          >
+            <use href="/src/images/icon.svg#icon-cart"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="header__theme-switcher">
+      <label class="switcher header__switcher">
+        <input class="switcher-input" id="theme-switcher" type="checkbox" />
+        <span class="switcher-slider js-dark-switcher"></span>
+      </label>
+
+      <button type="button" class="header__menu-login btn-logout">
+        Sign up
+        <svg class="login-icon-aroww">
+          <use href="/src/images/icon.svg#icon-arrowRight"></use>
+        </svg>
+      </button>
+
+      <button
+        class="header__burger--open js-open-menu"
+        aria-expanded="false"
+        type="button"
+      >
+        <svg class="icon__burger--open" width="28px" height="28px">
+          <use href="/src/images/icon.svg#icon-menu"></use>
+        </svg>
+      </button>
+      <button
+        class="header__burger--close block js-close-menu"
+        aria-expanded="false"
+        type="button"
+      >
+        <svg class="icon__burger--close" width="14px" height="14px">
+          <use href="/src/images/icon.svg#icon-closeCross"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu js-menu-container">
+
+  <div class="container mobile-menu__container mobile-menu--thumb">
+    <button type="button" class="header__menu-login mobile-menu__singin--link">
+      Sign up
+      <svg class="login-icon-aroww">
+        <use href="/src/images/icon.svg#icon-arrowRight"></use>
+      </svg>
+    </button>
+
+    <div class="show__icon">
+      <svg width="37px" height="37px">
+        <use href="/src/images/icon.svg#icon-profile"></use>
+      </svg>
+      <a class="mobile-menu__user_name" href="#">User Name</a>
+    </div>
+
+
+  <ul class="mobile-menu--list js-mobile__nav">
+    <li class="mobile-menu--home js-nav__list-home current">
+      <a href="/src/index.html">Home</a>
+    </li>
+    <li class="mobile-menu--shoping js-nav__list-sl">
+      <a href="/src/shopping-cart.html">Shopping list </a>
+      <svg class="mobile-menu--icon" width="20px" height="20px">
+        <use href="/src/images/icon.svg#icon-cart"></use>
+
+      </svg>
+    </li>
+  </ul>
+  <button class="mobile-menu--log-out" type="button">
+    Log out
+    <svg width="20px" height="20px">
+      <use href="/src/images/icon.svg#icon-arrowRight"></use>
+    </svg>
+  </button>
+  <!-- </div> -->
+</div>

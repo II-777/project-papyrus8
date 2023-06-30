@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans';
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+[href] {
+  text-decoration: none;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* mobile screen */
+@media screen and (max-width: 767.98px) {
+  .container {
+    width: 100%;
+    max-width: 375px;
+  }
+}
+
+/* tablet screen */
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+/* desktop screen */
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
